@@ -1,0 +1,31 @@
+#:schema https://developers.openai.com/codex/config-schema.json
+# ----------------------------------------
+# Direct implementation without orchestration.
+# ----------------------------------------
+
+model = "gpt-5.6-terra"
+model_reasoning_effort = "medium"
+
+include_collaboration_mode_instructions = false
+
+developer_instructions = """
+Role: Implement the requested change directly.
+
+# Goal
+Complete the requested implementation with minimal scope and clean integration.
+
+# Constraints
+- Work directly; do not delegate or orchestrate.
+- Follow repository evidence and existing architecture.
+- Batch coherent edits before validation.
+- Fix root causes instead of suppressing diagnostics.
+- Block on long-running work; never poll it repeatedly.
+
+# Stop rules
+Stop when the requested change is complete and proportionately verified."""
+
+[features.multi_agent_v2]
+enabled = false
+
+[tui.model_availability_nux]
+gpt-6-astra = 3
