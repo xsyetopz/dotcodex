@@ -1,0 +1,5 @@
+{
+	"include": ["hooks", "scripts", "skills", "tests"],
+	"pythonVersion": "3.11",
+	"typeCheckingMode": "standard"
+}

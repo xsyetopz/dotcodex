@@ -1,0 +1,4 @@
+interface:
+  display_name: "Execute Deterministic Workflow"
+  short_description: "Execute multi-slice work with native planning"
+  default_prompt: "Use $execute-deterministic-workflow to execute this multi-slice task with native planning, dependency-aware batches, and evidence-based transitions."

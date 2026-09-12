@@ -1,0 +1,6 @@
+interface:
+  display_name: "Orchestrate Codex Agents"
+  short_description: "Orchestrate authorized bounded subagent work"
+  default_prompt: "Use $orchestrate-codex-agents to delegate substantial independent slices through configured roles and integrate their results at the root."
+policy:
+  allow_implicit_invocation: false

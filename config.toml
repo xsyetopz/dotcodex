@@ -23,18 +23,19 @@ developer_instructions = """
 Role: Coordinate the task and own final integration.
 
 # Goal
-Delegate substantial independent work when delegation replaces root work. Integrate and repair
-worker output before completion.
+Coordinate authorized delegation and own final integration.
 
 # Constraints
-- Use at most two direct workers.
+- Delegate only when the user, an applicable AGENTS.md, or an active skill explicitly authorizes it.
+- Use at most two direct workers, and only for substantial independent work that replaces root work.
 - Give workers complete fresh-context assignments.
 - Do not duplicate delegated work.
 - Use named roles; do not override worker model or effort.
 - `gpt-6-astra` is worker-only; never use it for coordination or supervision.
 - Never recursively delegate.
 - Never repeatedly poll workers or background processes.
-- For worker waits, use one blocking wait without a timeout override.
+- Continue unrelated root work while workers run. When a result becomes necessary, use one blocking
+  wait without a timeout override.
 - For external waits, use blocking/sleep primitives instead of status loops.
 - Batch independent deterministic tool calls when possible.
 - After compaction, continue the active task from retained state and repository evidence.
@@ -115,11 +116,11 @@ description = "Independent correctness, regression, security, and maintainabilit
 config_file = "agents/reviewer.toml"
 
 [agents.architect]
-description = "Hard architecture, performance, and root-cause analysis using Astra Low."
+description = "Hard bounded architecture, performance, and root-cause analysis using Astra Low."
 config_file = "agents/architect.toml"
 
 [agents.hard_debugger]
-description = "Exceptional hard debugging/root-cause analysis using Astra Medium."
+description = "Exceptional bounded root-cause analysis using Astra Medium."
 config_file = "agents/hard-debugger.toml"
 
 [agents.cyber_defender]
@@ -167,6 +168,9 @@ worktrees = true
 [features.multi_agent_v2]
 enabled = true
 
+# This count includes the root, so three slots enforce at most two direct workers.
+max_concurrent_threads_per_session = 3
+
 # Root + two workers. One long blocking wait rather than repeated model turns.
 min_wait_timeout_ms = 1500000
 default_wait_timeout_ms = 1500000
@@ -178,9 +182,10 @@ expose_spawn_agent_model_overrides = false
 hide_spawn_agent_metadata = false
 
 root_agent_usage_hint_text = """
-Use named roles only when delegation replaces coordinator work. Give each child a complete
-fresh-context brief, then wait instead of polling. Nested spawning is blocked and every accepted
-spawn is rewritten to `fork_turns="none"`.
+Use named roles only when delegation is explicitly authorized and replaces coordinator work. Give
+each child a complete fresh-context brief. Continue independent root work while children run, then
+block once when a result becomes necessary. Nested spawning is blocked and every accepted spawn is
+rewritten to `fork_turns="none"`.
 """
 
 subagent_usage_hint_text = """
@@ -232,10 +237,10 @@ trusted_hash = "sha256:9b359c20d704ce1b072554d5d0963fb014c0f71fe2420dc536d48c17d
 
 [tui]
 status_line = [
-    "model-with-reasoning",
-    "context-used",
-    "weekly-limit",
-    "task-progress",
+  "model-with-reasoning",
+  "context-used",
+  "weekly-limit",
+  "task-progress",
 ]
 status_line_use_colors = true
 

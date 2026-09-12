@@ -1,0 +1,6 @@
+interface:
+  display_name: "Audit Codex Execution"
+  short_description: "Audit redacted Codex rollout execution signals"
+  default_prompt: "Use $audit-codex-execution to audit local Codex rollouts for polling, goal, fork, failure, compaction, and duplicated-work signals without exposing content by default."
+policy:
+  allow_implicit_invocation: false

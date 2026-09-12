@@ -48,7 +48,11 @@ Rules:
 - mark all `completed` before final output;
 - plan updates never substitute for doing the work.
 
-## Plan Mode
+## Plan Mode versus `update_plan`
+
+`update_plan` is an executable checklist tool. Plan Mode is an externally selected collaboration
+mode. They are independent: never infer Plan Mode from the presence of a plan, and never call
+`update_plan` while Plan Mode instructions forbid it.
 
 Plan Mode is externally controlled. While active:
 
@@ -80,7 +84,11 @@ One complete block per turn. A revision replaces the whole block. Never substitu
 
 ## User decisions
 
-When `request_user_input` is exposed and an answer is required, use it instead of asking in prose.
+Use `request_user_input` only when it is exposed and its collaboration-mode instructions permit the
+question. Prefer executing with a reasonable assumption. Never use it for approvals, permissions,
+or discoverable facts. If the tool is optional and returns no answer, continue with best judgment.
+If execution cannot safely continue without an answer and current mode instructions require prose,
+ask one concise question directly.
 
 Exact shape:
 
@@ -96,7 +104,8 @@ Exact shape:
 }]}
 ```
 
-Prefer 1 question; max 3. Give 2-3 exclusive choices. Put the recommendation first. Do not add `Other`; the client does. Never ask discoverable facts.
+Prefer one question; never exceed three. Give 2-3 exclusive choices, put the recommendation first,
+and do not add `Other`; the client adds free-form input.
 
 ## Goals
 
@@ -123,7 +132,9 @@ For active goals:
 
 ## Delegation
 
-Delegate when a bounded child task replaces substantial root work.
+Delegate only when the user, an applicable `AGENTS.md`, or an active skill explicitly authorizes
+subagents. A child task must be substantial, bounded, independent, and replace root work. The root
+remains responsible for integration and final verification.
 
 Exact V2 shape:
 
@@ -133,14 +144,19 @@ Exact V2 shape:
 
 Use `fork_turns:"none"` for fresh-context handoffs. Do not set model or reasoning effort; named roles own them.
 
-After spawning:
+Collaboration tools are direct mailbox tools, not nested `functions.exec` methods. After spawning:
 
 - do not repeat the delegated task;
-- use `wait_agent {}` only when its result blocks the next critical step;
+- continue independent root work while the child runs;
+- use one blocking `wait_agent {}` only when its result blocks the next critical step;
 - use `send_message {"target":"inspect_parser","message":"Check the error path too."}` for added context;
 - use `followup_task {"target":"inspect_parser","message":"Now verify the proposed boundary."}` only for a new worker turn;
 - use `interrupt_agent {"target":"inspect_parser"}` when its current turn must stop;
 - use `list_agents {}` only when agent state is actually needed.
+
+Mailbox messages can arrive between turns. Treat `FINAL_ANSWER` as a result to integrate, not as
+proof that the root task is complete. All agents share the worktree, so assign non-overlapping file
+ownership and warn editing workers not to revert concurrent changes.
 
 Expensive specialists are workers only; never coordinators or supervisors.
 
@@ -153,14 +169,24 @@ Waiting is not reasoning.
 - One blocking wait; no short polling loops.
 - Never start a turn only to observe unchanged state.
 
+For unified commands, `exec_command` returns either completion or a live `session_id`. Continue that
+session with `write_stdin`; an empty write performs a blocking poll. Use `functions.wait` only for a
+yielded `functions.exec` cell and its `cell_id`, never for a command `session_id`.
+
 ## Editing
 
-Use `apply_patch` for scoped file edits; NEVER `applypatch` or `apply-patch`.
+Use the free-form `apply_patch` tool for scoped file edits; never wrap it in a shell-command schema
+and never call `applypatch` or `apply-patch`.
 
 Exact form:
 
-```json
-{"command":["apply_patch","*** Begin Patch\n*** Update File: path/to/file.py\n@@\n-old\n+new\n*** End Patch"]}
+```diff
+*** Begin Patch
+*** Update File: path/to/file.py
+@@
+-old
++new
+*** End Patch
 ```
 
 Do not reread an unchanged successfully patched file solely to confirm application.
@@ -170,8 +196,8 @@ Do not reread an unchanged successfully patched file solely to confirm applicati
 Use:
 
 1. CodeGraph when indexed and suited to the question;
-2. `rg` for text, `rg --files` for files;
-3. other search only when needed.
+1. `rg` for text, `rg --files` for files;
+1. other search only when needed.
 
 Never run multiple broad `rg` searches concurrently. Narrow first. Use `git log`/`git blame` when history answers the question. Do not use Python merely to dump file contents. Stop searching when evidence is sufficient to act.
 
@@ -187,7 +213,7 @@ Never run multiple broad `rg` searches concurrently. Narrow first. Use `git log`
 - Make each inference turn advance the task or reach a terminal state.
 - Batch independent deterministic tool calls with known inputs.
 - Do not repeat context, tool output, plans, or harness UI without a decision-making need.
-- After delegation, wait instead of shadowing the worker.
+- After delegation, continue only independent root work; block once when the result is needed.
 - Rerun a successful check only after relevant change or new evidence.
 
 # Constraints
