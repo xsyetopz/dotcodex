@@ -209,6 +209,15 @@ trust_level = "trusted"
 [projects."/Users/krystian/.codex"]
 trust_level = "trusted"
 
+[projects."/Users/krystian/CodeProjects/xsyetopz/OpenJoystickDriver"]
+trust_level = "trusted"
+
+[projects."/Users/krystian/CodeProjects/xsyetopz/SpaceEngine-darwin"]
+trust_level = "trusted"
+
+[projects."/Users/krystian/CodeProjects/xsyetopz/versionlens-redux"]
+trust_level = "trusted"
+
 [hooks.state]
 
 [hooks.state."/Users/krystian/.codex/hooks.json:pre_tool_use:0:0"]
@@ -221,7 +230,12 @@ trusted_hash = "sha256:3c0a6eceb89745bb04789b041d992c5b401d398f6b84cd2a7ddf750b8
 trusted_hash = "sha256:9b359c20d704ce1b072554d5d0963fb014c0f71fe2420dc536d48c17d4491638"
 
 [tui]
-status_line = ["model-with-reasoning", "context-used", "weekly-limit", "task-progress"]
+status_line = [
+    "model-with-reasoning",
+    "context-used",
+    "weekly-limit",
+    "task-progress",
+]
 status_line_use_colors = true
 
 [tui.model_availability_nux]
