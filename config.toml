@@ -236,13 +236,19 @@ trust_level = "trusted"
 [hooks.state]
 
 [hooks.state."/Users/krystian/.codex/hooks.json:pre_tool_use:0:0"]
-trusted_hash = "sha256:9e42c4ecbecb72904bd64b6a8966d38a1e804835bd699aea42843f7ad03e43a5"
+trusted_hash = "sha256:cc7e14a68f6c96d97204818374867f5a2627db68223807fa27073a50100df53f"
 
 [hooks.state."/Users/krystian/.codex/hooks.json:pre_compact:0:0"]
-trusted_hash = "sha256:3c0a6eceb89745bb04789b041d992c5b401d398f6b84cd2a7ddf750b82b71ed2"
+trusted_hash = "sha256:ab13ab75844fba0afc5e1f8690d644912dfedbd18ba446746ee0ee226cdac8fb"
 
 [hooks.state."/Users/krystian/.codex/hooks.json:session_start:0:0"]
-trusted_hash = "sha256:9b359c20d704ce1b072554d5d0963fb014c0f71fe2420dc536d48c17d4491638"
+trusted_hash = "sha256:6f4f99b53e2a9368f985b33883964f88ace27182471919c4c9b2aac2712dfcc0"
+
+[hooks.state."/Users/krystian/CodeProjects/xsyetopz/OpenJoystickDriver/.codex/hooks.json:post_tool_use:0:0"]
+trusted_hash = "sha256:c0b830f37ea609eeedef245acfd830f65e56176af624c7b55a9ecf41f365bf10"
+
+[hooks.state."/Users/krystian/CodeProjects/xsyetopz/OpenJoystickDriver/.codex/hooks.json:stop:0:0"]
+trusted_hash = "sha256:d073ad0059a63b1f6de30510faec3dc96ced4674812314a46576799de856aa5d"
 
 [tui]
 status_line = [
