@@ -17,8 +17,11 @@ skills: provision
 metadata: provision
     "{{ venv }}/bin/python" scripts/validate_repository.py
 
+harness:
+    python3 scripts/validate_codex_harness.py
+
 markdown:
-    BUN_INSTALL_CACHE_DIR="{{ bun_cache }}" bunx --bun markdownlint-cli2@0.23.2 "README.md" "docs/**/*.md" "skills/audit-codex-execution/**/*.md" "skills/execute-deterministic-workflow/**/*.md" "skills/operate-codex-goals/**/*.md" "skills/orchestrate-codex-agents/**/*.md"
+    BUN_INSTALL_CACHE_DIR="{{ bun_cache }}" bunx --bun markdownlint-cli2@0.23.2 "README.md" "docs/**/*.md" "model-instructions/*.md" "skills/audit-codex-execution/**/*.md" "skills/execute-deterministic-workflow/**/*.md" "skills/operate-codex-goals/**/*.md" "skills/orchestrate-codex-agents/**/*.md"
 
 tests:
     PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -v
@@ -33,5 +36,5 @@ python-types: provision
 doctor:
     codex --strict-config doctor --summary
 
-validate: skills metadata markdown tests python-lint python-types doctor
+validate: skills metadata harness markdown tests python-lint python-types doctor
     git diff --check

@@ -30,6 +30,7 @@
 		"MD035": { "style": "---" },
 		"MD036": true,
 		"MD040": true,
+		"MD041": false,
 		"MD046": { "style": "fenced" },
 		"MD048": { "style": "backtick" },
 		"MD049": { "style": "asterisk" },

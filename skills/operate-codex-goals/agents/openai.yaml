@@ -2,3 +2,5 @@ interface:
   display_name: "Operate Codex Goals"
   short_description: "Operate persisted goals without polling waste"
   default_prompt: "Use $operate-codex-goals to continue this persisted objective with native goal state, execution slices, blocking waits, and a terminal audit."
+policy:
+  allow_implicit_invocation: true

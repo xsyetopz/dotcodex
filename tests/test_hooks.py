@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 import os
+import shlex
 import subprocess
 import tempfile
 import unittest
@@ -18,7 +19,7 @@ def run_hook(
     if home is not None:
         environment["CODEX_HOME"] = str(home)
     result = subprocess.run(
-        ["python3", str(ROOT / "hooks" / script)],
+        ["bun", "--no-env-file", "--no-install", str(ROOT / "hooks" / script)],
         input=json.dumps(event),
         text=True,
         capture_output=True,
@@ -36,19 +37,23 @@ class SpawnPolicyTests(unittest.TestCase):
             "tool_input": {
                 "task_name": "inspect",
                 "agent_type": "scout",
+                "fork_context": True,
                 "fork_turns": "all",
                 "model": "ignored",
+                "reasoning_effort": "ignored",
             },
         }
 
         # Act
-        output = run_hook("enforce_spawn_policy.py", event)
+        output = run_hook("enforce_spawn_policy.mjs", event)
 
         # Assert
         hook = output["hookSpecificOutput"]
         self.assertEqual(hook["permissionDecision"], "allow")
         self.assertEqual(hook["updatedInput"]["fork_turns"], "none")
+        self.assertNotIn("fork_context", hook["updatedInput"])
         self.assertNotIn("model", hook["updatedInput"])
+        self.assertNotIn("reasoning_effort", hook["updatedInput"])
 
     def test_denies_nested_spawn(self) -> None:
         # Arrange
@@ -59,7 +64,7 @@ class SpawnPolicyTests(unittest.TestCase):
         }
 
         # Act
-        output = run_hook("enforce_spawn_policy.py", event)
+        output = run_hook("enforce_spawn_policy.mjs", event)
 
         # Assert
         self.assertEqual(output["hookSpecificOutput"]["permissionDecision"], "deny")
@@ -69,7 +74,7 @@ class SpawnPolicyTests(unittest.TestCase):
         event = {"tool_name": "spawn_agent", "tool_input": {"agent_type": "unknown"}}
 
         # Act
-        output = run_hook("enforce_spawn_policy.py", event)
+        output = run_hook("enforce_spawn_policy.mjs", event)
 
         # Assert
         self.assertEqual(output["hookSpecificOutput"]["permissionDecision"], "deny")
@@ -105,9 +110,9 @@ class CompactCheckpointTests(unittest.TestCase):
             }
 
             # Act
-            run_hook("compact_checkpoint.py", save_event, home)
+            run_hook("compact_checkpoint.mjs", save_event, home)
             output = run_hook(
-                "compact_checkpoint.py",
+                "compact_checkpoint.mjs",
                 {
                     "hook_event_name": "SessionStart",
                     "source": "compact",
@@ -120,6 +125,27 @@ class CompactCheckpointTests(unittest.TestCase):
             context = output["hookSpecificOutput"]["additionalContext"]
             self.assertIn("Finish the migration", context)
             self.assertIn("Continue the active task", context)
+
+
+class HookConfigurationTests(unittest.TestCase):
+    def test_all_commands_use_existing_bun_modules(self) -> None:
+        configuration = json.loads((ROOT / "hooks.json").read_text(encoding="utf-8"))
+
+        commands = [
+            hook["command"]
+            for matchers in configuration["hooks"].values()
+            for matcher in matchers
+            for hook in matcher["hooks"]
+        ]
+
+        self.assertTrue(commands)
+        for command in commands:
+            arguments = shlex.split(command)
+            self.assertEqual(arguments[:3], ["bun", "--no-env-file", "--no-install"])
+            self.assertEqual(len(arguments), 4)
+            module = Path(arguments[3]).name
+            self.assertEqual(Path(module).suffix, ".mjs")
+            self.assertTrue((ROOT / "hooks" / module).is_file())
 
 
 if __name__ == "__main__":

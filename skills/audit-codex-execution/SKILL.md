@@ -10,28 +10,32 @@ description: >-
 
 Diagnose harness behavior from rollout evidence, not token totals alone.
 
-Run the bundled standard-library analyzer. Its default report is content-redacted:
+Run the bundled standard-library analyzer. Its default report is
+content-redacted:
 
 ```sh
 python3 scripts/analyze_rollouts.py ~/.codex/sessions
 python3 scripts/analyze_rollouts.py path/to/rollout.jsonl --json
 ```
 
-Use `--include-content` only when the user authorizes inspection of prompts, tool
+Use `--include-content` only when the user authorizes inspection of prompts,
+tool
 arguments, and errors. Even then, report the minimum excerpt needed.
 
 The analyzer reports aggregate model/effort usage and per-session tool counts,
 repeated waits, non-fresh forks, failures, and compactions. Interpret these as
 signals rather than verdicts. Parent/worker duplication and coordinator misuse
-usually require authorized content inspection or comparison with worktree evidence.
+usually require authorized content inspection or comparison with worktree
+evidence.
 
 ## Audit method
 
-1. Select the smallest relevant rollout set and record its time/session boundary.
-2. Run the redacted report before opening content.
-3. Correlate anomalous sessions with config, prompts, hooks, or skill rules.
-4. Separate measured counts from inferred causes.
-5. Recommend one root-cause correction and a regression check.
+1. Select the smallest relevant rollout set and record its time/session
+   boundary.
+1. Run the redacted report before opening content.
+1. Correlate anomalous sessions with config, prompts, hooks, or skill rules.
+1. Separate measured counts from inferred causes.
+1. Recommend one root-cause correction and a regression check.
 
 Inspect for:
 
@@ -47,7 +51,8 @@ Inspect for:
 Do not use API pricing to estimate subscription quota consumption. Local token
 events are diagnostic counters, not an authoritative billing ledger.
 
-Trace each finding to the config, prompt, hook, or workflow rule that permits it.
+Trace each finding to the config, prompt, hook, or workflow rule that permits
+it.
 Recommend the smallest corrective change and distinguish measured evidence from
 inference.
 

@@ -9,16 +9,17 @@ plan_mode_reasoning_effort = "high"
 model_verbosity = "low"
 model_reasoning_summary = "none"
 
-# Replace the bundled base prompt with the curated 0.154.0 CLI contract.
-model_instructions_file = "/Users/krystian/.codex/model-instructions.md"
+# Replace the bundled base prompt with the Sol-specific 0.154.0 CLI contract.
+model_instructions_file = "/Users/krystian/.codex/model-instructions/sol.md"
 
 # Let long-running commands wait instead of encouraging short polling.
 background_terminal_max_timeout = 1500000
 
 # No app prompt baggage.
 include_apps_instructions = false
+include_collaboration_mode_instructions = true
 
-# Suite-specific delta only; universal engineering behavior lives in model-instructions.md.
+# Coordinator policy only; harness routing lives in model-instructions.md.
 developer_instructions = """
 Role: Coordinate the task and own final integration.
 
@@ -43,6 +44,11 @@ Coordinate authorized delegation and own final integration.
 # Stop rules
 Stop when the requested outcome is integrated and proportionately verified.
 """
+
+# Keep the execution checklist available in Default mode. Plan mode rejects it
+# independently and uses `<proposed_plan>` blocks instead.
+[tools.update_plan]
+enabled = true
 
 # Keep bundled skills available, then curate the system set explicitly.
 [skills]
@@ -149,7 +155,7 @@ enable_mcp_apps = false
 fast_mode = false
 image_generation = false
 
-# `model-instructions.md` owns personality.
+# Suppress the bundled personality layer.
 personality = false
 
 plugins = false

@@ -6,8 +6,7 @@
 model = "gpt-daybreak-blue-latest"
 model_reasoning_effort = "medium"
 plan_mode_reasoning_effort = "high"
-
-include_collaboration_mode_instructions = false
+model_instructions_file = "/Users/krystian/.codex/model-instructions/sol.md"
 
 developer_instructions = """
 Role: Perform the requested defensive security or reverse-engineering work directly.

@@ -6,7 +6,7 @@
 				"hooks": [
 					{
 						"type": "command",
-						"command": "python3 \"${CODEX_HOME:-$HOME/.codex}/hooks/enforce_spawn_policy.py\"",
+						"command": "bun --no-env-file --no-install \"${CODEX_HOME:-$HOME/.codex}/hooks/enforce_spawn_policy.mjs\"",
 						"timeout": 5,
 						"statusMessage": "Applying subagent policy"
 					}
@@ -19,7 +19,7 @@
 				"hooks": [
 					{
 						"type": "command",
-						"command": "python3 \"${CODEX_HOME:-$HOME/.codex}/hooks/compact_checkpoint.py\"",
+						"command": "bun --no-env-file --no-install \"${CODEX_HOME:-$HOME/.codex}/hooks/compact_checkpoint.mjs\"",
 						"timeout": 8,
 						"statusMessage": "Capturing task checkpoint"
 					}
@@ -32,7 +32,7 @@
 				"hooks": [
 					{
 						"type": "command",
-						"command": "python3 \"${CODEX_HOME:-$HOME/.codex}/hooks/compact_checkpoint.py\"",
+						"command": "bun --no-env-file --no-install \"${CODEX_HOME:-$HOME/.codex}/hooks/compact_checkpoint.mjs\"",
 						"timeout": 5,
 						"statusMessage": "Restoring task checkpoint"
 					}

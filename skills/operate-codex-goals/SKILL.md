@@ -9,7 +9,8 @@ description: >-
 
 # Operate Codex Goals
 
-Goals persist an objective across continuations. `update_plan` is only the current
+Goals persist an objective across continuations. `update_plan` is only the
+current
 execution decomposition. Use both when appropriate.
 
 Create a goal only when explicitly requested:
@@ -43,7 +44,8 @@ artifacts. Conversation summaries guide navigation but do not prove completion.
 ## Waiting
 
 Never burn goal continuations polling unchanged state. For a known live process,
-job, or worker, use one blocking native wait or sleep. Resume reasoning when state
+job, or worker, use one blocking native wait or sleep. Resume reasoning when
+state
 can change or completion is reported.
 
 ## Completion
@@ -54,7 +56,8 @@ Mark complete only after current evidence proves every required objective item:
 update_goal {"status":"complete"}
 ```
 
-Do not narrow the objective to match partial work. For a budgeted completed goal,
+Do not narrow the objective to match partial work. For a budgeted completed
+goal,
 report final token usage returned by the goal tool.
 
 ## Blocked

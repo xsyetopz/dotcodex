@@ -20,12 +20,12 @@ one-step tasks.
 ## Workflow
 
 1. Derive concrete completion conditions from the request and current state.
-2. Partition work by dependency and observable outcome.
-3. Create the native Codex `update_plan` checklist when the tool is exposed.
-4. Batch independent deterministic operations.
-5. Execute dependent slices in order.
-6. Update plan state when slices finish or evidence changes the path.
-7. Validate at coherent milestones, then complete all plan steps.
+1. Partition work by dependency and observable outcome.
+1. Create the native Codex `update_plan` checklist when the tool is exposed.
+1. Batch independent deterministic operations.
+1. Execute dependent slices in order.
+1. Update plan state when slices finish or evidence changes the path.
+1. Validate at coherent milestones, then complete all plan steps.
 
 Use this shape:
 
@@ -50,14 +50,16 @@ Statuses are only `pending`, `in_progress`, and `completed`; keep at most one
 
 - Complete a step only after its outcome exists or its evidence passes.
 - Start the next dependency only after its prerequisite is complete.
-- If evidence invalidates the path, replace affected future steps and explain why.
+- If evidence invalidates the path, replace affected future steps and explain
+  why.
 - If the tool is unavailable, retain the discipline without inventing textual
   native-plan state.
 - In Plan Mode, follow the mode's read-only planning contract instead of this
   executable workflow.
 
 Planning is not progress. Do not repeatedly rewrite the same plan or alternate
-tiny edit/test cycles when one coherent batch can be validated. Delegation is not
+tiny edit/test cycles when one coherent batch can be validated. Delegation is
+not
 implied by a plan; it requires separate authorization and a slice that replaces
 root work.
 

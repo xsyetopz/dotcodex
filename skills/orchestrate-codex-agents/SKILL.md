@@ -21,11 +21,12 @@ Use named roles and fresh context:
   "task_name":"inspect_parser",
   "agent_type":"scout",
   "fork_turns":"none",
-  "message":"Inspect parser ownership and call paths. Return concrete findings only."
+  "message":"Inspect parser ownership and call paths. Return findings only."
 }
 ```
 
-Use lowercase task names. Do not override model or reasoning effort. Keep at most
+Use lowercase task names. Do not override model or reasoning effort. Keep at
+most
 two direct children unless the active configuration says otherwise. Give each
 child one bounded task with enough context to work independently. Never ask a
 child to coordinate other agents.
@@ -47,8 +48,9 @@ Do not shadow delegated work. Continue independent root work while children run.
 Use one blocking `wait_agent {}` only when a result blocks the next critical
 step; never short-poll or spend a turn only checking status.
 
-After completion, integrate, verify, and repair each child result. Do not forward
-worker output unreviewed. Astra-class specialists are bounded workers only, never
+After completion, integrate, verify, and repair each child result. Do not
+forward worker output unreviewed. Astra-class specialists are bounded workers
+only, never
 coordinators, supervisors, or wait loops.
 
 Read [routing](references/routing.md) for role selection and
