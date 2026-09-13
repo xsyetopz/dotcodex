@@ -241,9 +241,9 @@ trusted_hash = "sha256:9b359c20d704ce1b072554d5d0963fb014c0f71fe2420dc536d48c17d
 [tui]
 status_line = [
   "model-with-reasoning",
-  "context-used",
   "weekly-limit",
   "task-progress",
+  "context-remaining",
 ]
 status_line_use_colors = true
 
