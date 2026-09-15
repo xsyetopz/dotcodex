@@ -6,7 +6,7 @@ Core layout:
 
 - `model-instructions/`: complete model-specific replacements for the bundled
   base prompt.
-- `config.toml`: Sol Medium coordinator and named specialist registry.
+- `config.toml`: Sol Medium task owner and optional named specialists.
 - `AGENTS.md`: minimal cross-project guidance.
 - `agents/*.toml`: role-specific prompt deltas only.
 - `hooks/`: fresh-context spawn enforcement and compact continuity checkpoint.
@@ -46,6 +46,20 @@ defensive scope remains in `security.config.toml`.
 The suite intentionally avoids Sol High/XHigh/Max and Astra High/XHigh/Max as
 defaults.
 
+Reliability and quota efficiency take precedence over latency. Work directly
+unless an independent slice benefits from a specialist. Keep
+`features.fast_mode=false`; standard service is the authorized fallback.
+In the pinned client this flag suppresses every explicit tier, including Flex.
+`service_tier="default"` records standard intent; `standard` is not its wire
+identifier. The validator checks base/profile/role overrides for this policy.
+
+The [source audit](docs/audit-0.154.0/README.md) maps native capabilities,
+conditional features, research conflicts, and all user-owned skill resources.
+It also documents checkpoint limitations, activation and scoped rollback.
+The checkpoint supplies single-use, quoted historical evidence, not a complete
+objective or authoritative native goal state. Review changed hook scripts;
+their contents are not covered by the hook definition's trusted hash.
+
 Skill invocation boundaries:
 
 - implicit: `execute-deterministic-workflow`, `operate-codex-goals`;
@@ -83,7 +97,7 @@ instructions that can overconstrain the model. The
 [Daybreak Blue model entry][daybreak-blue] identifies its current snapshot as
 GPT-5.6 Sol.
 
-The reference audit used the upstream `codex-next` source at tag
+The reference audit used the upstream `openai/codex` source at tag
 [`rust-v0.154.0`][source-tag], commit
 [`6b9826e3aa83b1a5947db50f4332cb9c65f1b340`][source-commit].
 The inspected contract points were:

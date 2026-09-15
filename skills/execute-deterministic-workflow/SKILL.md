@@ -25,7 +25,7 @@ one-step tasks.
 1. Batch independent deterministic operations.
 1. Execute dependent slices in order.
 1. Update plan state when slices finish or evidence changes the path.
-1. Validate at coherent milestones, then complete all plan steps.
+1. Validate at coherent milestones, then complete only verified plan steps.
 
 Use this shape:
 
@@ -44,7 +44,8 @@ When evidence changes the path:
 ```
 
 Statuses are only `pending`, `in_progress`, and `completed`; keep at most one
-`in_progress`. Mark every step `completed` before final output.
+`in_progress`. A real blocker does not make unfinished steps complete. Keep
+their status accurate when reporting the blocker.
 
 ## Transitions
 

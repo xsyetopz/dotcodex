@@ -3,6 +3,7 @@ set dotenv-load := false
 cache := env("CODEX_SUITE_CACHE_DIR", env("HOME") + "/.cache/codex-suite")
 venv := cache + "/validation-venv"
 bun_cache := cache + "/bun"
+shared_skills := env("HOME") + "/.agents/skills"
 
 default: validate
 
@@ -12,7 +13,10 @@ provision:
     "{{ venv }}/bin/python" -m pip install --disable-pip-version-check -r requirements-validation.txt
 
 skills: provision
-    for skill in skills/*; do "{{ venv }}/bin/skills-ref" validate "$skill"; done
+    for skill in skills/*; do "{{ venv }}/bin/skills-ref" validate "$skill" || exit; done
+
+shared-skills: provision
+    for entry in "{{ shared_skills }}"/*/SKILL.md; do "{{ venv }}/bin/skills-ref" validate "$(dirname "$entry")" || exit; done
 
 metadata: provision
     "{{ venv }}/bin/python" scripts/validate_repository.py
@@ -36,5 +40,5 @@ python-types: provision
 doctor:
     codex --strict-config doctor --summary
 
-validate: skills metadata harness markdown tests python-lint python-types doctor
+validate: skills shared-skills metadata harness markdown tests python-lint python-types doctor
     git diff --check

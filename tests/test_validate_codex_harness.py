@@ -14,6 +14,32 @@ SPEC.loader.exec_module(VALIDATOR)
 
 
 class HarnessConfigurationTests(unittest.TestCase):
+    def test_rejects_fast_or_nonstandard_service_overrides(self) -> None:
+        base = {"features": {"fast_mode": False}, "service_tier": "default"}
+        VALIDATOR.validate_service_policy(base, "base")
+        for override in (
+            {"features": {"fast_mode": True}},
+            {"service_tier": "priority"},
+            {"service_tier": "fast"},
+            {"service_tier": "flex"},
+            {"service_tier": "standard"},
+        ):
+            with self.subTest(override=override), self.assertRaises(ValueError):
+                VALIDATOR.validate_service_policy(
+                    VALIDATOR.merged(base, override), "profile"
+                )
+
+    def test_rejects_agent_service_override(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = self.create_fixture(Path(directory))
+            with (root / "config.toml").open("a", encoding="utf-8") as file:
+                file.write('\n[agents.worker]\nconfig_file = "worker.toml"\n')
+            (root / "worker.toml").write_text(
+                'service_tier = "priority"\n', encoding="utf-8"
+            )
+            with self.assertRaisesRegex(ValueError, "agent worker must use standard"):
+                VALIDATOR.validate_configuration(root)
+
     def test_merges_nested_profile_configuration(self) -> None:
         base = {"tools": {"update_plan": {"enabled": True}}, "model": "base"}
         profile = {"tools": {"other": {"enabled": False}}, "model": "profile"}
@@ -104,7 +130,7 @@ class HarnessConfigurationTests(unittest.TestCase):
         prompt_directory.mkdir()
         baseline_text = "\n\n".join(
             (
-                "# Role\nrole",
+                "Role: role",
                 "## Personality\npersonality",
                 "## Goal\ngoal",
                 "## Success criteria\nsuccess criteria",
@@ -127,9 +153,15 @@ class HarnessConfigurationTests(unittest.TestCase):
             "\n".join(
                 (
                     f'model = "{base_model}"',
+                    'model_reasoning_effort = "medium"',
+                    'service_tier = "default"',
+                    "tool_output_token_limit = 4000",
                     f'model_instructions_file = "{prompt_directory / base_prompt}"',
                     "include_collaboration_mode_instructions = true",
                     'developer_instructions = "base"',
+                    "[features]",
+                    "fast_mode = false",
+                    "goals = true",
                     "[tools.update_plan]",
                     "enabled = true",
                 )

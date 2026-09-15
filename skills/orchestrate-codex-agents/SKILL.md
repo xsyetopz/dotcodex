@@ -49,9 +49,8 @@ Use one blocking `wait_agent {}` only when a result blocks the next critical
 step; never short-poll or spend a turn only checking status.
 
 After completion, integrate, verify, and repair each child result. Do not
-forward worker output unreviewed. Astra-class specialists are bounded workers
-only, never
-coordinators, supervisors, or wait loops.
+forward worker output unreviewed. Use the active profile's role and model
+assignments; model names alone do not establish a coordination policy.
 
 Read [routing](references/routing.md) for role selection and
 [handoffs](references/handoffs.md) for task packet structure.

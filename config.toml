@@ -9,36 +9,42 @@ plan_mode_reasoning_effort = "high"
 model_verbosity = "low"
 model_reasoning_summary = "none"
 
+# Standard service fallback. In 0.154.0 fast_mode=false omits every tier,
+# including flex; "default" is the explicit standard-routing sentinel.
+service_tier = "default"
+
 # Replace the bundled base prompt with the Sol-specific 0.154.0 CLI contract.
 model_instructions_file = "/Users/krystian/.codex/model-instructions/sol.md"
 
 # Let long-running commands wait instead of encouraging short polling.
 background_terminal_max_timeout = 1500000
+tool_output_token_limit = 4000
 
 # No app prompt baggage.
 include_apps_instructions = false
 include_collaboration_mode_instructions = true
 
-# Coordinator policy only; harness routing lives in model-instructions.md.
+# Task ownership; tool contracts live in model-instructions/ and native schemas.
 developer_instructions = """
-Role: Coordinate the task and own final integration.
+Role: Complete the task and own final integration.
 
 # Goal
-Coordinate authorized delegation and own final integration.
+Complete reliable work without unnecessary coordination or quota waste.
 
 # Constraints
 - Delegate only when the user, an applicable AGENTS.md, or an active skill explicitly authorizes it.
-- Use at most two direct workers, and only for substantial independent work that replaces root work.
-- Give workers complete fresh-context assignments.
+- Work directly unless a material independent slice benefits from a named specialist.
+- A second direct worker is only a reviewer or debugger for verification or a demonstrated failure.
+- Use at most two direct workers. Give workers complete fresh-context assignments with `fork_turns="none"`.
 - Do not duplicate delegated work.
 - Use named roles; do not override worker model or effort.
-- `gpt-6-astra` is worker-only; never use it for coordination or supervision.
 - Never recursively delegate.
 - Never repeatedly poll workers or background processes.
 - Continue unrelated root work while workers run. When a result becomes necessary, use one blocking
-  wait without a timeout override.
+  `wait_agent` without a timeout override.
 - For external waits, use blocking/sleep primitives instead of status loops.
-- Batch independent deterministic tool calls when possible.
+- Batch independent checks and deterministic tool calls. Keep updates and final output concise.
+- Integrate and verify delegated results yourself; do not hand back executable remaining work.
 - After compaction, continue the active task from retained state and repository evidence.
 
 # Stop rules
@@ -153,6 +159,7 @@ default_mode_request_user_input = true
 
 enable_mcp_apps = false
 fast_mode = false
+goals = true
 image_generation = false
 
 # Suppress the bundled personality layer.
@@ -188,10 +195,12 @@ expose_spawn_agent_model_overrides = false
 hide_spawn_agent_metadata = false
 
 root_agent_usage_hint_text = """
-Use named roles only when delegation is explicitly authorized and replaces coordinator work. Give
-each child a complete fresh-context brief. Continue independent root work while children run, then
-block once when a result becomes necessary. Nested spawning is blocked and every accepted spawn is
-rewritten to `fork_turns="none"`.
+Work directly unless an independent slice benefits from a named specialist. Delegate
+only when explicitly authorized and the child replaces root work. A second direct worker
+is only a reviewer or debugger for verification or a demonstrated failure. Give each child a complete
+fresh-context brief. Integrate and verify results yourself. Continue
+independent root work while children run, then block once with `wait_agent` only when necessary.
+Nested spawning is blocked and every accepted spawn is rewritten to `fork_turns="none"`.
 """
 
 subagent_usage_hint_text = """
@@ -204,6 +213,11 @@ the requested result and proportionate verification are complete.
 [features.sleep_tool]
 enabled = true
 mode = "always_on"
+
+# Conditional experiment, not a guarantee of note persistence or recovery.
+# Verify exposed history/notes tools and successful saves before new_context.
+[features.context_management]
+experimental_mode = true
 
 [mcp_servers.codegraph]
 command = "codegraph"
@@ -242,7 +256,7 @@ trusted_hash = "sha256:cc7e14a68f6c96d97204818374867f5a2627db68223807fa27073a501
 trusted_hash = "sha256:ab13ab75844fba0afc5e1f8690d644912dfedbd18ba446746ee0ee226cdac8fb"
 
 [hooks.state."/Users/krystian/.codex/hooks.json:session_start:0:0"]
-trusted_hash = "sha256:6f4f99b53e2a9368f985b33883964f88ace27182471919c4c9b2aac2712dfcc0"
+trusted_hash = "sha256:8fd41cbdb8cccd383c0733ba4f6a37edb3159dc338b9149f9e6f065c9ad7ea49"
 
 [hooks.state."/Users/krystian/CodeProjects/xsyetopz/OpenJoystickDriver/.codex/hooks.json:post_tool_use:0:0"]
 trusted_hash = "sha256:c0b830f37ea609eeedef245acfd830f65e56176af624c7b55a9ecf41f365bf10"

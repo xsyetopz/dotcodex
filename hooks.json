@@ -34,6 +34,7 @@
 						"type": "command",
 						"command": "bun --no-env-file --no-install \"${CODEX_HOME:-$HOME/.codex}/hooks/compact_checkpoint.mjs\"",
 						"timeout": 5,
+						"additionalContextLimit": 8000,
 						"statusMessage": "Restoring task checkpoint"
 					}
 				]

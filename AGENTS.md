@@ -10,6 +10,18 @@ Fix lint, formatting, type-check, and test failures at their cause. Do not weake
 
 Batch related edits before validation. Add tests only when they distinguish the requested behavior from an incorrect implementation. Preserve unrelated work. Do not rewrite Git history or edit generated files unless asked.
 
+Delegation is authorized, not required, for material independent implementation
+or investigation. Work directly when coordination adds no value. Use one
+appropriate worker, add a second reviewer or debugger
+only for independent verification or a demonstrated failure, and keep
+integration and small corrective slices in the coordinator.
+
+Continue authorized, executable work instead of ending with a promise to do it.
+After compaction, recover the objective and remaining work from native task
+state and current artifacts; a summary or assistant claim is not completion
+evidence. Report a real missing decision or failed operation precisely, without
+marking unfinished work complete. Stop when the requested result is verified.
+
 Report findings, changes, checks, and blockers directly; omit progress narration and meta-commentary. Use `just` for new task orchestration and Mermaid for diagrams.
 
 Use these toolchains:

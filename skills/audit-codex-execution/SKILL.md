@@ -10,23 +10,30 @@ description: >-
 
 Diagnose harness behavior from rollout evidence, not token totals alone.
 
-Run the bundled standard-library analyzer. Its default report is
+Run the bundled standard-library analyzer from this skill's directory, or use
+its absolute script path from another working directory. Its default report is
 content-redacted:
 
 ```sh
 python3 scripts/analyze_rollouts.py ~/.codex/sessions
 python3 scripts/analyze_rollouts.py path/to/rollout.jsonl --json
+python3 scripts/analyze_rollouts.py ~/.codex/sessions \
+  --since 2026-09-14T00:00:00Z
 ```
 
 Use `--include-content` only when the user authorizes inspection of prompts,
 tool
 arguments, and errors. Even then, report the minimum excerpt needed.
 
-The analyzer reports aggregate model/effort usage and per-session tool counts,
-repeated waits, non-fresh forks, failures, and compactions. Interpret these as
-signals rather than verdicts. Parent/worker duplication and coordinator misuse
-usually require authorized content inspection or comparison with worktree
-evidence.
+The analyzer reports aggregate model/effort usage and per-session timestamps,
+root/worker classification, tool counts, wait-cell/yield distributions,
+spawn counts beyond the local two-worker ceiling, non-fresh forks, command and
+legacy tool failures, output volume, and compactions. It scans all matching
+files by default; use `--since`, `--until`, or an explicit `--limit` to set the
+selected boundary. Automatic goal
+continuation and no-change-event counts are signals, not verdicts.
+Parent/worker duplication and coordinator misuse usually require authorized
+content inspection or comparison with worktree evidence.
 
 ## Audit method
 
@@ -56,4 +63,5 @@ it.
 Recommend the smallest corrective change and distinguish measured evidence from
 inference.
 
-Read [audit signals](references/audit-signals.md).
+Read [audit signals](references/audit-signals.md) when interpreting counters or
+distinguishing a suspicious trace from a demonstrated failure.

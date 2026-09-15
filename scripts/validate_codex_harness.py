@@ -26,7 +26,7 @@ EXPECTED_PROFILE_CONTRACTS = {
     "security": ("gpt-daybreak-blue-latest", "sol.md"),
 }
 BASELINE_SECTIONS = (
-    ("Role", re.compile(r"^# Role$", re.MULTILINE)),
+    ("Role", re.compile(r"^Role:", re.MULTILINE)),
     ("Personality", re.compile(r"^## Personality$", re.MULTILINE)),
     ("Goal", re.compile(r"^## Goal$", re.MULTILINE)),
     ("Success criteria", re.compile(r"^## Success criteria$", re.MULTILINE)),
@@ -116,6 +116,13 @@ def input_texts(value: object) -> list[str]:
     return []
 
 
+def validate_service_policy(config: dict[str, Any], label: str) -> None:
+    if config.get("features", {}).get("fast_mode") is not False:
+        fail(f"{label} must disable features.fast_mode")
+    if config.get("service_tier") != "default":
+        fail(f"{label} must use standard service_tier=default on Codex 0.154.0")
+
+
 def resolve_prompt_path(config: dict[str, Any], root: Path) -> Path:
     raw_path = config.get("model_instructions_file")
     if not isinstance(raw_path, str) or not raw_path:
@@ -137,6 +144,14 @@ def validate_configuration(
     root: Path = ROOT,
 ) -> list[tuple[str | None, dict[str, Any], Path]]:
     base = load_toml(root / "config.toml")
+    if base.get("model") != "gpt-5.6-sol":
+        fail("config.toml must use gpt-5.6-sol")
+    if base.get("model_reasoning_effort") != "medium":
+        fail("config.toml must use medium reasoning effort")
+    if base.get("tool_output_token_limit") != 4000:
+        fail("config.toml must set tool_output_token_limit to 4000")
+    if base.get("features", {}).get("goals") is not True:
+        fail("config.toml must enable goals")
     if base.get("include_collaboration_mode_instructions") is not True:
         fail("config.toml must enable collaboration-mode instructions")
     if base.get("tools", {}).get("update_plan", {}).get("enabled") is not True:
@@ -160,6 +175,7 @@ def validate_configuration(
         if profile.get("include_collaboration_mode_instructions") is False:
             fail(f"{path.name} disables collaboration-mode instructions")
         effective = base if name is None else merged(base, profile)
+        validate_service_policy(effective, name or "base")
         if effective.get("include_collaboration_mode_instructions") is not True:
             fail(f"{path.name} does not enable collaboration-mode instructions")
         if effective.get("tools", {}).get("update_plan", {}).get("enabled") is not True:
@@ -175,6 +191,10 @@ def validate_configuration(
         if prompt_path != expected_path:
             fail(f"{name or 'base'} must use {expected_path}, found {prompt_path}")
         configurations.append((name, effective, prompt_path))
+    for name, role in base.get("agents", {}).items():
+        if isinstance(role, dict) and "config_file" in role:
+            role_config = load_toml(root / role["config_file"])
+            validate_service_policy(merged(base, role_config), f"agent {name}")
     return configurations
 
 

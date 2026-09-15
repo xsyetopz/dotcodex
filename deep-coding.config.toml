@@ -26,3 +26,6 @@ Stop when the requested result is complete and proportionately verified.
 
 [features.multi_agent_v2]
 enabled = false
+
+[projects."/Users/krystian/CodeProjects/xsyetopz/taudex"]
+trust_level = "trusted"

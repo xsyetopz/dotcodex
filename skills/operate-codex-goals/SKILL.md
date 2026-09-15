@@ -40,6 +40,10 @@ Each continuation must do one of these:
 A plan update or status restatement alone is not progress. After compaction or
 resumption, reconcile goal state with the worktree, process handles, tests, and
 artifacts. Conversation summaries guide navigation but do not prove completion.
+Use native history and notes only when exposed. Before `new_context`, verify
+that required recovery notes were saved successfully. The experimental flag
+alone does not prove endpoint availability or successful persistence. A context
+window token budget is not the goal's lifetime token budget.
 
 ## Waiting
 
@@ -73,5 +77,7 @@ Hard, slow, uncertain, or incomplete work is not blocked. When a blocked goal is
 resumed, start a fresh three-turn blocker audit. Never leave a terminal goal
 active or mark it complete because its budget is nearly exhausted.
 
-Read [continuation discipline](references/continuation-discipline.md) and
-[token-burn avoidance](references/token-burn.md).
+Read [continuation discipline](references/continuation-discipline.md) when
+resuming, closing, or diagnosing a stalled goal. Read
+[token-burn avoidance](references/token-burn.md) when repeated waits, context
+reloads, or budget use impede progress.
