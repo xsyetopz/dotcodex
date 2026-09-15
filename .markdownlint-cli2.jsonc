@@ -1,5 +1,6 @@
 {
 	"$schema": "https://raw.githubusercontent.com/DavidAnson/markdownlint-cli2/main/schema/markdownlint-cli2-config-schema.json",
+	"ignores": ["docs/reddit/**", "docs/comprehensive-audit-2026-09-14/second-pass/**"],
 	"config": {
 		"default": true,
 		"MD003": { "style": "atx" },

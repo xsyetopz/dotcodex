@@ -1,0 +1,2797 @@
+[
+  {
+    "path": "docs/agent_engineering_problems_and_solutions.md",
+    "sha256": "5457b87ad0058452c22722a03780e70ff8f11c21cb2d130701c28b6d1fd4eebf",
+    "baseline_sha256": "5457b87ad0058452c22722a03780e70ff8f11c21cb2d130701c28b6d1fd4eebf",
+    "bytes": 48436,
+    "source_url": null,
+    "topics": [
+      "continuity",
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/code-readability-for-humans-and-ai-agents.md",
+    "sha256": "6e85710a045dde28b31299273e623196efcd28864bf63414c04c7275d9739b05",
+    "baseline_sha256": "a2f464f1ba0e16038a91774a1ae1316da2af69f1df85c40a216cf41478dbd116",
+    "bytes": 12971,
+    "source_url": null,
+    "topics": [
+      "continuity",
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/20x_pro_accounts_just_don't_cut_it_any_longer_if_you_want_to_use_Astra_for_everything_(even_at_low).md",
+    "sha256": "fe9cea3d272358af63e67ed48c8c8de914ce5388e769ae45a6b3d1e0ee2a82e0",
+    "baseline_sha256": "fe9cea3d272358af63e67ed48c8c8de914ce5388e769ae45a6b3d1e0ee2a82e0",
+    "bytes": 18537,
+    "source_url": "https://www.reddit.com/r/codex/comments/1wc3082/20x_pro_accounts_just_dont_cut_it_any_longer_if/",
+    "topics": [
+      "continuity",
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/2_models_is_enough.md",
+    "sha256": "482ac63c4e70e01f29d629e671e551eded27618f7f963006219f11b664e5aa8d",
+    "baseline_sha256": "482ac63c4e70e01f29d629e671e551eded27618f7f963006219f11b664e5aa8d",
+    "bytes": 2456,
+    "source_url": "https://www.reddit.com/r/codex/comments/1wcyqt7/2_models_is_enough/",
+    "topics": [
+      "stopping",
+      "coordination",
+      "usage"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/5.6_Sol_is_genuinely_infuriating!!.md",
+    "sha256": "09f6063c993d0ff40a3c2596900766883f8476061ac736294a86ff7ad9b1c573",
+    "baseline_sha256": "09f6063c993d0ff40a3c2596900766883f8476061ac736294a86ff7ad9b1c573",
+    "bytes": 19270,
+    "source_url": "https://www.reddit.com/r/OpenaiCodex/comments/1vu2ewl/56_sol_is_genuinely_infuriating/",
+    "topics": [
+      "continuity",
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/7%_of_Codex_Pro_20x_gone_overnight._All_Luna._Almost_no_tasks..md",
+    "sha256": "f9101a72bcda25814b3166fdd541102e65533412c4c18bdf9aae928be784dafc",
+    "baseline_sha256": "f9101a72bcda25814b3166fdd541102e65533412c4c18bdf9aae928be784dafc",
+    "bytes": 4561,
+    "source_url": "https://www.reddit.com/r/OpenaiCodex/comments/1w90a1y/7_of_codex_pro_20x_gone_overnight_all_luna_almost/",
+    "topics": [
+      "continuity",
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/ASTRA_is_amazing_and_does_work_better_than_SOL_and_is_token_efficient_and_doesnt_consume_limits_that_much.md",
+    "sha256": "723b6357a651801e272a942d46f884f677e0b9553fb522893d86f1693a5e6002",
+    "baseline_sha256": "723b6357a651801e272a942d46f884f677e0b9553fb522893d86f1693a5e6002",
+    "bytes": 10766,
+    "source_url": "https://www.reddit.com/r/codex/comments/1w8p2bz/astra_is_amazing_and_does_work_better_than_sol/",
+    "topics": [
+      "continuity",
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/After_multiple_days_trying_to_fix_a_perf_bottle_neck_using_Sol,_Astra_does_it_in_a_single_prompt._Its_200x_faster_now.md",
+    "sha256": "2758e85f058eed3137adfaa7db0029ed8107cefeed77db3ce4e908b21272475d",
+    "baseline_sha256": "2758e85f058eed3137adfaa7db0029ed8107cefeed77db3ce4e908b21272475d",
+    "bytes": 1275,
+    "source_url": "https://www.reddit.com/r/codex/comments/1w8n6yy/after_multiple_days_trying_to_fix_a_perf_bottle/",
+    "topics": [
+      "instructions"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/All_us_Plus_Plan_Brokies.._Luna_Extra_High_is_the_way.md",
+    "sha256": "29e3bcc9380e9e3b081194dfef4827ecde44dc25d9bc2f2e2819cf10b163d49a",
+    "baseline_sha256": "29e3bcc9380e9e3b081194dfef4827ecde44dc25d9bc2f2e2819cf10b163d49a",
+    "bytes": 10574,
+    "source_url": "https://www.reddit.com/r/OpenaiCodex/comments/1w7gxwi/all_us_plus_plan_brokies_luna_extra_high_is_the/",
+    "topics": [
+      "stopping",
+      "instructions",
+      "usage"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/Are_5.6_Sol_Medium_and_High_still_as_bad_as_people_were_experiencing_in_the_last_7-10_days_.md",
+    "sha256": "be611d522d00db2201d55e203ea7a0fa2c9a7a0ba894db522ee0550deada2f49",
+    "baseline_sha256": "be611d522d00db2201d55e203ea7a0fa2c9a7a0ba894db522ee0550deada2f49",
+    "bytes": 3472,
+    "source_url": "https://www.reddit.com/r/codex/comments/1wau4en/are_56_sol_medium_and_high_still_as_bad_as_people/",
+    "topics": [
+      "coordination",
+      "instructions",
+      "usage"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/Are_custom_Codex_workflows_fighting_newer_models_.md",
+    "sha256": "a66408c2ef49e6390a65aa9de33ab21fc1e037acc00798738f84b98164ddb981",
+    "baseline_sha256": "a66408c2ef49e6390a65aa9de33ab21fc1e037acc00798738f84b98164ddb981",
+    "bytes": 7920,
+    "source_url": "https://www.reddit.com/r/codex/comments/1wbtzyg/are_custom_codex_workflows_fighting_newer_models/",
+    "topics": [
+      "continuity",
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/Are_the_people_praising_Astra_mostly_game_3d_devs_.md",
+    "sha256": "08bd1f568fd048791ad7ebcd693040da7b434471f884778ffbf3ef629b337646",
+    "baseline_sha256": "08bd1f568fd048791ad7ebcd693040da7b434471f884778ffbf3ef629b337646",
+    "bytes": 11335,
+    "source_url": "https://www.reddit.com/r/codex/comments/1w92rch/are_the_people_praising_astra_mostly_game3d_devs/",
+    "topics": [
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/Artificial_Analysis_coding_benchmarks__Astra_x_Sol_x_Terra_x_Luna_x_Claude_x_Grok_-_Intelligence_x_Price_x_Time_charts (1).md",
+    "sha256": "a521e67bdf37a6219beb89e88c2dfeede3e83a81a335ae5757f2f862ccf99d67",
+    "baseline_sha256": "a521e67bdf37a6219beb89e88c2dfeede3e83a81a335ae5757f2f862ccf99d67",
+    "bytes": 5278,
+    "source_url": "https://www.reddit.com/r/OpenaiCodex/comments/1w939a0/artificial_analysis_coding_benchmarks_astra_x_sol/",
+    "topics": [
+      "stopping",
+      "coordination",
+      "usage"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/Artificial_Analysis_coding_benchmarks__Astra_x_Sol_x_Terra_x_Luna_x_Claude_x_Grok_-_Intelligence_x_Price_x_Time_charts.md",
+    "sha256": "cb4f45a00b503f301be1eeab0aa21d648a8852dc7bdf5064966bd9f45c55cb83",
+    "baseline_sha256": "cb4f45a00b503f301be1eeab0aa21d648a8852dc7bdf5064966bd9f45c55cb83",
+    "bytes": 7881,
+    "source_url": "https://www.reddit.com/r/codex/comments/1w933fr/artificial_analysis_coding_benchmarks_astra_x_sol/",
+    "topics": [
+      "continuity",
+      "stopping",
+      "coordination",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/As_recommended,_I_started_using_Astra_with_a_blank_agents.md,_then_I_realised_it_needed_some_tweaks._Here's_what_I've_got_so_far....md",
+    "sha256": "36f41de19103fc4ecfd0118835418496d203b73dc372d991c5aab7f3f9274acf",
+    "baseline_sha256": "36f41de19103fc4ecfd0118835418496d203b73dc372d991c5aab7f3f9274acf",
+    "bytes": 8293,
+    "source_url": "https://www.reddit.com/r/codex/comments/1w8pc2m/as_recommended_i_started_using_astra_with_a_blank/",
+    "topics": [
+      "continuity",
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/Asking_painfully_simple_questions_shouldn't_take_10_minutes_of_thinking....md",
+    "sha256": "8b7d1059ed56db9ed3ddcce54d4991e210d1143bba89716aad5970fad800f580",
+    "baseline_sha256": "8b7d1059ed56db9ed3ddcce54d4991e210d1143bba89716aad5970fad800f580",
+    "bytes": 2006,
+    "source_url": "https://www.reddit.com/r/OpenaiCodex/comments/1vy2sz0/asking_painfully_simple_questions_shouldnt_take/",
+    "topics": [
+      "stopping",
+      "coordination",
+      "usage"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/Astra's_5-hour_usage_limit_gets_burned_in_5_minutes_—_how_are_you_guys_managing_it_.md",
+    "sha256": "1fc83397bd267771c9898b47f2e457dd83894fd4dd6a25cf027e665d44099d3c",
+    "baseline_sha256": "1fc83397bd267771c9898b47f2e457dd83894fd4dd6a25cf027e665d44099d3c",
+    "bytes": 5939,
+    "source_url": "https://www.reddit.com/r/OpenaiCodex/comments/1wc6hts/astras_5hour_usage_limit_gets_burned_in_5_minutes/",
+    "topics": [
+      "continuity",
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/Astra's_plans_got_too_heavy_during_development,_so_we_worked_out_some_planning_rules.md",
+    "sha256": "a2c6b2347edb1c9409057c24f3b6ac08fee9f1b41fd04dfeb94a712d4f84dbbb",
+    "baseline_sha256": "a2c6b2347edb1c9409057c24f3b6ac08fee9f1b41fd04dfeb94a712d4f84dbbb",
+    "bytes": 18853,
+    "source_url": "https://www.reddit.com/r/OpenaiCodex/comments/1w967sn/astras_plans_got_too_heavy_during_development_so/",
+    "topics": [
+      "continuity",
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/Astra,_Sol_and_Luna_aren't_'Bad_at_UI',_you_are_skipping_UX.md",
+    "sha256": "a5f0440cbe32e0cbbe93daf41d4d0f96c21d6a06ad557638e82f06c2c3b71a5b",
+    "baseline_sha256": "a5f0440cbe32e0cbbe93daf41d4d0f96c21d6a06ad557638e82f06c2c3b71a5b",
+    "bytes": 6764,
+    "source_url": "https://www.reddit.com/r/codex/comments/1w8y77g/astra_sol_and_luna_arent_bad_at_ui_you_are/",
+    "topics": [
+      "stopping",
+      "instructions",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/Astra_(Light)_consistently_burns_through_100%_of_my_20x_weekly_limit_every_12-16_hours._And_with_no_more_resets,_it_is_time_to_accept_that_I_can_only_do_one_real_task_per_week,_per_20x_account..md",
+    "sha256": "744b3c4f4096cf8be17b62cc0fdb458fb1de0a16e52dd26a351f1af1b7cf9bfe",
+    "baseline_sha256": "744b3c4f4096cf8be17b62cc0fdb458fb1de0a16e52dd26a351f1af1b7cf9bfe",
+    "bytes": 46055,
+    "source_url": "https://www.reddit.com/r/codex/comments/1wbis4p/astra_light_consistently_burns_through_100_of_my/",
+    "topics": [
+      "continuity",
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/Astra_High_just_reverse-engineered_the_printer_drivers_in_my_office.md",
+    "sha256": "ff75a01b2236e897cf174d5f1eda252b3dfcef3b8974a76c229ae7bb4c20ffee",
+    "baseline_sha256": "ff75a01b2236e897cf174d5f1eda252b3dfcef3b8974a76c229ae7bb4c20ffee",
+    "bytes": 4722,
+    "source_url": "https://www.reddit.com/r/codex/comments/1wfajwi/astra_high_just_reverseengineered_the_printer/",
+    "topics": [
+      "stopping",
+      "coordination",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/Astra_Low_vs_Sol_Max.md",
+    "sha256": "7b0be20303f5b6ed4de29912e0c1cb8cb1216d9f29e4ecf52711653c25b63b58",
+    "baseline_sha256": "7b0be20303f5b6ed4de29912e0c1cb8cb1216d9f29e4ecf52711653c25b63b58",
+    "bytes": 3414,
+    "source_url": "https://www.reddit.com/r/codex/comments/1wa66p4/astra_low_vs_sol_max/",
+    "topics": [
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/Astra_Medium_as_Orchestrator_and_Luna_Max_as_the_Implementer_.md",
+    "sha256": "cc588200e638dcb5d04171f4744837545cb1373f77510e2775e81ec108e39093",
+    "baseline_sha256": "cc588200e638dcb5d04171f4744837545cb1373f77510e2775e81ec108e39093",
+    "bytes": 3960,
+    "source_url": "https://www.reddit.com/r/codex/comments/1w9zt8r/astra_medium_as_orchestrator_and_luna_max_as_the/",
+    "topics": [
+      "continuity",
+      "stopping",
+      "coordination",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/Astra_Orchestration_&_Session_Management_-_Tips_For_Usage_Savings_-_Used_4_Billion_Tokens_Over_The_Long_Weekend.md",
+    "sha256": "c1bc6e05fd5e3aada44e8e7f43fd3152fe6102fb652c8d652c7eb1ce27cedc08",
+    "baseline_sha256": "c1bc6e05fd5e3aada44e8e7f43fd3152fe6102fb652c8d652c7eb1ce27cedc08",
+    "bytes": 7140,
+    "source_url": "https://www.reddit.com/r/codex/comments/1wav530/astra_orchestration_session_management_tips_for/",
+    "topics": [
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/Astra_Usage_Tip.md",
+    "sha256": "27a7d2a8b7c25aede04233fe7273c5f1e26933f4bfb7cd0d2b089ca33c5b71cf",
+    "baseline_sha256": "27a7d2a8b7c25aede04233fe7273c5f1e26933f4bfb7cd0d2b089ca33c5b71cf",
+    "bytes": 7500,
+    "source_url": "https://www.reddit.com/r/codex/comments/1wew63a/astra_usage_tip/",
+    "topics": [
+      "continuity",
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/Astra_VS_Astra_+_Luna_Agents.md",
+    "sha256": "edafef643da0231025d181cbc35c042038f76545ab74592e0ee91787485dc27f",
+    "baseline_sha256": "edafef643da0231025d181cbc35c042038f76545ab74592e0ee91787485dc27f",
+    "bytes": 8036,
+    "source_url": "https://www.reddit.com/r/codex/comments/1wcr5c1/astra_vs_astra_luna_agents/",
+    "topics": [
+      "continuity",
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/Astra_adding_tons_of_unnecessary_guards_in_code.md",
+    "sha256": "426723a44bd5b14d540af0e991e365d0b48a73ba425c5c6615c548b2a0c049cc",
+    "baseline_sha256": "426723a44bd5b14d540af0e991e365d0b48a73ba425c5c6615c548b2a0c049cc",
+    "bytes": 1425,
+    "source_url": "https://www.reddit.com/r/codex/comments/1wddj0t/astra_adding_tons_of_unnecessary_guards_in_code/",
+    "topics": [
+      "coordination",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/Astra_and_Game_Development.md",
+    "sha256": "bda0ad18c669d6e835b2ed637fe14c138bfd407109005b2c706d850c6645cce5",
+    "baseline_sha256": "bda0ad18c669d6e835b2ed637fe14c138bfd407109005b2c706d850c6645cce5",
+    "bytes": 2892,
+    "source_url": "https://www.reddit.com/r/codex/comments/1w9elwt/astra_and_game_development/",
+    "topics": [
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/Astra_does_NOT_preserve_cache_when_switching_effort_level...md",
+    "sha256": "b28f2cfab7968550c0e54bf5c74142011bf24baa3762f4b132355bfcfd091db1",
+    "baseline_sha256": "b28f2cfab7968550c0e54bf5c74142011bf24baa3762f4b132355bfcfd091db1",
+    "bytes": 7752,
+    "source_url": "https://www.reddit.com/r/codex/comments/1w9mxi4/astra_does_not_preserve_cache_when_switching/",
+    "topics": [
+      "continuity",
+      "coordination",
+      "instructions",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/Astra_does_not_follow_instructions..md",
+    "sha256": "2ef465e431277f0cec8055c8aee7ede1e0a570172d8df248c0b512e15894fa17",
+    "baseline_sha256": "2ef465e431277f0cec8055c8aee7ede1e0a570172d8df248c0b512e15894fa17",
+    "bytes": 10431,
+    "source_url": "https://www.reddit.com/r/codex/comments/1w9mlue/astra_does_not_follow_instructions/",
+    "topics": [
+      "continuity",
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/Astra_feels_like_a_different_kind_of_sycophancy.md",
+    "sha256": "100ec8af4cffaedb3ce309ee9ad58f69e35c66ef0241a4397311306165375f7f",
+    "baseline_sha256": "100ec8af4cffaedb3ce309ee9ad58f69e35c66ef0241a4397311306165375f7f",
+    "bytes": 12729,
+    "source_url": "https://www.reddit.com/r/OpenaiCodex/comments/1wbfays/astra_feels_like_a_different_kind_of_sycophancy/",
+    "topics": [
+      "continuity",
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/Astra_for_non-coding_work_(first_impressions_aren't_very_good).md",
+    "sha256": "04ab8cd1d430928685b3e61cf9d2088041f2b253ae1ba26d73b39c22f4c4e18b",
+    "baseline_sha256": "04ab8cd1d430928685b3e61cf9d2088041f2b253ae1ba26d73b39c22f4c4e18b",
+    "bytes": 7954,
+    "source_url": "https://www.reddit.com/r/codex/comments/1wcklmz/astra_for_noncoding_work_first_impressions_arent/",
+    "topics": [
+      "continuity",
+      "stopping",
+      "coordination",
+      "instructions"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/Astra_for_specs,_luna_for_coding_-_is_this_just_reddit_bullshit__Is_anyone_really_using_this_.md",
+    "sha256": "7bb47693d634adcc988272f4951dcf10917c5cb97f1be1a5e998028749813486",
+    "baseline_sha256": "7bb47693d634adcc988272f4951dcf10917c5cb97f1be1a5e998028749813486",
+    "bytes": 46987,
+    "source_url": "https://www.reddit.com/r/codex/comments/1wdskmy/astra_for_specs_luna_for_coding_is_this_just/",
+    "topics": [
+      "continuity",
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/Astra_has_been_out_a_while._What_can't_it_do_.md",
+    "sha256": "475c70e911a2cbb97f8fc5c933d98f485e5558e84b34c372dde2f7099a79365b",
+    "baseline_sha256": "475c70e911a2cbb97f8fc5c933d98f485e5558e84b34c372dde2f7099a79365b",
+    "bytes": 8976,
+    "source_url": "https://www.reddit.com/r/codex/comments/1waznq1/astra_has_been_out_a_while_what_cant_it_do/",
+    "topics": [
+      "continuity",
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/Astra_is_good..._BUT.md",
+    "sha256": "f53cffd17467240f195aa097f54f1c87a0a6186a69793fe127df53a876ccca57",
+    "baseline_sha256": "f53cffd17467240f195aa097f54f1c87a0a6186a69793fe127df53a876ccca57",
+    "bytes": 3174,
+    "source_url": "https://www.reddit.com/r/codex/comments/1wcedpo/astra_is_good_but/",
+    "topics": [
+      "stopping",
+      "coordination",
+      "instructions"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/Astra_is_over-testing_and_verifying_things_by_default.md",
+    "sha256": "9a1b2455850d86f4d73e3851ccbff20de7fe14d895f2671dfb6a0215a3f92654",
+    "baseline_sha256": "9a1b2455850d86f4d73e3851ccbff20de7fe14d895f2671dfb6a0215a3f92654",
+    "bytes": 9926,
+    "source_url": "https://www.reddit.com/r/codex/comments/1wasgkc/astra_is_overtesting_and_verifying_things_by/",
+    "topics": [
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/Astra_likes_to_tell_you_every_minute_it's_waiting_on_agents.md",
+    "sha256": "9633a9d91cc06f68d67cb99e6c62dfdf176365f2bd69e49ac429f24133dedfcb",
+    "baseline_sha256": "9633a9d91cc06f68d67cb99e6c62dfdf176365f2bd69e49ac429f24133dedfcb",
+    "bytes": 3483,
+    "source_url": "https://www.reddit.com/r/codex/comments/1wbsw7j/astra_likes_to_tell_you_every_minute_its_waiting/",
+    "topics": [
+      "stopping",
+      "coordination",
+      "instructions",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/Astra_observation._It_seems_tuned_to_xhigh_ultra..md",
+    "sha256": "1b91f2c6cff98defb58b17d00758408b291704cc75178ce9a40cde042730e4ec",
+    "baseline_sha256": "1b91f2c6cff98defb58b17d00758408b291704cc75178ce9a40cde042730e4ec",
+    "bytes": 8254,
+    "source_url": "https://www.reddit.com/r/codex/comments/1wc8y79/astra_observation_it_seems_tuned_to_xhighultra/",
+    "topics": [
+      "continuity",
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/Astra_on_Low_High._20x_Pro_-__0%_Limits_in_2_hours.md",
+    "sha256": "14e0d5246a34bf1b076adb3f9e72f41530909aeacaec7ce45913df4832352918",
+    "baseline_sha256": "14e0d5246a34bf1b076adb3f9e72f41530909aeacaec7ce45913df4832352918",
+    "bytes": 6303,
+    "source_url": "https://www.reddit.com/r/codex/comments/1w9mco2/astra_on_lowhigh_20x_pro_0_limits_in_2_hours/",
+    "topics": [
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/Astra_orchestrating_Luna_Max_with_threads_per_task_or_subagents_.md",
+    "sha256": "ed9d8eefddd472bbae5868ac225d8a1887fe389b5ed60879d4aa2cb7832c3015",
+    "baseline_sha256": "ed9d8eefddd472bbae5868ac225d8a1887fe389b5ed60879d4aa2cb7832c3015",
+    "bytes": 4027,
+    "source_url": "https://www.reddit.com/r/codex/comments/1wcwqlz/astra_orchestrating_luna_max_with_threads_per/",
+    "topics": [
+      "continuity",
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/Astra_seems_better_at_managing_its_own_work_than_my_orchestration_setup._I_tested_it..md",
+    "sha256": "de5568e2a9c4b0f0ca4903b32fd30ea2436989d5bf182711f2d1cd096895ff70",
+    "baseline_sha256": "de5568e2a9c4b0f0ca4903b32fd30ea2436989d5bf182711f2d1cd096895ff70",
+    "bytes": 6903,
+    "source_url": "https://www.reddit.com/r/codex/comments/1wcqfj4/astra_seems_better_at_managing_its_own_work_than/",
+    "topics": [
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/Astra_sometimes_gets_stuck_announcing_work_instead_of_actually_doing_it.md",
+    "sha256": "ee69f7efd4ed0e71a0f73ec1cc0d3918fe5ef50edf87ec996149304a5f944f9a",
+    "baseline_sha256": "ee69f7efd4ed0e71a0f73ec1cc0d3918fe5ef50edf87ec996149304a5f944f9a",
+    "bytes": 3296,
+    "source_url": "https://www.reddit.com/r/codex/comments/1wedfpu/astra_sometimes_gets_stuck_announcing_work/",
+    "topics": [
+      "stopping",
+      "coordination",
+      "instructions",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/Astra_stopping_all_the_time.md",
+    "sha256": "3c9938a845c9814b5200fe1da9398d02c27363be8ddc93de946ad01946441c01",
+    "baseline_sha256": "3c9938a845c9814b5200fe1da9398d02c27363be8ddc93de946ad01946441c01",
+    "bytes": 2486,
+    "source_url": "https://www.reddit.com/r/codex/comments/1wfto54/astra_stopping_all_the_time/",
+    "topics": [
+      "continuity",
+      "stopping",
+      "coordination",
+      "usage"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/Astra_token_spending_is_low,_while_usage_%_is_very_high..md",
+    "sha256": "3badccb98f8e18e4abdcc99458d29ce041f6cd01b28be443ef0afa68c51ca6f4",
+    "baseline_sha256": "3badccb98f8e18e4abdcc99458d29ce041f6cd01b28be443ef0afa68c51ca6f4",
+    "bytes": 16254,
+    "source_url": "https://www.reddit.com/r/codex/comments/1waamo3/astra_token_spending_is_low_while_usage_is_very/",
+    "topics": [
+      "continuity",
+      "stopping",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/Astra’s_goal,_loop_and_general_task_closure_are_ridiculously_broken_.md",
+    "sha256": "cff9cd2497a1ffe1f4dfb850f50b535cd8f53d290e38ae68369f3938fbff79e7",
+    "baseline_sha256": "cff9cd2497a1ffe1f4dfb850f50b535cd8f53d290e38ae68369f3938fbff79e7",
+    "bytes": 10987,
+    "source_url": "https://www.reddit.com/r/codex/comments/1wb5rof/astras_goal_loop_and_general_task_closure_are/",
+    "topics": [
+      "continuity",
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/Beast_as_it_may_be,_Astra_still_sucks_at_front-end.md",
+    "sha256": "d284e3307dab2d80909c544daaea6d6269924b8d594e954a1e4925022f1158e2",
+    "baseline_sha256": "d284e3307dab2d80909c544daaea6d6269924b8d594e954a1e4925022f1158e2",
+    "bytes": 10123,
+    "source_url": "https://www.reddit.com/r/codex/comments/1war4wh/beast_as_it_may_be_astra_still_sucks_at_frontend/",
+    "topics": [
+      "continuity",
+      "stopping",
+      "instructions",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/Best_ways_for_Codex_to_send_packages_completed_plans_zip_folders_to_other_chats_without_blowing_through_usage_.md",
+    "sha256": "b035b79b79e84f520b09b9b844a87d10a7d54814f0da81ed723ef9e2578542e5",
+    "baseline_sha256": "b035b79b79e84f520b09b9b844a87d10a7d54814f0da81ed723ef9e2578542e5",
+    "bytes": 3419,
+    "source_url": "https://www.reddit.com/r/OpenaiCodex/comments/1w6pfxq/best_ways_for_codex_to_send_packagescompleted/",
+    "topics": [
+      "stopping",
+      "coordination",
+      "usage"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/Blender_MCP_vs_Computer_Use_for_3D_Modeling_with_GPT-6_Astra.md",
+    "sha256": "6fa76727f025ea4fed33c1a8defb18e3878cd1584547582f58c2f29c6c3bb161",
+    "baseline_sha256": "6fa76727f025ea4fed33c1a8defb18e3878cd1584547582f58c2f29c6c3bb161",
+    "bytes": 6012,
+    "source_url": "https://www.reddit.com/r/codex/comments/1w8nco7/blender_mcp_vs_computer_use_for_3d_modeling_with/",
+    "topics": [
+      "stopping",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/Building_a_persistent_memory_+_orchestration_layer_for_Codex_—_what_should_I_use_instead_of_repeatedly_re-reading_the_repo_.md",
+    "sha256": "3277fb7c12c094737b208439f041666f5ba0eacedc60a80552c1296b8dda1860",
+    "baseline_sha256": "3277fb7c12c094737b208439f041666f5ba0eacedc60a80552c1296b8dda1860",
+    "bytes": 16965,
+    "source_url": "https://www.reddit.com/r/codex/comments/1wbznhf/building_a_persistent_memory_orchestration_layer/",
+    "topics": [
+      "continuity",
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/Can_I_match_Sol_max_level_of_build_with_any_cheaper_model_using_multiple_independent_agents_reviews_techniques_etc_.md",
+    "sha256": "7b77fe2c00c6898d974ed827bb43035d81e395a71309694bd312536c840c497d",
+    "baseline_sha256": "7b77fe2c00c6898d974ed827bb43035d81e395a71309694bd312536c840c497d",
+    "bytes": 6720,
+    "source_url": "https://www.reddit.com/r/codex/comments/1wb1d0g/can_i_match_sol_max_level_of_build_with_any/",
+    "topics": [
+      "continuity",
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/Can_anyone_recommend_an_optimal_workflow_process_for_coordinating_CHAT_GPT_WORK_to_facilitate_work_+_message_between__1)_chat_gpt_PRO_(in_projects)_2)_Codex_.md",
+    "sha256": "9aa148fb63cbfbfae42b3ccd1d4a6801445422e46aee268301b1c0f0b61221e8",
+    "baseline_sha256": "9aa148fb63cbfbfae42b3ccd1d4a6801445422e46aee268301b1c0f0b61221e8",
+    "bytes": 10443,
+    "source_url": "https://www.reddit.com/r/OpenaiCodex/comments/1w2bbki/can_anyone_recommend_an_optimal_workflowprocess/",
+    "topics": [
+      "continuity",
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/Can_this_Sol_+_Luna_+_Terra_+_Astra_multi-agent_architecture_be_built_entirely_inside_Codex_.md",
+    "sha256": "53196763c09169e47ec26dd2ced12357a4f189082de3c05ff28c255115c65cd7",
+    "baseline_sha256": "53196763c09169e47ec26dd2ced12357a4f189082de3c05ff28c255115c65cd7",
+    "bytes": 14595,
+    "source_url": "https://www.reddit.com/r/codex/comments/1w8oypz/can_this_sol_luna_terra_astra_multiagent/",
+    "topics": [
+      "continuity",
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/Codex'_system_prompt_still_forces_agents_to_wake_up_each_minute_=_tons_of_wasted_tokens_when_using_subagents_or_waiting_on_background_tasks_(like_CI,_etc)..md",
+    "sha256": "5a46d5005d723418a73bc6d973d4e96b0a2f2d25e104ced0e8484641f35ad221",
+    "baseline_sha256": "5a46d5005d723418a73bc6d973d4e96b0a2f2d25e104ced0e8484641f35ad221",
+    "bytes": 2101,
+    "source_url": "https://www.reddit.com/r/codex/comments/1wffvur/codex_system_prompt_still_forces_agents_to_wake/",
+    "topics": [
+      "coordination",
+      "instructions",
+      "usage"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/Codex_5.6_after_every_context_compaction__“Sorry,_what_were_we_doing_”.md",
+    "sha256": "90bdc0a45d569313d692b6576c8589ffde281ab6c0dd71291e6eca6ffeced25e",
+    "baseline_sha256": "90bdc0a45d569313d692b6576c8589ffde281ab6c0dd71291e6eca6ffeced25e",
+    "bytes": 8924,
+    "source_url": "https://www.reddit.com/r/codex/comments/1w8sqon/codex_56_after_every_context_compaction_sorry/",
+    "topics": [
+      "continuity",
+      "stopping",
+      "coordination",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/Codex_Astra_tried_to_fake_evidence_to_satisfy_a_merge_gate_—_ChatGPT_paused_the_session.md",
+    "sha256": "fbd4a47b6627475029679538e50ccc32e15f33a2f5e65f5e842f4d9df69a5978",
+    "baseline_sha256": "fbd4a47b6627475029679538e50ccc32e15f33a2f5e65f5e842f4d9df69a5978",
+    "bytes": 20254,
+    "source_url": "https://www.reddit.com/r/codex/comments/1wa01w3/codex_astra_tried_to_fake_evidence_to_satisfy_a/",
+    "topics": [
+      "continuity",
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/Codex_can_chat_with_other_tasks..md",
+    "sha256": "7e1c9c91dc9ecf6b4ecdea816d277864a78af84e78d8dfc6218de48408728c7a",
+    "baseline_sha256": "7e1c9c91dc9ecf6b4ecdea816d277864a78af84e78d8dfc6218de48408728c7a",
+    "bytes": 4527,
+    "source_url": "https://www.reddit.com/r/codex/comments/1wa0zrf/codex_can_chat_with_other_tasks/",
+    "topics": [
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/Codex_can_now_watch_YouTube_with_you,_discuss_it_out_loud_and_pause_the_video_to_explain_things.md",
+    "sha256": "d48c1cc19e730d7f909d99d9155a7ac9885ac5cb4745e0ab4a8c96e45e19191e",
+    "baseline_sha256": "d48c1cc19e730d7f909d99d9155a7ac9885ac5cb4745e0ab4a8c96e45e19191e",
+    "bytes": 10835,
+    "source_url": "https://www.reddit.com/r/codex/comments/1w9lucp/codex_can_now_watch_youtube_with_you_discuss_it/",
+    "topics": [
+      "continuity",
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/Codex_may_only_read_the_first_~220_lines_of_a_skill_file,_so_put_critical_instructions_at_the_top..md",
+    "sha256": "4fbc6f8f77dc3228d8449f6cc0259de8ad8bea083b0c3ca77c070be2543ad808",
+    "baseline_sha256": "4fbc6f8f77dc3228d8449f6cc0259de8ad8bea083b0c3ca77c070be2543ad808",
+    "bytes": 6795,
+    "source_url": "https://www.reddit.com/r/codex/comments/1t1rbqt/codex_may_only_read_the_first_220_lines_of_a/",
+    "topics": [
+      "continuity",
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/Codex_stuck_in_QA_&_testing.md",
+    "sha256": "bed3148779fa0458aa02184e78be9b6d4e83151b5873ac755b506252da36e4e7",
+    "baseline_sha256": "bed3148779fa0458aa02184e78be9b6d4e83151b5873ac755b506252da36e4e7",
+    "bytes": 1401,
+    "source_url": "https://www.reddit.com/r/codex/comments/1w96tlz/codex_stuck_in_qa_testing/",
+    "topics": [
+      "stopping",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/Codex_stuck_in_a_5-step__thinking__loop_every_single_prompt._Anyone_else___.md",
+    "sha256": "1608db9324726c3f76bcc513e1bf39edfefea2ba2c56c9c6dca5cdd02c217838",
+    "baseline_sha256": "1608db9324726c3f76bcc513e1bf39edfefea2ba2c56c9c6dca5cdd02c217838",
+    "bytes": 2382,
+    "source_url": "https://www.reddit.com/r/OpenaiCodex/comments/1w24mxa/codex_stuck_in_a_5step_thinking_loop_every_single/",
+    "topics": [
+      "continuity",
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/Codex_with_Blender_and_Godot_MCP_is_amazing..md",
+    "sha256": "3cacb78ab94c6c6976c718767e96415f1995c52a0d8ab3d1ed0a31ac9ac879a6",
+    "baseline_sha256": "3cacb78ab94c6c6976c718767e96415f1995c52a0d8ab3d1ed0a31ac9ac879a6",
+    "bytes": 3844,
+    "source_url": "https://www.reddit.com/r/codex/comments/1wen17e/codex_with_blender_and_godot_mcp_is_amazing/",
+    "topics": [
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/DO_NOT_GIVE_CODEX_LARGE_IMAGES!.md",
+    "sha256": "f1314c16374e3b551e8dffcd1cd6563b03691631c5cf32293c936ef7dc571cd8",
+    "baseline_sha256": "f1314c16374e3b551e8dffcd1cd6563b03691631c5cf32293c936ef7dc571cd8",
+    "bytes": 6456,
+    "source_url": "https://www.reddit.com/r/OpenaiCodex/comments/1vrg5qh/do_not_give_codex_large_images/",
+    "topics": [
+      "continuity",
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/Delegating_development_to_Luna_Max_is_kinda_useless.md",
+    "sha256": "dcb8e89009a896989b19669b1b3c28772dd224349ea7345cbf1aa54e7510111f",
+    "baseline_sha256": "dcb8e89009a896989b19669b1b3c28772dd224349ea7345cbf1aa54e7510111f",
+    "bytes": 7144,
+    "source_url": "https://www.reddit.com/r/codex/comments/1wa29us/delegating_development_to_luna_max_is_kinda/",
+    "topics": [
+      "continuity",
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/Do_NOT_orchestrate_with_Astra!_Something_is_up_with_its_workflow._People_at_OpenAI_are_saying_the_same..md",
+    "sha256": "af66e1ff41e4dd4b0fff44ca92982f543e9b657c6daa4924608c6193795d33d1",
+    "baseline_sha256": "af66e1ff41e4dd4b0fff44ca92982f543e9b657c6daa4924608c6193795d33d1",
+    "bytes": 13775,
+    "source_url": "https://www.reddit.com/r/codex/comments/1wcg5lx/do_not_orchestrate_with_astra_something_is_up/",
+    "topics": [
+      "continuity",
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/Do_you_guys_regularly_update_skills_.md",
+    "sha256": "05ffdc278df44f4ecef9c0294d54bc3ba74033c7596f7ddc185ccbcee7a7ff05",
+    "baseline_sha256": "05ffdc278df44f4ecef9c0294d54bc3ba74033c7596f7ddc185ccbcee7a7ff05",
+    "bytes": 1811,
+    "source_url": "https://www.reddit.com/r/codex/comments/1wc25n0/do_you_guys_regularly_update_skills/",
+    "topics": [
+      "coordination",
+      "instructions",
+      "usage"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/Do_you_really_need_more_than_Astra_Low_Light_.md",
+    "sha256": "14993e622c63f2392f87a1509753cb52ce1b28d937f3b2672abaef91bf36fa98",
+    "baseline_sha256": "14993e622c63f2392f87a1509753cb52ce1b28d937f3b2672abaef91bf36fa98",
+    "bytes": 13349,
+    "source_url": "https://www.reddit.com/r/codex/comments/1w8v3up/do_you_really_need_more_than_astra_lowlight/",
+    "topics": [
+      "continuity",
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/Don't_fall_for_Astra's_efficiency.md",
+    "sha256": "1099da3ddfa8045977608fe6ababef76ee53fc8b651b43db343de67dfe6577d0",
+    "baseline_sha256": "1099da3ddfa8045977608fe6ababef76ee53fc8b651b43db343de67dfe6577d0",
+    "bytes": 14352,
+    "source_url": "https://www.reddit.com/r/codex/comments/1wav6nx/dont_fall_for_astras_efficiency/",
+    "topics": [
+      "continuity",
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/Experience_with_Astra_so_far.md",
+    "sha256": "b8f32d2a1299c1a83017c006ba7d249a6d27bbf17db88df19dda768ea8bde784",
+    "baseline_sha256": "b8f32d2a1299c1a83017c006ba7d249a6d27bbf17db88df19dda768ea8bde784",
+    "bytes": 21463,
+    "source_url": "https://www.reddit.com/r/OpenaiCodex/comments/1w7l9v9/experience_with_astra_so_far/",
+    "topics": [
+      "continuity",
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/Finally_figured_out_why__goal_used_100%_of_my_usage_in_10_hours....md",
+    "sha256": "11110a302bc8cd842ad54fe26b05a0be7773846d799944f7a98ced294b43db01",
+    "baseline_sha256": "11110a302bc8cd842ad54fe26b05a0be7773846d799944f7a98ced294b43db01",
+    "bytes": 6461,
+    "source_url": "https://www.reddit.com/r/codex/comments/1w9my9c/finally_figured_out_why_goal_used_100_of_my_usage/",
+    "topics": [
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/First_time_I_ever_hated_a_model_(GPT_6_Astra).md",
+    "sha256": "e068aaa7375febaf5b8ca54a897e546b4ae15cb6b41145a3e8623cbf7127b1c1",
+    "baseline_sha256": "e068aaa7375febaf5b8ca54a897e546b4ae15cb6b41145a3e8623cbf7127b1c1",
+    "bytes": 6569,
+    "source_url": "https://www.reddit.com/r/codex/comments/1wfp1r7/first_time_i_ever_hated_a_model_gpt_6_astra/",
+    "topics": [
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/For_anyone_out_there_with_a_5X-20X_Plan,_prototype_with_ChatGPT_6_Pro_and_then_polish,_build_with_Codex.md",
+    "sha256": "68e62fc64724fc92d13e12b553384e5df75df5c21c8a8659a430602430a70d85",
+    "baseline_sha256": "68e62fc64724fc92d13e12b553384e5df75df5c21c8a8659a430602430a70d85",
+    "bytes": 6654,
+    "source_url": "https://www.reddit.com/r/codex/comments/1we5a6c/for_anyone_out_there_with_a_5x20x_plan_prototype/",
+    "topics": [
+      "continuity",
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/For_plus_users,_Use_Astra_as_an_advisor!.md",
+    "sha256": "b607592b1eda774d4f1bf43e7673abac111c8629db00b28321f874b7aa604fc9",
+    "baseline_sha256": "b607592b1eda774d4f1bf43e7673abac111c8629db00b28321f874b7aa604fc9",
+    "bytes": 13323,
+    "source_url": "https://www.reddit.com/r/codex/comments/1wag9vf/for_plus_users_use_astra_as_an_advisor/",
+    "topics": [
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/For_those_using_Astra_daily_for_software_development_real_working_day_by_day,_do_u_hit_the_limit_.md",
+    "sha256": "8e3641b4f5d3e96acea92a8600ba81efcff6ccec560b0709ec136ae537520020",
+    "baseline_sha256": "8e3641b4f5d3e96acea92a8600ba81efcff6ccec560b0709ec136ae537520020",
+    "bytes": 17172,
+    "source_url": "https://www.reddit.com/r/codex/comments/1wandla/for_those_using_astra_daily_for_software/",
+    "topics": [
+      "continuity",
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/GPT-6_Astra_best_reasoning_effort_.md",
+    "sha256": "852f284246557ebc1c1370e1eb4ea85d95bb6b2764c4d9f85da6fdbd3ad16104",
+    "baseline_sha256": "852f284246557ebc1c1370e1eb4ea85d95bb6b2764c4d9f85da6fdbd3ad16104",
+    "bytes": 6045,
+    "source_url": "https://www.reddit.com/r/codex/comments/1wagpil/gpt6_astra_best_reasoning_effort/",
+    "topics": [
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/GPT-6_Astra_burns_quota_4+_times_faster_than_GPT-5.6_Sol.md",
+    "sha256": "97b650aa49ac3a22e23ff4eb8c3537e893b139f00e91c14ef31c9338e0d07e48",
+    "baseline_sha256": "97b650aa49ac3a22e23ff4eb8c3537e893b139f00e91c14ef31c9338e0d07e48",
+    "bytes": 36305,
+    "source_url": "https://www.reddit.com/r/codex/comments/1wciwc1/gpt6_astra_burns_quota_4_times_faster_than_gpt56/",
+    "topics": [
+      "continuity",
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/GPT-6_Astra_killed_12_normal_repo-work_turns_as_‘cybersecurity_risk’.md",
+    "sha256": "49c64b04772af6d45bb000e952c57ea57c72f0506c74c4ed644841e315a1e270",
+    "baseline_sha256": "49c64b04772af6d45bb000e952c57ea57c72f0506c74c4ed644841e315a1e270",
+    "bytes": 3021,
+    "source_url": "https://www.reddit.com/r/codex/comments/1w8wp87/gpt6_astra_killed_12_normal_repowork_turns_as/",
+    "topics": [
+      "continuity",
+      "instructions",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/GPT-6_Astra_stopped_following_the_job._Same_workflow_that_was_working,_simple_skill_build_turned_into_2_hours_of_fighting_the_model.md",
+    "sha256": "7dcca65ef30c4b3985cd5d8cc0078cd0e478da836e71e0c5d363d7f067aea7b2",
+    "baseline_sha256": "7dcca65ef30c4b3985cd5d8cc0078cd0e478da836e71e0c5d363d7f067aea7b2",
+    "bytes": 6238,
+    "source_url": "https://www.reddit.com/r/codex/comments/1weh94s/gpt6_astra_stopped_following_the_job_same/",
+    "topics": [
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/GPT-6_Astra_ultra_-_3D_model_in_blender_-__99%_reduction_in_quads_when_prompted.md",
+    "sha256": "5560198194e8355b475f59061890e3aaa50f2952c6565c0f42c61240de8cd964",
+    "baseline_sha256": "5560198194e8355b475f59061890e3aaa50f2952c6565c0f42c61240de8cd964",
+    "bytes": 5181,
+    "source_url": "https://www.reddit.com/r/codex/comments/1w8w87q/gpt6_astra_ultra_3d_model_in_blender_99_reduction/",
+    "topics": [
+      "instructions",
+      "usage"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/GPT_6_Astra_-_Thoughts_&_Feelings_After_A_Long_Weekend_&_Two_Resets_on_20x_-_Non_Developer_Working_On_Already_Profitable_Sites'_Perspective.md",
+    "sha256": "5d353d8c2a923514e999c7935b75fc67a080062ba615a23ab4d53d7f4b7cf5fe",
+    "baseline_sha256": "5d353d8c2a923514e999c7935b75fc67a080062ba615a23ab4d53d7f4b7cf5fe",
+    "bytes": 12904,
+    "source_url": "https://www.reddit.com/r/codex/comments/1waaw8s/gpt_6_astra_thoughts_feelings_after_a_long/",
+    "topics": [
+      "continuity",
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/GPT_6_Astra_in_ChatGPT_Work_is_actually_kind_of_insane.md",
+    "sha256": "d090f599939d2a431de8f2f9e29ce4007a563051f0ad4cc2b5aa8b87072c7c52",
+    "baseline_sha256": "d090f599939d2a431de8f2f9e29ce4007a563051f0ad4cc2b5aa8b87072c7c52",
+    "bytes": 11256,
+    "source_url": "https://www.reddit.com/r/codex/comments/1we0stn/gpt_6_astra_in_chatgpt_work_is_actually_kind_of/",
+    "topics": [
+      "continuity",
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/GPT_Astra_6_writes_compressed_minified_code.md",
+    "sha256": "11d28fc4e75cc7d3b4c1944dc6d8b09b30fdef62004178d071a6e54f0ef6510a",
+    "baseline_sha256": "11d28fc4e75cc7d3b4c1944dc6d8b09b30fdef62004178d071a6e54f0ef6510a",
+    "bytes": 897,
+    "source_url": "https://www.reddit.com/r/codex/comments/1webpkp/gpt_astra_6_writes_compressed_minified_code/",
+    "topics": [
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/Has_anyone_ever_managed_to_complete_5_Astra_(medium)_tasks_in_Codex_within_the_5-hour_limit_.md",
+    "sha256": "d32b39937163d34a06f6c36cd30977f09807ad3f1c05ffab31881df2f84af816",
+    "baseline_sha256": "d32b39937163d34a06f6c36cd30977f09807ad3f1c05ffab31881df2f84af816",
+    "bytes": 8798,
+    "source_url": "https://www.reddit.com/r/codex/comments/1w8q9r6/has_anyone_ever_managed_to_complete_5_astra/",
+    "topics": [
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/Have_agent_respect_the_AGENTS.md.md",
+    "sha256": "2d52852fd1adde952a35965a37a52045a59576578df7fe133a0ce9646644ed3f",
+    "baseline_sha256": "2d52852fd1adde952a35965a37a52045a59576578df7fe133a0ce9646644ed3f",
+    "bytes": 12112,
+    "source_url": "https://www.reddit.com/r/codex/comments/1wdx5jx/have_agent_respect_the_agentsmd/",
+    "topics": [
+      "continuity",
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/Hey_Codex_(Astra_light),_pause_your_work_and_wait_for_more_instructions_while_I'm_AFK.md",
+    "sha256": "d8fad390a3166d28837a0039af1b0c64309a7c49f5a6d93f5594324f1fcbd489",
+    "baseline_sha256": "d8fad390a3166d28837a0039af1b0c64309a7c49f5a6d93f5594324f1fcbd489",
+    "bytes": 4249,
+    "source_url": "https://www.reddit.com/r/codex/comments/1waz505/hey_codex_astra_light_pause_your_work_and_wait/",
+    "topics": [
+      "continuity",
+      "stopping",
+      "coordination",
+      "instructions",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/How_I’ve_been_making_my_Codex_limits_last_much_longer_with_Sol_+_Luna.md",
+    "sha256": "9e3bcfa15dc7391e38e2144c8b7cd9efabf492bbb53a6e3515a6efc3e938d4e9",
+    "baseline_sha256": "9e3bcfa15dc7391e38e2144c8b7cd9efabf492bbb53a6e3515a6efc3e938d4e9",
+    "bytes": 13410,
+    "source_url": "https://www.reddit.com/r/OpenaiCodex/comments/1w2aa7y/how_ive_been_making_my_codex_limits_last_much/",
+    "topics": [
+      "continuity",
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/How_are_people_using_Astra_to_reverse_engineer_software_from_binaries_.md",
+    "sha256": "8f87d2160db16c2b968ebf997cd4caa461b9194ff51f56cef1ed1a712e9b73e4",
+    "baseline_sha256": "8f87d2160db16c2b968ebf997cd4caa461b9194ff51f56cef1ed1a712e9b73e4",
+    "bytes": 13380,
+    "source_url": "https://www.reddit.com/r/codex/comments/1wab6bj/how_are_people_using_astra_to_reverse_engineer/",
+    "topics": [
+      "continuity",
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/How_are_you_guys_using_GPT_Astra_right_now_.md",
+    "sha256": "8f080a12196b2c794ca2e2f7f7f90e3da2fa4773ce8d169a868000733b5d6939",
+    "baseline_sha256": "8f080a12196b2c794ca2e2f7f7f90e3da2fa4773ce8d169a868000733b5d6939",
+    "bytes": 21253,
+    "source_url": "https://www.reddit.com/r/codex/comments/1wbaote/how_are_you_guys_using_gpt_astra_right_now/",
+    "topics": [
+      "continuity",
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/How_are_you_handling_agent_permissions_when_you_use_more_than_one_coding_agent_.md",
+    "sha256": "8c42bad9f67d2d4250e18bca9830d30cf12a96c7e862110d99dc192c96dcf3bc",
+    "baseline_sha256": "8c42bad9f67d2d4250e18bca9830d30cf12a96c7e862110d99dc192c96dcf3bc",
+    "bytes": 1611,
+    "source_url": "https://www.reddit.com/r/OpenaiCodex/comments/1w09r13/how_are_you_handling_agent_permissions_when_you/",
+    "topics": [
+      "coordination"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/How_do_we_effectively_orchestrate_Astra_+_Luna__Plus_user.md",
+    "sha256": "b57086a6c52f91a942407f86f33eb2fda13cd012cd24d24bc462c813a0ce1909",
+    "baseline_sha256": "b57086a6c52f91a942407f86f33eb2fda13cd012cd24d24bc462c813a0ce1909",
+    "bytes": 10751,
+    "source_url": "https://www.reddit.com/r/codex/comments/1w8qkpz/how_do_we_effectively_orchestrate_astra_luna_plus/",
+    "topics": [
+      "continuity",
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/How_do_you_decide_which_model_and_thinking_intensity_to_use_.md",
+    "sha256": "81f83b5992a77ce553ca56296ffc27c8fd2d8f475d96ed21c37917ba1c0e8401",
+    "baseline_sha256": "81f83b5992a77ce553ca56296ffc27c8fd2d8f475d96ed21c37917ba1c0e8401",
+    "bytes": 13989,
+    "source_url": "https://www.reddit.com/r/OpenaiCodex/comments/1vy4n58/how_do_you_decide_which_model_and_thinking/",
+    "topics": [
+      "continuity",
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/How_do_you_figure_out_what_actually_caused_high_Codex_usage_.md",
+    "sha256": "0a39df58d04b17dc56f599d23db640fede1d8e60db78f547a08688aa5c4e161c",
+    "baseline_sha256": "0a39df58d04b17dc56f599d23db640fede1d8e60db78f547a08688aa5c4e161c",
+    "bytes": 1513,
+    "source_url": "https://www.reddit.com/r/codex/comments/1wcnggc/how_do_you_figure_out_what_actually_caused_high/",
+    "topics": [
+      "continuity",
+      "instructions",
+      "usage"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/How_do_you_prompt_GPT-6_Astra_to_orchestrate_effectively_.md",
+    "sha256": "d58eb2ec7629e0713b0eabbb682a5cdec1c9ccddc22e81d3a5532ba8c574bbb0",
+    "baseline_sha256": "d58eb2ec7629e0713b0eabbb682a5cdec1c9ccddc22e81d3a5532ba8c574bbb0",
+    "bytes": 17355,
+    "source_url": "https://www.reddit.com/r/OpenaiCodex/comments/1wc4daw/how_do_you_prompt_gpt6_astra_to_orchestrate/",
+    "topics": [
+      "continuity",
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/How_do_you_stop_Codex_from_overengineering,_losing_context,_and_repeatedly_ignoring_a_known-good_workflow_.md",
+    "sha256": "a9ae1940d7115e6851cececdc11ced8c03739fcfe7ac4ed42fd904de978a8914",
+    "baseline_sha256": "a9ae1940d7115e6851cececdc11ced8c03739fcfe7ac4ed42fd904de978a8914",
+    "bytes": 4918,
+    "source_url": "https://www.reddit.com/r/codex/comments/1wbkgw5/how_do_you_stop_codex_from_overengineering_losing/",
+    "topics": [
+      "continuity",
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/How_do_you_use_Codex_to_make_production-ready_code_.md",
+    "sha256": "dead66b3bbe126661e7d02fef93e7edb03cf90b849332676eeb621f90c4e8245",
+    "baseline_sha256": "dead66b3bbe126661e7d02fef93e7edb03cf90b849332676eeb621f90c4e8245",
+    "bytes": 2146,
+    "source_url": "https://www.reddit.com/r/OpenaiCodex/comments/1wemhnz/how_do_you_use_codex_to_make_productionready_code/",
+    "topics": [
+      "stopping",
+      "instructions",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/How_exactly_do_you__orchestrate__with_Astra.md",
+    "sha256": "e3ef387638aaa98bb8e027c1a59df5a961fd6de3674c1d8bb2320ef414b5e35f",
+    "baseline_sha256": "e3ef387638aaa98bb8e027c1a59df5a961fd6de3674c1d8bb2320ef414b5e35f",
+    "bytes": 15520,
+    "source_url": "https://www.reddit.com/r/codex/comments/1w9sonp/how_exactly_do_you_orchestrate_with_astra/",
+    "topics": [
+      "continuity",
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/How_exactly_should_we_use_the_reasoning_effort_now_on_Astra_.md",
+    "sha256": "f029888984e997ff2871c215afd7f2b3ec5ca77d44cf7d3053033cc94f3a9b15",
+    "baseline_sha256": "f029888984e997ff2871c215afd7f2b3ec5ca77d44cf7d3053033cc94f3a9b15",
+    "bytes": 5703,
+    "source_url": "https://www.reddit.com/r/codex/comments/1we25md/how_exactly_should_we_use_the_reasoning_effort/",
+    "topics": [
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/How_good_is_GPT_6_on_frontend_UI_etc_.md",
+    "sha256": "af5b34f5d93eca9b8e8b9ada5993ddbff097da556c2ca7321e5ebe81a8b8401d",
+    "baseline_sha256": "af5b34f5d93eca9b8e8b9ada5993ddbff097da556c2ca7321e5ebe81a8b8401d",
+    "bytes": 4207,
+    "source_url": "https://www.reddit.com/r/codex/comments/1w9h5x2/how_good_is_gpt_6_on_frontenduietc/",
+    "topics": [
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/How_many_of_you_guys_have_switched_back_to_Sol_.md",
+    "sha256": "248f697617b6e619b4d6bd6f451b17385c60c17da032233c5744ccc5dd2cbeef",
+    "baseline_sha256": "248f697617b6e619b4d6bd6f451b17385c60c17da032233c5744ccc5dd2cbeef",
+    "bytes": 9938,
+    "source_url": "https://www.reddit.com/r/codex/comments/1wecmq0/how_many_of_you_guys_have_switched_back_to_sol/",
+    "topics": [
+      "continuity",
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/How_to_get_Astra_without_burning_too_many_tokens_(no_orchestrator).md",
+    "sha256": "73d26e01436c19ee4418cfe033186607f443eb4f0accf362cc37814ff5a30ee6",
+    "baseline_sha256": "73d26e01436c19ee4418cfe033186607f443eb4f0accf362cc37814ff5a30ee6",
+    "bytes": 17294,
+    "source_url": "https://www.reddit.com/r/codex/comments/1wcsnbz/how_to_get_astra_without_burning_too_many_tokens/",
+    "topics": [
+      "continuity",
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/I'm_too_scared_touching_codex_right_now..md",
+    "sha256": "38a92de76bd871a954898a257981ba329f28fc9dd7aff74f063e7538ff0e15d8",
+    "baseline_sha256": "38a92de76bd871a954898a257981ba329f28fc9dd7aff74f063e7538ff0e15d8",
+    "bytes": 10317,
+    "source_url": "https://www.reddit.com/r/OpenaiCodex/comments/1wczs6u/im_too_scared_touching_codex_right_now/",
+    "topics": [
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/I_am_having_Luna_(Max)__ask_up__to_save_on_usage.md",
+    "sha256": "73a5b255c598a57a7e1af7a313045f8bd439c1ac05bc024d3f2e85236c768fcc",
+    "baseline_sha256": "73a5b255c598a57a7e1af7a313045f8bd439c1ac05bc024d3f2e85236c768fcc",
+    "bytes": 2494,
+    "source_url": "https://www.reddit.com/r/codex/comments/1wcr2pn/i_am_having_luna_max_ask_up_to_save_on_usage/",
+    "topics": [
+      "continuity",
+      "coordination",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/I_am_sorry_but.._why_does_Astra_sometimes_Writes_really_Sloppy_code...md",
+    "sha256": "5fb892c4c0b6249aeb0cc77fb9adc18c5f0abb459e45c9c0f02c9dee10a69157",
+    "baseline_sha256": "5fb892c4c0b6249aeb0cc77fb9adc18c5f0abb459e45c9c0f02c9dee10a69157",
+    "bytes": 8862,
+    "source_url": "https://www.reddit.com/r/codex/comments/1wfw93b/i_am_sorry_but_why_does_astra_sometimes_writes/",
+    "topics": [
+      "continuity",
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/I_analyzed_the_speed_Codex_gives_us_for_Astra_over_10_days._Here_is_what_changed,_what_was_deliberately_changed_and_what_appears_to_be_bugs_in_the_harness.md",
+    "sha256": "853290c8f1915eecd1c47fc899dd67815cfe9dd696e23d9a8567ab5c0d833fa9",
+    "baseline_sha256": "853290c8f1915eecd1c47fc899dd67815cfe9dd696e23d9a8567ab5c0d833fa9",
+    "bytes": 8745,
+    "source_url": "https://www.reddit.com/r/codex/comments/1wf911a/i_analyzed_the_speed_codex_gives_us_for_astra/",
+    "topics": [
+      "stopping",
+      "coordination",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/I_can_use_astra_high_a_lot_longer_without_my_skills_or_agent_prompt.md",
+    "sha256": "b7227235c7e858e0d0c998bdae5eed79a6226c2cbf05f105d2dc319734fbf3bb",
+    "baseline_sha256": "b7227235c7e858e0d0c998bdae5eed79a6226c2cbf05f105d2dc319734fbf3bb",
+    "bytes": 5898,
+    "source_url": "https://www.reddit.com/r/codex/comments/1w8ox68/i_can_use_astra_high_a_lot_longer_without_my/",
+    "topics": [
+      "continuity",
+      "coordination",
+      "instructions",
+      "usage"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/I_can’t_get_meaningful_stuff___code_from_Astra.md",
+    "sha256": "7ebcfd0634d3a116799c26ea6f8ac618ee88124dec0980451453f6d0fbb4691e",
+    "baseline_sha256": "7ebcfd0634d3a116799c26ea6f8ac618ee88124dec0980451453f6d0fbb4691e",
+    "bytes": 9890,
+    "source_url": "https://www.reddit.com/r/OpenaiCodex/comments/1wck3h1/i_cant_get_meaningful_stuff_code_from_astra/",
+    "topics": [
+      "continuity",
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/I_did_a_thing_today_to_try_and_make_my_Plus_sub_last_longer.md",
+    "sha256": "67a8c8250a072be3bb4bfb7418282826202f17fefe609fd5c827bd327af3f0c1",
+    "baseline_sha256": "67a8c8250a072be3bb4bfb7418282826202f17fefe609fd5c827bd327af3f0c1",
+    "bytes": 9390,
+    "source_url": "https://www.reddit.com/r/codex/comments/1wfm83r/i_did_a_thing_today_to_try_and_make_my_plus_sub/",
+    "topics": [
+      "continuity",
+      "stopping",
+      "coordination",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/I_don't_find_building_with_Codex_or_any_AI_'easy'_at_all,_am_I_alone_.md",
+    "sha256": "b5ab2ce4f6a8db19bed9238a91e1174c9a0f59dba4414607f3a3a0531dd65e89",
+    "baseline_sha256": "b5ab2ce4f6a8db19bed9238a91e1174c9a0f59dba4414607f3a3a0531dd65e89",
+    "bytes": 25804,
+    "source_url": "https://www.reddit.com/r/codex/comments/1wamtly/i_dont_find_building_with_codex_or_any_ai_easy_at/",
+    "topics": [
+      "continuity",
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/I_don't_trust_Astra_as_much_as_Sol.md",
+    "sha256": "097d06b0f0bc45fa5d114f8fb27e4f7b6f3fbbe24a6ce0550a4f94cf2389c4d6",
+    "baseline_sha256": "097d06b0f0bc45fa5d114f8fb27e4f7b6f3fbbe24a6ce0550a4f94cf2389c4d6",
+    "bytes": 6887,
+    "source_url": "https://www.reddit.com/r/codex/comments/1wdoa0x/i_dont_trust_astra_as_much_as_sol/",
+    "topics": [
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/I_feel_like_I'm_throwing_tokens_away_every_time_I_interrupt_a_subagent.md",
+    "sha256": "9fa61089aee07476d68fa8232ec6e4a2b27f6e7dc963d11e98d98c0d4143f9bc",
+    "baseline_sha256": "9fa61089aee07476d68fa8232ec6e4a2b27f6e7dc963d11e98d98c0d4143f9bc",
+    "bytes": 8400,
+    "source_url": "https://www.reddit.com/r/codex/comments/1weuvol/i_feel_like_im_throwing_tokens_away_every_time_i/",
+    "topics": [
+      "continuity",
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/I_figured_the_culprit_of_Astra_token_burning_so_fast.md",
+    "sha256": "c8e6857d294cc771c7bf58a29b86b941d3e22a5a167ee745f555924dd9fe2ecd",
+    "baseline_sha256": "c8e6857d294cc771c7bf58a29b86b941d3e22a5a167ee745f555924dd9fe2ecd",
+    "bytes": 14433,
+    "source_url": "https://www.reddit.com/r/codex/comments/1wenst7/i_figured_the_culprit_of_astra_token_burning_so/",
+    "topics": [
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/I_gave_AI_coding_agents_a_dopamine_loop._On_my_benchmark,_it_beat_Ponytail_on_code,_tokens,_cost,_and_time..md",
+    "sha256": "b4d4a8fe57ed3de3b96a78ea3703092c3038d15cb748bfeadf3c11b3b451a7ca",
+    "baseline_sha256": "b4d4a8fe57ed3de3b96a78ea3703092c3038d15cb748bfeadf3c11b3b451a7ca",
+    "bytes": 3667,
+    "source_url": "https://www.reddit.com/r/OpenaiCodex/comments/1vn0fqo/i_gave_ai_coding_agents_a_dopamine_loop_on_my/",
+    "topics": [
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/I_have_to_tell_Codex__pls_proceed___let's_implement_them_all___you_have_my_full_permissions_please_don't_stop__constantly.md",
+    "sha256": "47afea37d5926f228851baf4240c309765fb020cce4bf9beb5a057127c32de2d",
+    "baseline_sha256": "47afea37d5926f228851baf4240c309765fb020cce4bf9beb5a057127c32de2d",
+    "bytes": 5107,
+    "source_url": "https://www.reddit.com/r/codex/comments/1weuufh/i_have_to_tell_codex_pls_proceed_lets_implement/",
+    "topics": [
+      "continuity",
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/I_investigated_why_GPT-6_Astra_burns_quota_so_fast.md",
+    "sha256": "8b15644d8b47703cd3bb82af8d04b18ac7a19fc022a62fc2f57e0477eb70f40d",
+    "baseline_sha256": "8b15644d8b47703cd3bb82af8d04b18ac7a19fc022a62fc2f57e0477eb70f40d",
+    "bytes": 35386,
+    "source_url": "https://www.reddit.com/r/codex/comments/1wa9c9d/i_investigated_why_gpt6_astra_burns_quota_so_fast/",
+    "topics": [
+      "continuity",
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/I_literally_have_no_clue_what_model_to_use_.md",
+    "sha256": "9442905c709afc9fd1134894fdbf6881b38241f2b1276d9efe1a19065429a22c",
+    "baseline_sha256": "9442905c709afc9fd1134894fdbf6881b38241f2b1276d9efe1a19065429a22c",
+    "bytes": 4329,
+    "source_url": "https://www.reddit.com/r/codex/comments/1wcnzhq/i_literally_have_no_clue_what_model_to_use/",
+    "topics": [
+      "continuity",
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/I_made_a_governor_so_my_limit_anxiety_goes_away.md",
+    "sha256": "7642caa2bc2a76c59271055bd07ee9887f2f9968cb94899ae1a331fe15c45940",
+    "baseline_sha256": "7642caa2bc2a76c59271055bd07ee9887f2f9968cb94899ae1a331fe15c45940",
+    "bytes": 7366,
+    "source_url": "https://www.reddit.com/r/codex/comments/1wb01g1/i_made_a_governor_so_my_limit_anxiety_goes_away/",
+    "topics": [
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/I_made_a_tiny_tool_that_can_help_save_you_a_lot_of_frustrations_and_time..md",
+    "sha256": "c180929d8e9b9e62a1371a09adf93f93bc09d663d17f8a280f863b439c17efe8",
+    "baseline_sha256": "c180929d8e9b9e62a1371a09adf93f93bc09d663d17f8a280f863b439c17efe8",
+    "bytes": 5523,
+    "source_url": "https://www.reddit.com/r/OpenaiCodex/comments/1w37rf2/i_made_a_tiny_tool_that_can_help_save_you_a_lot/",
+    "topics": [
+      "continuity",
+      "stopping",
+      "coordination",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/I_tested_open-so_save_90%_of_your_tokens__tools_to_beat_my_Astra_limit._The_model_spent_more_tokens_deciding_which_command_to_run_than_the_tools_ever_saved..md",
+    "sha256": "7083b3778401851bfe1eab8c8e36a50ab140e9d8165aebf82a9ac4b817f37d25",
+    "baseline_sha256": "7083b3778401851bfe1eab8c8e36a50ab140e9d8165aebf82a9ac4b817f37d25",
+    "bytes": 1434,
+    "source_url": "https://www.reddit.com/r/codex/comments/1wbm4eq/i_tested_opensosave_90_of_your_tokens_tools_to/",
+    "topics": [
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/I_was_wrong,_Astra_is_much_smarter_than_Sol.md",
+    "sha256": "9c74bc8ced3964e5f80b4f79721374bdc3b8c2ee2fd0c6f71aee4124a2dbd38e",
+    "baseline_sha256": "9c74bc8ced3964e5f80b4f79721374bdc3b8c2ee2fd0c6f71aee4124a2dbd38e",
+    "bytes": 5758,
+    "source_url": "https://www.reddit.com/r/codex/comments/1wc3dxo/i_was_wrong_astra_is_much_smarter_than_sol/",
+    "topics": [
+      "stopping",
+      "instructions",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/If_you're_using_blender,_please_use_the_MCP_server._It_saves_TOKENS.md",
+    "sha256": "a9931f6097d70d12f658b9e762e11c7ba1d490d8b494adeadc6d5e367ab12ebc",
+    "baseline_sha256": "a9931f6097d70d12f658b9e762e11c7ba1d490d8b494adeadc6d5e367ab12ebc",
+    "bytes": 1692,
+    "source_url": "https://www.reddit.com/r/codex/comments/1wceqea/if_youre_using_blender_please_use_the_mcp_server/",
+    "topics": [
+      "usage"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/If_you_are_using_Astra_orchestration_(Specially_for_plus),_some_findings_so_far..md",
+    "sha256": "2e9a208f1d1c5efae2641d41ccc1af7f16b844a6b31e94e73e6d393e629b5fed",
+    "baseline_sha256": "2e9a208f1d1c5efae2641d41ccc1af7f16b844a6b31e94e73e6d393e629b5fed",
+    "bytes": 6153,
+    "source_url": "https://www.reddit.com/r/codex/comments/1wbk5ff/if_you_are_using_astra_orchestration_specially/",
+    "topics": [
+      "continuity",
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/If_you_feel_like_Astra_is_using_your_usage_too_fast,_try_to_explicitly_disable_subagents..md",
+    "sha256": "c6d6e04ee8b8c6eef1a0ebd6a05097699bc15150a9e282395fde0970bb59c457",
+    "baseline_sha256": "c6d6e04ee8b8c6eef1a0ebd6a05097699bc15150a9e282395fde0970bb59c457",
+    "bytes": 2906,
+    "source_url": "https://www.reddit.com/r/codex/comments/1was4e3/if_you_feel_like_astra_is_using_your_usage_too/",
+    "topics": [
+      "continuity",
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/Instructions_that_helped_Sol_may_be_too_restrictive_for_Astra.md",
+    "sha256": "82e246b1cf7666a7d36c9dbae6abc0cfd1162545b8f8a4a5f3876b6336e5af43",
+    "baseline_sha256": "82e246b1cf7666a7d36c9dbae6abc0cfd1162545b8f8a4a5f3876b6336e5af43",
+    "bytes": 1364,
+    "source_url": "https://www.reddit.com/r/codex/comments/1wehzzm/instructions_that_helped_sol_may_be_too/",
+    "topics": [
+      "continuity",
+      "stopping",
+      "instructions",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/Is_Astra_Light_better_than_Sol_medium_.md",
+    "sha256": "c82c4f2394868979527f3a2829162648421692e7c3c824dc29101360b1e10a46",
+    "baseline_sha256": "c82c4f2394868979527f3a2829162648421692e7c3c824dc29101360b1e10a46",
+    "bytes": 7912,
+    "source_url": "https://www.reddit.com/r/codex/comments/1w9s0f4/is_astra_light_better_than_sol_medium/",
+    "topics": [
+      "continuity",
+      "coordination",
+      "instructions",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/Is_Astra_really_smarter_than_Sol_.md",
+    "sha256": "7019e4e282cbb716e6ffb6cc611926cb7d40b02dbccdeed8262d0c6a84bc4a98",
+    "baseline_sha256": "7019e4e282cbb716e6ffb6cc611926cb7d40b02dbccdeed8262d0c6a84bc4a98",
+    "bytes": 19095,
+    "source_url": "https://www.reddit.com/r/codex/comments/1wcwjix/is_astra_really_smarter_than_sol/",
+    "topics": [
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/Is_it_more_costly_to_switch_between_models_or_to_use_the_same_model_with_lower_thinking_effort_.md",
+    "sha256": "e60773a0d82fc6ea0714a0859afcdce843a4826ec069ae934b551a85c25f1dbc",
+    "baseline_sha256": "e60773a0d82fc6ea0714a0859afcdce843a4826ec069ae934b551a85c25f1dbc",
+    "bytes": 6623,
+    "source_url": "https://www.reddit.com/r/codex/comments/1wcv2sb/is_it_more_costly_to_switch_between_models_or_to/",
+    "topics": [
+      "continuity",
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/Issues_with_Astra.md",
+    "sha256": "5f2942ca7eb579bc67af587102e477806e0bfe46f467056debae77c3467d79bd",
+    "baseline_sha256": "5f2942ca7eb579bc67af587102e477806e0bfe46f467056debae77c3467d79bd",
+    "bytes": 12323,
+    "source_url": "https://www.reddit.com/r/codex/comments/1wc048u/issues_with_astra/",
+    "topics": [
+      "continuity",
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/Looks_like_the_over_engineering_stories_are_true. (1).md",
+    "sha256": "efed0df0b2599b461a54f9826afe3de27393075ac2bb31d429962a205fc5c11e",
+    "baseline_sha256": "efed0df0b2599b461a54f9826afe3de27393075ac2bb31d429962a205fc5c11e",
+    "bytes": 6445,
+    "source_url": "https://www.reddit.com/r/codex/comments/1wcnlfn/looks_like_the_over_engineering_stories_are_true/",
+    "topics": [
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": [
+      "docs/reddit/Looks_like_the_over_engineering_stories_are_true..md"
+    ]
+  },
+  {
+    "path": "docs/reddit/Looks_like_the_over_engineering_stories_are_true..md",
+    "sha256": "c3b63c1ae8dcd1e113dce8e8bcb9c803c71ec8284090fe9c4e6532649b041f69",
+    "baseline_sha256": "c3b63c1ae8dcd1e113dce8e8bcb9c803c71ec8284090fe9c4e6532649b041f69",
+    "bytes": 5790,
+    "source_url": "https://www.reddit.com/r/codex/comments/1wcnlfn/looks_like_the_over_engineering_stories_are_true/",
+    "topics": [
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": [
+      "docs/reddit/Looks_like_the_over_engineering_stories_are_true. (1).md"
+    ]
+  },
+  {
+    "path": "docs/reddit/Low_effort_isn’t_necessarily_cheaper.md",
+    "sha256": "c3941c5a6fa8149195a36e6f1ece388f0fe4adf4795d6c2717a3936c8580f1bb",
+    "baseline_sha256": "c3941c5a6fa8149195a36e6f1ece388f0fe4adf4795d6c2717a3936c8580f1bb",
+    "bytes": 2716,
+    "source_url": "https://www.reddit.com/r/codex/comments/1wefmx7/low_effort_isnt_necessarily_cheaper/",
+    "topics": [
+      "continuity",
+      "stopping",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/Lower_quality_work_with_Astra.md",
+    "sha256": "7a11cb3071f1a84b7e2b27f377c9e79d8ed75a63361590803543176f2c759388",
+    "baseline_sha256": "7a11cb3071f1a84b7e2b27f377c9e79d8ed75a63361590803543176f2c759388",
+    "bytes": 4624,
+    "source_url": "https://www.reddit.com/r/codex/comments/1wbemum/lower_quality_work_with_astra/",
+    "topics": [
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/Luna_max_is_10_times_cheaper_than_Sol_medium_but_takes_3_more_minutes_per_task..md",
+    "sha256": "92c76739c0ddf6b88f8409185b9fefe9da128d658523da74c24370f242d64096",
+    "baseline_sha256": "92c76739c0ddf6b88f8409185b9fefe9da128d658523da74c24370f242d64096",
+    "bytes": 7266,
+    "source_url": "https://www.reddit.com/r/OpenaiCodex/comments/1vsxjxq/luna_max_is_10_times_cheaper_than_sol_medium_but/",
+    "topics": [
+      "continuity",
+      "stopping",
+      "coordination",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/Manage_low_usage_guide.md",
+    "sha256": "d1bddd3b0aa215d7214a42520eb29b8f83065b7dbf6b9f43c92b9efb87897193",
+    "baseline_sha256": "d1bddd3b0aa215d7214a42520eb29b8f83065b7dbf6b9f43c92b9efb87897193",
+    "bytes": 2683,
+    "source_url": "https://www.reddit.com/r/OpenaiCodex/comments/1vsuacv/manage_low_usage_guide/",
+    "topics": [
+      "continuity",
+      "stopping",
+      "coordination",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/My_workflow_advice_for_Pro_x5_users.md",
+    "sha256": "3d9dd72bc7f98558ee675f1ded3c4d0d4dbea04c55d2dd13e9b203069377de74",
+    "baseline_sha256": "3d9dd72bc7f98558ee675f1ded3c4d0d4dbea04c55d2dd13e9b203069377de74",
+    "bytes": 21073,
+    "source_url": "https://www.reddit.com/r/codex/comments/1wf46gp/my_workflow_advice_for_pro_x5_users/",
+    "topics": [
+      "continuity",
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/Negative_guardrails.md",
+    "sha256": "01cad99876a70f64ef1c55cc83c0e6fb534b68c26f9bd6d51da279756fdc8e77",
+    "baseline_sha256": "01cad99876a70f64ef1c55cc83c0e6fb534b68c26f9bd6d51da279756fdc8e77",
+    "bytes": 2057,
+    "source_url": "https://www.reddit.com/r/codex/comments/1wb9v8p/negative_guardrails/",
+    "topics": [
+      "stopping",
+      "instructions",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/Never_used_multiple_agents_before.md",
+    "sha256": "968b91aca57d5c40d4cdf2cf08502af1a4b79eb7a4c047266986a7d89f732191",
+    "baseline_sha256": "968b91aca57d5c40d4cdf2cf08502af1a4b79eb7a4c047266986a7d89f732191",
+    "bytes": 3442,
+    "source_url": "https://www.reddit.com/r/OpenaiCodex/comments/1vt8j0c/never_used_multiple_agents_before/",
+    "topics": [
+      "continuity",
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/Opinion__Astra_is_overhyped.md",
+    "sha256": "a91500901a22154da4fb804fe5c74ecdaf0abe65636ac4cf16cb6fbda9a903db",
+    "baseline_sha256": "a91500901a22154da4fb804fe5c74ecdaf0abe65636ac4cf16cb6fbda9a903db",
+    "bytes": 29006,
+    "source_url": "https://www.reddit.com/r/codex/comments/1wah1jk/opinion_astra_is_overhyped/",
+    "topics": [
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/Recent_regression_prevents_cross_thread_communication_and_delegated_tasks_involving_remotes.md",
+    "sha256": "3918aad5a0a4b888a273d24de36a251198efe1721fd1418c7ebf5fad4996ada4",
+    "baseline_sha256": "3918aad5a0a4b888a273d24de36a251198efe1721fd1418c7ebf5fad4996ada4",
+    "bytes": 3638,
+    "source_url": "https://www.reddit.com/r/OpenaiCodex/comments/1w1tdzr/recent_regression_prevents_cross_thread/",
+    "topics": [
+      "stopping",
+      "coordination"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/SOL_Extra_High_burned_my_entire_5-hour_Codex_limit_in_under_12_minutes._Luna_used_11%_doing_the_same_audit.md",
+    "sha256": "a22a07570fa32e5757ff902b1c5f9746fa249c321b83522e4dbd005898e3cd99",
+    "baseline_sha256": "a22a07570fa32e5757ff902b1c5f9746fa249c321b83522e4dbd005898e3cd99",
+    "bytes": 8535,
+    "source_url": "https://www.reddit.com/r/OpenaiCodex/comments/1w2zbtd/sol_extra_high_burned_my_entire_5hour_codex_limit/",
+    "topics": [
+      "continuity",
+      "stopping",
+      "instructions",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/Should_I_upgrade_max_context_size_for_astra_from_default_to_1_mill..md",
+    "sha256": "c598bba4b414bf62d774f756113e4f1cb176e87414cd6f8d8c4051cf21ddfaca",
+    "baseline_sha256": "c598bba4b414bf62d774f756113e4f1cb176e87414cd6f8d8c4051cf21ddfaca",
+    "bytes": 1745,
+    "source_url": "https://www.reddit.com/r/codex/comments/1wbpfko/should_i_upgrade_max_context_size_for_astra_from/",
+    "topics": [
+      "continuity",
+      "stopping",
+      "usage"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/Should_you_still_use_skills_with_Astra_.md",
+    "sha256": "90b4ce6025e9b6eb12b989345996360f41d091724adb20218c07bb6b21b72214",
+    "baseline_sha256": "90b4ce6025e9b6eb12b989345996360f41d091724adb20218c07bb6b21b72214",
+    "bytes": 4023,
+    "source_url": "https://www.reddit.com/r/codex/comments/1wc1teh/should_you_still_use_skills_with_astra/",
+    "topics": [
+      "stopping",
+      "instructions",
+      "usage"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/Simple_rules_to_stretch_your_usage_limits.md",
+    "sha256": "f20edd96ae60112101158420b43b5dc76c84d1c7375298b2f3e1a965a0f63c8f",
+    "baseline_sha256": "f20edd96ae60112101158420b43b5dc76c84d1c7375298b2f3e1a965a0f63c8f",
+    "bytes": 7145,
+    "source_url": "https://www.reddit.com/r/codex/comments/1wemr7j/simple_rules_to_stretch_your_usage_limits/",
+    "topics": [
+      "continuity",
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/So,_what_are_everyone's_general_thoughts_on_Astra__Thumbs_up_down_ (1).md",
+    "sha256": "86c2f02fadc12c1df545dd74ed6b01e114932fbf5a863eb650f2763b335beb83",
+    "baseline_sha256": "86c2f02fadc12c1df545dd74ed6b01e114932fbf5a863eb650f2763b335beb83",
+    "bytes": 10391,
+    "source_url": "https://www.reddit.com/r/codex/comments/1wcmwb1/so_what_are_everyones_general_thoughts_on_astra/",
+    "topics": [
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": [
+      "docs/reddit/So,_what_are_everyone's_general_thoughts_on_Astra__Thumbs_up_down_.md"
+    ]
+  },
+  {
+    "path": "docs/reddit/So,_what_are_everyone's_general_thoughts_on_Astra__Thumbs_up_down_.md",
+    "sha256": "9c81af57cd30e4f2d51af05ddf57204c5638baeb43e571980d92311c2866f7fb",
+    "baseline_sha256": "9c81af57cd30e4f2d51af05ddf57204c5638baeb43e571980d92311c2866f7fb",
+    "bytes": 9059,
+    "source_url": "https://www.reddit.com/r/codex/comments/1wcmwb1/so_what_are_everyones_general_thoughts_on_astra/",
+    "topics": [
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": [
+      "docs/reddit/So,_what_are_everyone's_general_thoughts_on_Astra__Thumbs_up_down_ (1).md"
+    ]
+  },
+  {
+    "path": "docs/reddit/So_just_learned_that_fork_turns_defaults_to__all__=_astra_subagents_get_dumped_with_800k+_initial_context_bloat.md",
+    "sha256": "252abd08acf0600d7c963d2604f3f3da7d1bd06786cb90c5ff6cfe4fe535b570",
+    "baseline_sha256": "252abd08acf0600d7c963d2604f3f3da7d1bd06786cb90c5ff6cfe4fe535b570",
+    "bytes": 5298,
+    "source_url": "https://www.reddit.com/r/codex/comments/1wcn7yl/so_just_learned_that_fork_turns_defaults_to_all/",
+    "topics": [
+      "continuity",
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/Sol_high_xhigh_vs_astra_medium_.md",
+    "sha256": "532818d7b7b7eea753a7feec1b4bf93b3c9d852f88ab857eb4be73fb00eed764",
+    "baseline_sha256": "532818d7b7b7eea753a7feec1b4bf93b3c9d852f88ab857eb4be73fb00eed764",
+    "bytes": 3955,
+    "source_url": "https://www.reddit.com/r/codex/comments/1we3v3t/sol_highxhigh_vs_astra_medium/",
+    "topics": [
+      "stopping",
+      "coordination",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/Terra_mid_vs_Terra_xtra_high_.md",
+    "sha256": "7bba981ee47ad0fbf6531b92c5e2347f0fe16f3de7c35f81ff88d8bcbc2d3a4b",
+    "baseline_sha256": "7bba981ee47ad0fbf6531b92c5e2347f0fe16f3de7c35f81ff88d8bcbc2d3a4b",
+    "bytes": 4577,
+    "source_url": "https://www.reddit.com/r/OpenaiCodex/comments/1vtz0u7/terra_mid_vs_terra_xtra_high/",
+    "topics": [
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/The_Orchestration_Architecture_That_Lets_You_Run_Sol_Astra_for_Hours_Within_the_Plus_Plan’s_5-Hour_Limit.md",
+    "sha256": "3a272b7c76ff510b112c2b3bdad5771cbd9dda38c7a188d55f2a45180e990db7",
+    "baseline_sha256": "3a272b7c76ff510b112c2b3bdad5771cbd9dda38c7a188d55f2a45180e990db7",
+    "bytes": 35520,
+    "source_url": "https://www.reddit.com/r/codex/comments/1wbtgyn/the_orchestration_architecture_that_lets_you_run/",
+    "topics": [
+      "continuity",
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/The_best_way_I’ve_found_to_use_ASTRA_is_not_to_let_Astra_run_the_project.md",
+    "sha256": "db489de2230ccfcd4fd22360a98fb1d3001e17558ba5437e1ab5e7d34faf8d4d",
+    "baseline_sha256": "db489de2230ccfcd4fd22360a98fb1d3001e17558ba5437e1ab5e7d34faf8d4d",
+    "bytes": 12016,
+    "source_url": "https://www.reddit.com/r/codex/comments/1wdg991/the_best_way_ive_found_to_use_astra_is_not_to_let/",
+    "topics": [
+      "continuity",
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/The_new_5-hour_limit_makes_Codex_almost_unusable_for_Plus_users.md",
+    "sha256": "b43f08400062a4050c799c7800e83d5aca628b1e4a5bd785de610756b58780ab",
+    "baseline_sha256": "b43f08400062a4050c799c7800e83d5aca628b1e4a5bd785de610756b58780ab",
+    "bytes": 31838,
+    "source_url": "https://www.reddit.com/r/OpenaiCodex/comments/1w9nyz2/the_new_5hour_limit_makes_codex_almost_unusable/",
+    "topics": [
+      "continuity",
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/This_is_where_your_limits_have_gone..md",
+    "sha256": "36dfc18032f72f2eeb6241dadee09e15c5cf3c80ed458c36a821bd042201d255",
+    "baseline_sha256": "36dfc18032f72f2eeb6241dadee09e15c5cf3c80ed458c36a821bd042201d255",
+    "bytes": 3486,
+    "source_url": "https://www.reddit.com/r/codex/comments/1wdpdpt/this_is_where_your_limits_have_gone/",
+    "topics": [
+      "continuity",
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/Truly_heed_the_warning_of_5.6_Sol_deleting_your_hard_drive.md",
+    "sha256": "442af900ef8f07a219690e1d8d2fc0ef338f3215dfaa0e73d50af63c8c487c2e",
+    "baseline_sha256": "442af900ef8f07a219690e1d8d2fc0ef338f3215dfaa0e73d50af63c8c487c2e",
+    "bytes": 17435,
+    "source_url": "https://www.reddit.com/r/codex/comments/1wep1ii/truly_heed_the_warning_of_56_sol_deleting_your/",
+    "topics": [
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/Usage_tip__“GPT-6_Astra_on_low_performs_better_than_GPT-5.6_Sol_on_high.”.md",
+    "sha256": "2cf6205bb26755b1e67c37418907e8fc3ffeca9d2a6ff8ca5c352456db3b4fe9",
+    "baseline_sha256": "2cf6205bb26755b1e67c37418907e8fc3ffeca9d2a6ff8ca5c352456db3b4fe9",
+    "bytes": 25628,
+    "source_url": "https://www.reddit.com/r/codex/comments/1w9erx3/usage_tip_gpt6_astra_on_low_performs_better_than/",
+    "topics": [
+      "continuity",
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/Using_Astra_to_orchestrate_a_swarm_of_Sol_that_spawn_their_own_Luna_as_subagents.md",
+    "sha256": "fde87a822362e3d888ab0cd0c95d6b170921e3a94a4968cd1f7307606cfae8bc",
+    "baseline_sha256": "fde87a822362e3d888ab0cd0c95d6b170921e3a94a4968cd1f7307606cfae8bc",
+    "bytes": 6456,
+    "source_url": "https://www.reddit.com/r/codex/comments/1wa6dl4/using_astra_to_orchestrate_a_swarm_of_sol_that/",
+    "topics": [
+      "continuity",
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/Using_GPT-6-Astra_to_make_SpaceEngine_run_on_Apple_Silicon_(OGL4.4_-__OGL_4.1).md",
+    "sha256": "fe38dcd9a83672945bf2a6677e413062ab10b00eef277c00ed98c28f737fbb1c",
+    "baseline_sha256": "fe38dcd9a83672945bf2a6677e413062ab10b00eef277c00ed98c28f737fbb1c",
+    "bytes": 4314,
+    "source_url": "https://www.reddit.com/r/macgaming/comments/1wcth0e/using_gpt6astra_to_make_spaceengine_run_on_apple/",
+    "topics": [
+      "coordination",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/We’ve_discovered_the_issue_behind_codex_harness_input_token_drainage..md",
+    "sha256": "0f6419b163b5f44eb7e300619ba9770671fe00fd2c9727fa2a33a37daf0b8c53",
+    "baseline_sha256": "0f6419b163b5f44eb7e300619ba9770671fe00fd2c9727fa2a33a37daf0b8c53",
+    "bytes": 4797,
+    "source_url": "https://www.reddit.com/r/OpenaiCodex/comments/1wdpuub/weve_discovered_the_issue_behind_codex_harness/",
+    "topics": [
+      "continuity",
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/What_are_your_favorite__paradoxical__prompts_that_seem_to_get_good_results_.md",
+    "sha256": "63ad1b4008c6bc41ce8b88cd20031111e6f4c93e8726dc56b1632df29d271be4",
+    "baseline_sha256": "63ad1b4008c6bc41ce8b88cd20031111e6f4c93e8726dc56b1632df29d271be4",
+    "bytes": 934,
+    "source_url": "https://www.reddit.com/r/codex/comments/1wbx26g/what_are_your_favorite_paradoxical_prompts_that/",
+    "topics": [
+      "instructions"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/What_framework_does_everyone_use__Does_everyone_do_SOL_Astra_orchestrator_and_Luna_Max_as_subagents__.md",
+    "sha256": "326802ef604de8d5a2bcf0dc209e809d8d4c42dddba48e86d00dff22592eb933",
+    "baseline_sha256": "326802ef604de8d5a2bcf0dc209e809d8d4c42dddba48e86d00dff22592eb933",
+    "bytes": 1016,
+    "source_url": "https://www.reddit.com/r/codex/comments/1wc81ne/what_framework_does_everyone_use_does_everyone_do/",
+    "topics": [
+      "coordination",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/When_multiple_agents_coordinate_with_each_other,_working_simultaneously_on_different_tasks_for_the_same_project,_does_that_consume_significantly_more_usage_than_if_they_were_run_sequentially_.md",
+    "sha256": "bca2da0f4bdd95eac40552dd29fc842ba5febc251eef6c2c4afd640b01018b02",
+    "baseline_sha256": "bca2da0f4bdd95eac40552dd29fc842ba5febc251eef6c2c4afd640b01018b02",
+    "bytes": 2476,
+    "source_url": "https://www.reddit.com/r/codex/comments/1wfu7w3/when_multiple_agents_coordinate_with_each_other/",
+    "topics": [
+      "continuity",
+      "stopping",
+      "coordination",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/Where_are_people_going_to_discuss_actual_techniques_for_improving_their_codex_workflows_.md",
+    "sha256": "92981e9f134e26e41fa085e183dae77deee533aaa8f4f86e8445e56976031912",
+    "baseline_sha256": "92981e9f134e26e41fa085e183dae77deee533aaa8f4f86e8445e56976031912",
+    "bytes": 1492,
+    "source_url": "https://www.reddit.com/r/codex/comments/1wa35la/where_are_people_going_to_discuss_actual/",
+    "topics": [
+      "stopping",
+      "coordination",
+      "instructions",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/Why_do_people_use_sol_and_complain_about_usage_.md",
+    "sha256": "62e3789937a0f33f0a90937bbed947c8bbb6175c1572976d49ce27eae8580f81",
+    "baseline_sha256": "62e3789937a0f33f0a90937bbed947c8bbb6175c1572976d49ce27eae8580f81",
+    "bytes": 28640,
+    "source_url": "https://www.reddit.com/r/OpenaiCodex/comments/1vqvzjv/why_do_people_use_sol_and_complain_about_usage/",
+    "topics": [
+      "continuity",
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/Will_revising_and_optimizing_AGENTS.md_and_other_instructional_markdowns_for_GPT-6_Astra_use_diminish_how_GPT-5.6_Sol_operates_.md",
+    "sha256": "6f3b4d45e2c2ba90367b53e2ab8ec926d16795a59ec79afdae6756eb5adeb868",
+    "baseline_sha256": "6f3b4d45e2c2ba90367b53e2ab8ec926d16795a59ec79afdae6756eb5adeb868",
+    "bytes": 2076,
+    "source_url": "https://www.reddit.com/r/codex/comments/1waprn1/will_revising_and_optimizing_agentsmd_and_other/",
+    "topics": [
+      "coordination",
+      "instructions",
+      "usage"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/_Stop_using_random_multi-agent_patterns_.md",
+    "sha256": "b86f0a577a8b1e260a0e645584292ffdd00526268ec1a865fe3a6ffbf2dd0f9a",
+    "baseline_sha256": "b86f0a577a8b1e260a0e645584292ffdd00526268ec1a865fe3a6ffbf2dd0f9a",
+    "bytes": 23915,
+    "source_url": "https://www.reddit.com/r/codex/comments/1wca46x/stop_using_random_multiagent_patterns/",
+    "topics": [
+      "continuity",
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/_goal.md",
+    "sha256": "32b60c086ebd57f42b46bcc2239a5da10bc9e5ffbf564b018ec07d9838c011ee",
+    "baseline_sha256": "32b60c086ebd57f42b46bcc2239a5da10bc9e5ffbf564b018ec07d9838c011ee",
+    "bytes": 14103,
+    "source_url": "https://www.reddit.com/r/OpenaiCodex/comments/1vnj7r1/goal/",
+    "topics": [
+      "continuity",
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/gpt-5.6-luna_is_underrated.md",
+    "sha256": "580886ff3f57831d46132e025366799b375ff5245b6e5c7b912a0b9b068e42ae",
+    "baseline_sha256": "580886ff3f57831d46132e025366799b375ff5245b6e5c7b912a0b9b068e42ae",
+    "bytes": 5403,
+    "source_url": "https://www.reddit.com/r/OpenaiCodex/comments/1vrt2vk/gpt56luna_is_underrated/",
+    "topics": [
+      "continuity",
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/how_i_got_more_out_of_Astra_light_with_Luna-max_in_Codex.md",
+    "sha256": "6f3fea17bc81a410bbcbff12c32d33c495649de157551f33704da24d239c256f",
+    "baseline_sha256": "6f3fea17bc81a410bbcbff12c32d33c495649de157551f33704da24d239c256f",
+    "bytes": 2381,
+    "source_url": "https://www.reddit.com/r/codex/comments/1wcuzn3/how_i_got_more_out_of_astra_light_with_lunamax_in/",
+    "topics": [
+      "continuity",
+      "stopping",
+      "coordination",
+      "instructions",
+      "usage",
+      "correctness"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  },
+  {
+    "path": "docs/reddit/x20_user_here_-_Astra_sucks_my_weekly_like....md",
+    "sha256": "1a472cb9da41a37c419aed05094ea791a54fbdb2ca804434944f9c7d4b55b48e",
+    "baseline_sha256": "1a472cb9da41a37c419aed05094ea791a54fbdb2ca804434944f9c7d4b55b48e",
+    "bytes": 2113,
+    "source_url": "https://www.reddit.com/r/codex/comments/1waor90/x20_user_here_astra_sucks_my_weekly_like/",
+    "topics": [
+      "usage"
+    ],
+    "disposition": "retained-original",
+    "review": "full-text indexed and topic-triaged; individual empirical claims unverified",
+    "same_source_documents": []
+  }
+]

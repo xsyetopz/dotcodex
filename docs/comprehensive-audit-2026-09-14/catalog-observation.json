@@ -1,0 +1,139 @@
+{
+  "sha256": "317e579dfb41237a91f09fb81d15b415c6265693df642488bfe5516f9cbd6d8e",
+  "fetched_at": "2026-09-14T17:21:04.539467Z",
+  "client_version": "0.154.0",
+  "models": [
+    {
+      "slug": "gpt-6-astra",
+      "context_window": 272000,
+      "max_context_window": 872000,
+      "effective_context_window_percent": 95,
+      "supports_experimental_context": false,
+      "multi_agent_version": "v2",
+      "multi_agent_reasoning_effort": "xhigh",
+      "service_tiers": [
+        {
+          "id": "priority",
+          "name": "Fast",
+          "description": "2x speed, increased usage"
+        }
+      ]
+    },
+    {
+      "slug": "gpt-reserve",
+      "context_window": 272000,
+      "max_context_window": 872000,
+      "effective_context_window_percent": 95,
+      "supports_experimental_context": false,
+      "multi_agent_version": "v1",
+      "multi_agent_reasoning_effort": null,
+      "service_tiers": [
+        {
+          "id": "priority",
+          "name": "Fast",
+          "description": "1.5x speed, increased usage"
+        }
+      ]
+    },
+    {
+      "slug": "gpt-5.6-sol",
+      "context_window": 272000,
+      "max_context_window": 872000,
+      "effective_context_window_percent": 95,
+      "supports_experimental_context": false,
+      "multi_agent_version": "v2",
+      "multi_agent_reasoning_effort": null,
+      "service_tiers": [
+        {
+          "id": "priority",
+          "name": "Fast",
+          "description": "1.5x speed, increased usage"
+        }
+      ]
+    },
+    {
+      "slug": "gpt-5.6-terra",
+      "context_window": 272000,
+      "max_context_window": 872000,
+      "effective_context_window_percent": 95,
+      "supports_experimental_context": false,
+      "multi_agent_version": "v2",
+      "multi_agent_reasoning_effort": null,
+      "service_tiers": [
+        {
+          "id": "priority",
+          "name": "Fast",
+          "description": "1.5x speed, increased usage"
+        }
+      ]
+    },
+    {
+      "slug": "gpt-5.6-luna",
+      "context_window": 272000,
+      "max_context_window": 872000,
+      "effective_context_window_percent": 95,
+      "supports_experimental_context": false,
+      "multi_agent_version": "v1",
+      "multi_agent_reasoning_effort": null,
+      "service_tiers": [
+        {
+          "id": "priority",
+          "name": "Fast",
+          "description": "1.5x speed, increased usage"
+        }
+      ]
+    },
+    {
+      "slug": "gpt-daybreak-blue-latest",
+      "context_window": 272000,
+      "max_context_window": 872000,
+      "effective_context_window_percent": 95,
+      "supports_experimental_context": false,
+      "multi_agent_version": "v2",
+      "multi_agent_reasoning_effort": null,
+      "service_tiers": []
+    },
+    {
+      "slug": "gpt-5.5",
+      "context_window": 272000,
+      "max_context_window": 272000,
+      "effective_context_window_percent": 95,
+      "supports_experimental_context": false,
+      "multi_agent_version": null,
+      "multi_agent_reasoning_effort": null,
+      "service_tiers": [
+        {
+          "id": "priority",
+          "name": "Fast",
+          "description": "1.5x speed, increased usage"
+        }
+      ]
+    },
+    {
+      "slug": "gpt-5.3-codex-spark",
+      "context_window": 128000,
+      "max_context_window": 128000,
+      "effective_context_window_percent": 95,
+      "supports_experimental_context": false,
+      "multi_agent_version": null,
+      "multi_agent_reasoning_effort": null,
+      "service_tiers": []
+    },
+    {
+      "slug": "codex-auto-review",
+      "context_window": 272000,
+      "max_context_window": 872000,
+      "effective_context_window_percent": 95,
+      "supports_experimental_context": false,
+      "multi_agent_version": "v1",
+      "multi_agent_reasoning_effort": null,
+      "service_tiers": [
+        {
+          "id": "priority",
+          "name": "Fast",
+          "description": "1.5x speed, increased usage"
+        }
+      ]
+    }
+  ]
+}

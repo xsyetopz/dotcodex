@@ -1,0 +1,5 @@
+{
+  "checked": 648,
+  "drift": [],
+  "excluded": "Native session/log/database/cache churn caused by the running harness; credentials not read"
+}

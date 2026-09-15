@@ -1,0 +1,32 @@
+{
+  "recorded_at": "2026-09-14",
+  "harness": "codex-cli 0.154.0",
+  "collaboration_mode": "Default",
+  "restriction": "No delegation; this audit did not launch agents or model trials.",
+  "facade_tools": [
+    "functions.exec",
+    "functions.wait",
+    "functions.request_user_input",
+    "functions.request_user_input_async",
+    "clock.sleep"
+  ],
+  "nested_tools": [
+    "apply_patch",
+    "clock__curr_time",
+    "create_goal",
+    "exec_command",
+    "get_goal",
+    "list_mcp_resource_templates",
+    "list_mcp_resources",
+    "mcp__codegraph__codegraph_explore",
+    "mcp__headroom__headroom_compress",
+    "mcp__headroom__headroom_retrieve",
+    "mcp__headroom__headroom_stats",
+    "read_mcp_resource",
+    "update_goal",
+    "update_plan",
+    "view_image",
+    "web__run",
+    "write_stdin"
+  ]
+}
