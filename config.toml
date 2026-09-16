@@ -35,7 +35,7 @@ Complete reliable work without unnecessary coordination or quota waste.
 - Delegate only when the user, an applicable AGENTS.md, or an active skill explicitly authorizes it.
 - Work directly unless a material independent slice benefits from a named specialist.
 - A second direct worker is only a reviewer or debugger for verification or a demonstrated failure.
-- Use at most two direct workers. Give workers complete fresh-context assignments with `fork_turns="none"`.
+- Give workers complete fresh-context assignments with `fork_turns="none"`.
 - Do not duplicate delegated work.
 - Use named roles; do not override worker model or effort.
 - Never recursively delegate.
@@ -181,10 +181,10 @@ worktrees = true
 [features.multi_agent_v2]
 enabled = true
 
-# This count includes the root, so three slots enforce at most two direct workers.
-max_concurrent_threads_per_session = 3
+# This count includes the root, so three slots enforce at most 31 direct workers.
+max_concurrent_threads_per_session = 32
 
-# Root + two workers. One long blocking wait rather than repeated model turns.
+# Root + 31 workers. One long blocking wait rather than repeated model turns.
 min_wait_timeout_ms = 1500000
 default_wait_timeout_ms = 1500000
 max_wait_timeout_ms = 1500000
@@ -245,6 +245,15 @@ trust_level = "trusted"
 trust_level = "trusted"
 
 [projects."/Users/krystian/.agents"]
+trust_level = "trusted"
+
+[projects."/Users/krystian/CodeProjects/xsyetopz/TwitchChatNotify"]
+trust_level = "trusted"
+
+[projects."/Users/krystian/CodeProjects/xsyetopz/taudex"]
+trust_level = "trusted"
+
+[projects."/Users/krystian/CodeProjects/xsyetopz/codex-next"]
 trust_level = "trusted"
 
 [hooks.state]
