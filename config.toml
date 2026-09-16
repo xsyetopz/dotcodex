@@ -159,7 +159,6 @@ default_mode_request_user_input = true
 
 enable_mcp_apps = false
 fast_mode = false
-goals = true
 image_generation = false
 
 # Suppress the bundled personality layer.
@@ -171,9 +170,6 @@ plugin_sharing = false
 prevent_idle_sleep = true
 remote_plugin = false
 recommended_plugins = false
-
-# Manual skill selection; don't run shadow skill search.
-skill_search = false
 
 unbounded_connection_retries = false
 worktrees = true
