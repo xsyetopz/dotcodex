@@ -13,7 +13,6 @@ LINK = re.compile(r"(?<!!)\[[^]]+\]\(([^)#]+)(?:#[^)]+)?\)")
 NAME = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
 EXPECTED_POLICY = {
     "audit-codex-execution": False,
-    "execute-deterministic-workflow": True,
     "operate-codex-goals": True,
     "orchestrate-codex-agents": False,
 }
@@ -31,7 +30,7 @@ def main() -> int:
     errors = 0
     skill_files = sorted(Path("skills").glob("*/SKILL.md"))
     if {path.parent.name for path in skill_files} != set(EXPECTED_POLICY):
-        error("skills: expected exactly the four custom skill packages")
+        error("skills: expected exactly the three custom skill packages")
         errors += 1
 
     for skill_file in skill_files:

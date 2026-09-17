@@ -25,11 +25,10 @@ Use named roles and fresh context:
 }
 ```
 
-Use lowercase task names. Do not override model or reasoning effort. Keep at
-most
-two direct children unless the active configuration says otherwise. Give each
-child one bounded task with enough context to work independently. Never ask a
-child to coordinate other agents.
+Use lowercase task names. Do not override model or reasoning effort. Use one
+worker; add only a reviewer or debugger for independent verification or a
+demonstrated failure. Give each child one bounded task with enough context to
+work independently. Never ask a child to coordinate other agents.
 
 All agents share the same worktree. Assign non-overlapping ownership to editing
 workers, state that they are not alone in the repository, and tell them not to

@@ -29,17 +29,6 @@ class HarnessConfigurationTests(unittest.TestCase):
                     VALIDATOR.merged(base, override), "profile"
                 )
 
-    def test_rejects_agent_service_override(self) -> None:
-        with tempfile.TemporaryDirectory() as directory:
-            root = self.create_fixture(Path(directory))
-            with (root / "config.toml").open("a", encoding="utf-8") as file:
-                file.write('\n[agents.worker]\nconfig_file = "worker.toml"\n')
-            (root / "worker.toml").write_text(
-                'service_tier = "priority"\n', encoding="utf-8"
-            )
-            with self.assertRaisesRegex(ValueError, "agent worker must use standard"):
-                VALIDATOR.validate_configuration(root)
-
     def test_merges_nested_profile_configuration(self) -> None:
         base = {"tools": {"update_plan": {"enabled": True}}, "model": "base"}
         profile = {"tools": {"other": {"enabled": False}}, "model": "profile"}
@@ -50,137 +39,69 @@ class HarnessConfigurationTests(unittest.TestCase):
         self.assertTrue(effective["tools"]["update_plan"]["enabled"])
         self.assertFalse(effective["tools"]["other"]["enabled"])
 
-    def test_maps_profiles_to_model_specific_prompts(self) -> None:
-        with tempfile.TemporaryDirectory() as directory:
-            root = self.create_fixture(Path(directory))
+    def test_live_configuration_uses_native_prompt_and_expected_routing(self) -> None:
+        configurations = VALIDATOR.validate_configuration(ROOT)
 
-            configurations = VALIDATOR.validate_configuration(root)
-
-            by_profile = {
-                profile: (config["model"], prompt.name)
-                for profile, config, prompt in configurations
-            }
-            self.assertEqual(by_profile, VALIDATOR.EXPECTED_PROFILE_CONTRACTS)
-            self.assertEqual(
-                by_profile["security"], ("gpt-daybreak-blue-latest", "sol.md")
+        actual = {
+            profile: (
+                config["model"],
+                config["model_reasoning_effort"],
+                config["plan_mode_reasoning_effort"],
             )
+            for profile, config in configurations
+        }
 
-    def test_rejects_profile_fallback_to_wrong_prompt(self) -> None:
+        self.assertEqual(actual, VALIDATOR.EXPECTED_PROFILE_CONTRACTS)
+
+    def test_rejects_custom_prompt_override(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
-            root = self.create_fixture(Path(directory))
-            security = root / "security.config.toml"
-            security.write_text(
-                security.read_text(encoding="utf-8").replace("sol.md", "astra.md"),
+            root = self.copy_fixture(Path(directory))
+            config = root / "config.toml"
+            config.write_text(
+                config.read_text(encoding="utf-8").replace(
+                    'model = "gpt-6-astra"',
+                    'model_instructions_file = "replacement.md"\nmodel = "gpt-6-astra"',
+                    1,
+                ),
                 encoding="utf-8",
             )
 
-            with self.assertRaisesRegex(ValueError, "security must use .*sol.md"):
+            with self.assertRaisesRegex(ValueError, "native Codex base prompt"):
                 VALIDATOR.validate_configuration(root)
 
-    def test_astra_contract_requires_proposed_plan_route(self) -> None:
+    def test_rejects_duplicate_profile_developer_policy(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
-            root = self.create_fixture(Path(directory))
-            astra = root / "model-instructions/astra.md"
-            astra.write_text(
-                astra.read_text(encoding="utf-8").replace(
-                    "<proposed_plan>\n# Title", "# Title"
+            root = self.copy_fixture(Path(directory))
+            profile = root / "coding.config.toml"
+            profile.write_text(
+                profile.read_text(encoding="utf-8").replace(
+                    'model = "gpt-5.6-sol"',
+                    'developer_instructions = "duplicate"\nmodel = "gpt-5.6-sol"',
+                    1,
                 ),
                 encoding="utf-8",
             )
 
-            with self.assertRaisesRegex(
-                ValueError, "astra.md is missing contract marker"
-            ):
-                VALIDATOR.validate_instruction_contract(root)
-
-    def test_rejects_missing_baseline_section(self) -> None:
-        with tempfile.TemporaryDirectory() as directory:
-            root = self.create_fixture(Path(directory))
-            luna = root / "model-instructions/luna.md"
-            luna.write_text(
-                luna.read_text(encoding="utf-8").replace("## Goal\ngoal\n\n", ""),
-                encoding="utf-8",
-            )
-
-            with self.assertRaisesRegex(
-                ValueError, "luna.md is missing baseline section: Goal"
-            ):
-                VALIDATOR.validate_instruction_contract(root)
-
-    def test_rejects_misordered_baseline_sections(self) -> None:
-        with tempfile.TemporaryDirectory() as directory:
-            root = self.create_fixture(Path(directory))
-            terra = root / "model-instructions/terra.md"
-            terra.write_text(
-                terra.read_text(encoding="utf-8").replace(
-                    "## Personality\npersonality\n\n## Goal\ngoal",
-                    "## Goal\ngoal\n\n## Personality\npersonality",
-                ),
-                encoding="utf-8",
-            )
-
-            with self.assertRaisesRegex(
-                ValueError, "terra.md baseline sections must appear in order"
-            ):
-                VALIDATOR.validate_instruction_contract(root)
+            with self.assertRaisesRegex(ValueError, "duplicates the developer policy"):
+                VALIDATOR.validate_configuration(root)
 
     @staticmethod
-    def create_fixture(root: Path) -> Path:
-        prompt_directory = root / "model-instructions"
-        prompt_directory.mkdir()
-        baseline_text = "\n\n".join(
-            (
-                "Role: role",
-                "## Personality\npersonality",
-                "## Goal\ngoal",
-                "## Success criteria\nsuccess criteria",
-                "## Constraints\nconstraints",
-                "## Output\noutput",
-                "## Stop rules\nstop rules",
-            )
-        )
-        marker_text = "\n".join(VALIDATOR.REQUIRED_CONTRACT_MARKERS)
-        for prompt in {
-            value[1] for value in VALIDATOR.EXPECTED_PROFILE_CONTRACTS.values()
-        }:
-            (prompt_directory / prompt).write_text(
-                f"{baseline_text}\n\n{marker_text}\nunique: {prompt}\n",
-                encoding="utf-8",
-            )
-
-        base_model, base_prompt = VALIDATOR.EXPECTED_PROFILE_CONTRACTS[None]
-        (root / "config.toml").write_text(
-            "\n".join(
-                (
-                    f'model = "{base_model}"',
-                    'model_reasoning_effort = "medium"',
-                    'service_tier = "default"',
-                    "tool_output_token_limit = 4000",
-                    f'model_instructions_file = "{prompt_directory / base_prompt}"',
-                    "include_collaboration_mode_instructions = true",
-                    'developer_instructions = "base"',
-                    "[features]",
-                    "fast_mode = false",
-                    "goals = true",
-                    "[tools.update_plan]",
-                    "enabled = true",
-                )
-            ),
-            encoding="utf-8",
-        )
-        for profile, (model, prompt) in VALIDATOR.EXPECTED_PROFILE_CONTRACTS.items():
-            if profile is None:
-                continue
-            (root / f"{profile}.config.toml").write_text(
-                "\n".join(
-                    (
-                        f'model = "{model}"',
-                        f'model_instructions_file = "{prompt_directory / prompt}"',
-                        f'developer_instructions = "{profile}"',
-                    )
-                ),
-                encoding="utf-8",
-            )
+    def copy_fixture(root: Path) -> Path:
+        for name in (
+            "config.toml",
+            "coding.config.toml",
+            "fast-coding.config.toml",
+            "deep-coding.config.toml",
+            "security.config.toml",
+        ):
+            (root / name).write_bytes((ROOT / name).read_bytes())
+        for directory in ("agents", "skills"):
+            source = ROOT / directory
+            for path in source.rglob("*"):
+                if path.is_file():
+                    target = root / path.relative_to(ROOT)
+                    target.parent.mkdir(parents=True, exist_ok=True)
+                    target.write_bytes(path.read_bytes())
         return root
 
 

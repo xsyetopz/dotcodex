@@ -5,8 +5,8 @@
  *
  * Codex 0.154.0's built-in OpenAI route uses remote compaction, so
  * `compact_prompt` is not relied on here. This hook saves only the latest
- * visible task-state messages plus git status and injects a bounded checkpoint
- * on SessionStart(source=compact).
+ * bounded original/latest task messages, the last assistant handoff, and git
+ * status, then injects a one-shot checkpoint on SessionStart(source=compact).
  */
 
 import { spawnSync } from "node:child_process";
@@ -25,9 +25,10 @@ import { homedir } from "node:os";
 import { dirname, join } from "node:path";
 
 const TAIL = 4 * 1024 * 1024;
-const OBJECTIVE_CAP = 3000;
-const ASSISTANT_CAP = 3000;
-const GIT_CAP = 1200;
+const OBJECTIVE_CAP = 2600;
+const LATEST_CAP = 1400;
+const ASSISTANT_CAP = 1800;
+const GIT_CAP = 1000;
 const TOTAL_CAP = 8000;
 const OPENING = [
 	"<compact_recovery>",
@@ -113,11 +114,11 @@ function extractText(content) {
 		.join("\n");
 }
 
-function recent(path) {
-	let user;
-	let assistant;
+function taskState(path) {
+	const users = [];
+	let assistant = "";
 
-	for (const line of tail(path).reverse()) {
+	for (const line of tail(path)) {
 		if (!line.trim()) continue;
 		let event;
 		try {
@@ -142,17 +143,18 @@ function recent(path) {
 		if (!text) {
 			continue;
 		}
-		if (payload.role === "assistant" && assistant === undefined) {
+		if (payload.role === "assistant") {
 			assistant = limitStart(text, ASSISTANT_CAP);
-		} else if (payload.role === "user" && user === undefined) {
-			user = limitStart(text, OBJECTIVE_CAP);
-		}
-		if (user !== undefined && assistant !== undefined) {
-			break;
+		} else if (payload.role === "user") {
+			users.push(text);
 		}
 	}
 
-	return [user ?? "", assistant ?? ""];
+	const objective = limitStart(users.at(0) ?? "", OBJECTIVE_CAP);
+	const current = users.at(-1) ?? "";
+	const latest =
+		current === (users.at(0) ?? "") ? "" : limitStart(current, LATEST_CAP);
+	return { objective, latest, assistant };
 }
 
 function gitState(cwd) {
@@ -181,19 +183,20 @@ function save(event) {
 	// Invalidate older evidence before attempting a replacement.
 	rmSync(path, { force: true });
 
-	const [user, assistant] = recent(
+	const { objective, latest, assistant } = taskState(
 		typeof event.transcript_path === "string" ? event.transcript_path : "",
 	);
 	if (typeof event.cwd !== "string" || !event.cwd) {
 		throw new Error("Compaction cwd is unavailable");
 	}
-	if (!user && !assistant)
+	if (!objective && !latest && !assistant)
 		throw new Error("No task messages in bounded transcript tail");
 	const data = {
 		session_id: sessionId,
 		cwd: event.cwd,
 		transcript_path: event.transcript_path,
-		user,
+		objective,
+		latest,
 		assistant,
 		git: gitState(event.cwd),
 	};
@@ -258,7 +261,8 @@ function restore(event) {
 		data.session_id !== sessionId ||
 		data.cwd !== event.cwd ||
 		data.transcript_path !== event.transcript_path ||
-		typeof data.user !== "string" ||
+		typeof data.objective !== "string" ||
+		typeof data.latest !== "string" ||
 		typeof data.assistant !== "string" ||
 		typeof data.git !== "string"
 	) {
@@ -268,8 +272,14 @@ function restore(event) {
 	}
 
 	const parts = [OPENING];
-	if (data.user) {
-		parts.push("Latest user message:", quote(data.user, OBJECTIVE_CAP));
+	if (data.objective) {
+		parts.push(
+			"Original bounded objective:",
+			quote(data.objective, OBJECTIVE_CAP),
+		);
+	}
+	if (data.latest) {
+		parts.push("Latest task state:", quote(data.latest, LATEST_CAP));
 	}
 	if (data.assistant) {
 		parts.push("Last assistant message:", quote(data.assistant, ASSISTANT_CAP));

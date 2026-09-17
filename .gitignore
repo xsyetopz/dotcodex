@@ -9,6 +9,7 @@
 *.pfx
 
 # Private Codex conversations, memories, and machine state
+/attachments/
 /history.jsonl
 /session_index.jsonl
 /sessions/

@@ -1,4 +1,4 @@
-"""Validate the Codex 0.154.0 harness contract and prompt composition."""
+"""Validate the native-prompt Codex 0.154.0 harness contract."""
 
 from __future__ import annotations
 
@@ -12,49 +12,36 @@ from pathlib import Path
 from typing import Any, Never
 
 ROOT = Path(__file__).parents[1]
-PROMPT_DIRECTORY_NAME = "model-instructions"
 EXPECTED_VERSION = "codex-cli 0.154.0"
 SENTINEL = "__CODEX_HARNESS_SENTINEL__"
-AGENTS_MARKER = "Keep code simple and responsibilities narrow."
-IMPLICIT_SKILLS = ("execute-deterministic-workflow", "operate-codex-goals")
-EXPLICIT_SKILLS = ("audit-codex-execution", "orchestrate-codex-agents")
+AGENTS_MARKER = "Use one canonical term for each concept."
+DEVELOPER_MARKER = "Treat the current request and higher-priority instructions"
 EXPECTED_PROFILE_CONTRACTS = {
-    None: ("gpt-5.6-sol", "sol.md"),
-    "coding": ("gpt-5.6-terra", "terra.md"),
-    "fast-coding": ("gpt-5.6-luna", "luna.md"),
-    "deep-coding": ("gpt-6-astra", "astra.md"),
-    "security": ("gpt-daybreak-blue-latest", "sol.md"),
+    None: ("gpt-6-astra", "low", "medium"),
+    "coding": ("gpt-5.6-sol", "medium", "medium"),
+    "fast-coding": ("gpt-5.6-luna", "high", "medium"),
+    "deep-coding": ("gpt-6-astra", "high", "high"),
+    "security": ("gpt-daybreak-blue-latest", "medium", "high"),
 }
-BASELINE_SECTIONS = (
-    ("Role", re.compile(r"^Role:", re.MULTILINE)),
-    ("Personality", re.compile(r"^## Personality$", re.MULTILINE)),
-    ("Goal", re.compile(r"^## Goal$", re.MULTILINE)),
-    ("Success criteria", re.compile(r"^## Success criteria$", re.MULTILINE)),
-    ("Constraints", re.compile(r"^## Constraints$", re.MULTILINE)),
-    ("Output", re.compile(r"^## Output$", re.MULTILINE)),
-    ("Stop rules", re.compile(r"^## Stop rules$", re.MULTILINE)),
-)
-REQUIRED_CONTRACT_MARKERS = (
-    "active collaboration-mode block",
-    "`update_plan` is an execution checklist, not a collaboration mode",
-    "<proposed_plan>\n# Title",
-    "A Plan request is not satisfied by saying that",
-    "`request_user_input` only when",
-    "Use `create_goal` only",
-    "Use a named role",
-    "`wait_agent` once",
-    "`functions.wait`",
-    "`cell_id`",
-    "`session_id`",
-    "Use the free-form `apply_patch` tool",
-    "Prefer MCP resources and resource templates",
-    "approval or permission",
-    "Use `view_image` for local images",
-)
+EXPECTED_AGENTS = {
+    "cyber_defender": ("gpt-daybreak-blue-latest", "medium", "read-only"),
+    "debugger": ("gpt-5.6-sol", "medium", "workspace-write"),
+    "docs_researcher": ("gpt-5.6-luna", "high", "read-only"),
+    "implementer": ("gpt-5.6-luna", "xhigh", "workspace-write"),
+    "reviewer": ("gpt-5.6-sol", "medium", "read-only"),
+    "scout": ("gpt-5.6-luna", "high", "read-only"),
+}
+EXPECTED_SKILLS = {
+    "audit-codex-execution": False,
+    "operate-codex-goals": True,
+    "orchestrate-codex-agents": False,
+}
 EXPECTED_FEATURES = {
     "collaboration_modes": ("removed", True),
+    "context_management": ("under development", False),
     "default_mode_request_user_input": ("under development", True),
     "goals": ("stable", True),
+    "hooks": ("stable", True),
     "multi_agent_v2": ("stable", True),
     "sleep_tool": ("stable", True),
     "unified_exec": ("stable", True),
@@ -123,39 +110,30 @@ def validate_service_policy(config: dict[str, Any], label: str) -> None:
         fail(f"{label} must use standard service_tier=default on Codex 0.154.0")
 
 
-def resolve_prompt_path(config: dict[str, Any], root: Path) -> Path:
-    raw_path = config.get("model_instructions_file")
-    if not isinstance(raw_path, str) or not raw_path:
-        fail("model_instructions_file must be a nonempty path")
-    path = Path(raw_path).expanduser()
-    if not path.is_absolute():
-        path = root / path
-    if not path.is_file():
-        fail(f"model instruction file does not exist: {path}")
-    resolved = path.resolve()
-    try:
-        resolved.relative_to((root / PROMPT_DIRECTORY_NAME).resolve())
-    except ValueError:
-        fail(f"model instruction file is outside {PROMPT_DIRECTORY_NAME}: {path}")
-    return resolved
-
-
 def validate_configuration(
     root: Path = ROOT,
-) -> list[tuple[str | None, dict[str, Any], Path]]:
+) -> list[tuple[str | None, dict[str, Any]]]:
     base = load_toml(root / "config.toml")
-    if base.get("model") != "gpt-5.6-sol":
-        fail("config.toml must use gpt-5.6-sol")
-    if base.get("model_reasoning_effort") != "medium":
-        fail("config.toml must use medium reasoning effort")
+    if "model_instructions_file" in base:
+        fail("config.toml must use the native Codex base prompt")
     if base.get("tool_output_token_limit") != 4000:
         fail("config.toml must set tool_output_token_limit to 4000")
-    if base.get("features", {}).get("goals") is not True:
-        fail("config.toml must enable goals")
     if base.get("include_collaboration_mode_instructions") is not True:
         fail("config.toml must enable collaboration-mode instructions")
     if base.get("tools", {}).get("update_plan", {}).get("enabled") is not True:
         fail("config.toml must enable tools.update_plan")
+
+    features = base.get("features", {})
+    for name in ("fast_mode", "goals", "hooks", "unified_exec", "view_image"):
+        expected = name != "fast_mode"
+        if features.get(name) is not expected:
+            fail(f"config.toml must set features.{name}={str(expected).lower()}")
+    if "context_management" in features:
+        fail("config.toml must not enable experimental context management")
+
+    multi_agent = features.get("multi_agent_v2", {})
+    if multi_agent.get("max_concurrent_threads_per_session") != 3:
+        fail("multi-agent ceiling must be root plus two children")
 
     profile_paths = {
         path.name.removesuffix(".config.toml"): path
@@ -168,34 +146,72 @@ def validate_configuration(
             f"expected {sorted(expected_profiles)}, found {sorted(profile_paths)}"
         )
 
-    configurations: list[tuple[str | None, dict[str, Any], Path]] = []
-    for name in EXPECTED_PROFILE_CONTRACTS:
-        path = root / "config.toml" if name is None else profile_paths[name]
-        profile = load_toml(path)
-        if profile.get("include_collaboration_mode_instructions") is False:
-            fail(f"{path.name} disables collaboration-mode instructions")
+    configurations = []
+    for name, expected in EXPECTED_PROFILE_CONTRACTS.items():
+        if name is None:
+            profile = {}
+        else:
+            profile_path = profile_paths[name]
+            profile = load_toml(profile_path)
+            if "model_instructions_file" in profile:
+                fail(f"{profile_path.name} must use the native Codex base prompt")
+            if "developer_instructions" in profile:
+                fail(f"{profile_path.name} duplicates the developer policy")
         effective = base if name is None else merged(base, profile)
         validate_service_policy(effective, name or "base")
-        if effective.get("include_collaboration_mode_instructions") is not True:
-            fail(f"{path.name} does not enable collaboration-mode instructions")
-        if effective.get("tools", {}).get("update_plan", {}).get("enabled") is not True:
-            fail(f"{path.name} does not enable tools.update_plan")
-        expected_model, expected_prompt = EXPECTED_PROFILE_CONTRACTS[name]
-        if effective.get("model") != expected_model:
-            fail(
-                f"{name or 'base'} must use model {expected_model}, "
-                f"found {effective.get('model')}"
-            )
-        prompt_path = resolve_prompt_path(effective, root)
-        expected_path = (root / PROMPT_DIRECTORY_NAME / expected_prompt).resolve()
-        if prompt_path != expected_path:
-            fail(f"{name or 'base'} must use {expected_path}, found {prompt_path}")
-        configurations.append((name, effective, prompt_path))
-    for name, role in base.get("agents", {}).items():
-        if isinstance(role, dict) and "config_file" in role:
-            role_config = load_toml(root / role["config_file"])
-            validate_service_policy(merged(base, role_config), f"agent {name}")
+        actual = (
+            effective.get("model"),
+            effective.get("model_reasoning_effort"),
+            effective.get("plan_mode_reasoning_effort"),
+        )
+        if actual != expected:
+            fail(f"{name or 'base'} routing expected {expected}, found {actual}")
+        configurations.append((name, effective))
+
+    validate_agents(base, root)
+    validate_skills(root)
     return configurations
+
+
+def validate_agents(base: dict[str, Any], root: Path) -> None:
+    agents = {
+        name: value
+        for name, value in base.get("agents", {}).items()
+        if isinstance(value, dict) and "config_file" in value
+    }
+    if set(agents) != set(EXPECTED_AGENTS):
+        fail(
+            f"configured agents expected {sorted(EXPECTED_AGENTS)}, found {sorted(agents)}"
+        )
+    files = {path.name for path in (root / "agents").glob("*.toml")}
+    expected_files = {Path(value["config_file"]).name for value in agents.values()}
+    if files != expected_files:
+        fail(f"agent files expected {sorted(expected_files)}, found {sorted(files)}")
+    for name, expected in EXPECTED_AGENTS.items():
+        role = load_toml(root / agents[name]["config_file"])
+        if "model_instructions_file" in role:
+            fail(f"agent {name} must use its model's native prompt")
+        actual = (
+            role.get("model"),
+            role.get("model_reasoning_effort"),
+            role.get("sandbox_mode"),
+        )
+        if actual != expected:
+            fail(f"agent {name} routing expected {expected}, found {actual}")
+        validate_service_policy(merged(base, role), f"agent {name}")
+
+
+def validate_skills(root: Path) -> None:
+    skills = {
+        path.parent.name: path.parent for path in (root / "skills").glob("*/SKILL.md")
+    }
+    if set(skills) != set(EXPECTED_SKILLS):
+        fail(f"skills expected {sorted(EXPECTED_SKILLS)}, found {sorted(skills)}")
+    for name, implicit in EXPECTED_SKILLS.items():
+        metadata = (skills[name] / "agents" / "openai.yaml").read_text(encoding="utf-8")
+        marker = f"allow_implicit_invocation: {str(implicit).lower()}"
+        if marker not in metadata:
+            fail(f"skill {name} must set {marker}")
 
 
 def validate_prompt(profile: str | None, config: dict[str, Any]) -> None:
@@ -211,23 +227,29 @@ def validate_prompt(profile: str | None, config: dict[str, Any]) -> None:
 
     if SENTINEL not in texts:
         fail(f"{label} prompt probe omitted the sentinel user prompt")
-    instructions = config.get("developer_instructions")
-    if not isinstance(instructions, str) or instructions.strip() not in joined:
-        fail(f"{label} prompt probe omitted its developer instructions")
-    if AGENTS_MARKER not in joined:
-        fail(f"{label} prompt probe omitted AGENTS.md")
+    if joined.count(DEVELOPER_MARKER) != 1:
+        fail(f"{label} prompt probe must contain one developer policy")
+    agents_payloads = [
+        text for text in texts if text.startswith("# AGENTS.md instructions")
+    ]
+    if len(agents_payloads) != 1 or AGENTS_MARKER not in agents_payloads[0]:
+        fail(f"{label} prompt probe must contain one AGENTS.md payload")
     skill_catalogs = [
         text for text in texts if text.startswith("<skills_instructions>")
     ]
     if len(skill_catalogs) != 1:
         fail(f"{label} prompt probe expected one skill catalog")
     catalog = skill_catalogs[0]
-    for skill in IMPLICIT_SKILLS:
-        if f"- {skill}:" not in catalog:
-            fail(f"{label} prompt probe omitted implicit skill {skill}")
-    for skill in EXPLICIT_SKILLS:
+    if "- operate-codex-goals:" not in catalog:
+        fail(f"{label} prompt probe omitted operate-codex-goals")
+    for skill in ("audit-codex-execution", "orchestrate-codex-agents"):
         if f"- {skill}:" in catalog:
             fail(f"{label} prompt probe exposed explicit-only skill {skill}")
+    if "execute-deterministic-workflow" in joined:
+        fail(f"{label} prompt probe contains removed workflow instructions")
+    instructions = config.get("developer_instructions")
+    if not isinstance(instructions, str) or instructions.strip() not in joined:
+        fail(f"{label} prompt probe omitted the shared developer policy")
 
 
 def validate_features() -> None:
@@ -242,44 +264,13 @@ def validate_features() -> None:
             fail(f"feature {name} expected {expected}, found {features.get(name)}")
 
 
-def validate_instruction_contract(root: Path = ROOT) -> None:
-    prompt_directory = root / PROMPT_DIRECTORY_NAME
-    expected_files = {contract[1] for contract in EXPECTED_PROFILE_CONTRACTS.values()}
-    prompt_files = {path.name: path for path in prompt_directory.glob("*.md")}
-    if set(prompt_files) != expected_files:
-        fail(
-            "model prompt files do not match the expected set: "
-            f"expected {sorted(expected_files)}, found {sorted(prompt_files)}"
-        )
-
-    contents = {
-        name: path.read_text(encoding="utf-8") for name, path in prompt_files.items()
-    }
-    if len(set(contents.values())) != len(contents):
-        fail("model prompt files must not duplicate one another")
-    for name, instructions in contents.items():
-        section_positions = []
-        for section, pattern in BASELINE_SECTIONS:
-            match = pattern.search(instructions)
-            if match is None:
-                fail(f"{name} is missing baseline section: {section}")
-            section_positions.append(match.start())
-        if section_positions != sorted(section_positions):
-            order = " -> ".join(section for section, _ in BASELINE_SECTIONS)
-            fail(f"{name} baseline sections must appear in order: {order}")
-        for marker in REQUIRED_CONTRACT_MARKERS:
-            if marker not in instructions:
-                fail(f"{name} is missing contract marker: {marker}")
-
-
 def main() -> int:
     try:
         if run_codex("--version").strip() != EXPECTED_VERSION:
             fail(f"codex must be exactly {EXPECTED_VERSION}")
         configurations = validate_configuration()
-        validate_instruction_contract()
         validate_features()
-        for profile, config, _ in configurations:
+        for profile, config in configurations:
             validate_prompt(profile, config)
     except (
         OSError,

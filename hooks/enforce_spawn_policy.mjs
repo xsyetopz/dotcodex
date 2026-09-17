@@ -2,19 +2,12 @@
 /** Enforce named fresh-context MultiAgentV2 spawns. */
 
 const ALLOWED = new Set([
-	"architect",
 	"cyber_defender",
 	"debugger",
 	"docs_researcher",
-	"hard_debugger",
 	"implementer",
-	"implementer_fast",
-	"log_analyst",
-	"reverse_engineer",
 	"reviewer",
 	"scout",
-	"test_engineer",
-	"ui_engineer",
 ]);
 
 function isObject(value) {

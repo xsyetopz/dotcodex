@@ -25,7 +25,7 @@ harness:
     python3 scripts/validate_codex_harness.py
 
 markdown:
-    BUN_INSTALL_CACHE_DIR="{{ bun_cache }}" bunx --bun markdownlint-cli2@0.23.2 "README.md" "docs/**/*.md" "model-instructions/*.md" "skills/audit-codex-execution/**/*.md" "skills/execute-deterministic-workflow/**/*.md" "skills/operate-codex-goals/**/*.md" "skills/orchestrate-codex-agents/**/*.md"
+    BUN_INSTALL_CACHE_DIR="{{ bun_cache }}" bunx --bun markdownlint-cli2@0.23.2 "README.md" "skills/audit-codex-execution/**/*.md" "skills/operate-codex-goals/**/*.md" "skills/orchestrate-codex-agents/**/*.md"
 
 tests:
     PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -v

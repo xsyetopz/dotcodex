@@ -3,18 +3,15 @@
 # Default root coordinator.
 # ----------------------------------------
 
-model = "gpt-5.6-sol"
-model_reasoning_effort = "medium"
-plan_mode_reasoning_effort = "high"
+model = "gpt-6-astra"
+model_reasoning_effort = "low"
+plan_mode_reasoning_effort = "medium"
 model_verbosity = "low"
 model_reasoning_summary = "none"
 
 # Standard service fallback. In 0.154.0 fast_mode=false omits every tier,
 # including flex; "default" is the explicit standard-routing sentinel.
 service_tier = "default"
-
-# Replace the bundled base prompt with the Sol-specific 0.154.0 CLI contract.
-model_instructions_file = "/Users/krystian/.codex/model-instructions/sol.md"
 
 # Let long-running commands wait instead of encouraging short polling.
 background_terminal_max_timeout = 1500000
@@ -24,31 +21,23 @@ tool_output_token_limit = 4000
 include_apps_instructions = false
 include_collaboration_mode_instructions = true
 
-# Task ownership; tool contracts live in model-instructions/ and native schemas.
+# Native Codex owns tool and collaboration-mode contracts. This policy supplies
+# only the local execution stance.
 developer_instructions = """
-Role: Complete the task and own final integration.
+Treat the current request and higher-priority instructions as the authority and scope.
+Inspect discoverable repository facts before asking for input. Distinguish authoritative sources,
+observed evidence, assumptions, and material risks. Own implementation and final integration; use a
+short native checklist before work with multiple meaningful slices. Verify the narrowest affected
+boundary and expand only for a failure, material risk, or repository requirement.
 
-# Goal
-Complete reliable work without unnecessary coordination or quota waste.
-
-# Constraints
-- Delegate only when the user, an applicable AGENTS.md, or an active skill explicitly authorizes it.
-- Work directly unless a material independent slice benefits from a named specialist.
-- A second direct worker is only a reviewer or debugger for verification or a demonstrated failure.
-- Give workers complete fresh-context assignments with `fork_turns="none"`.
-- Do not duplicate delegated work.
-- Use named roles; do not override worker model or effort.
-- Never recursively delegate.
-- Never repeatedly poll workers or background processes.
-- Continue unrelated root work while workers run. When a result becomes necessary, use one blocking
-  `wait_agent` without a timeout override.
-- For external waits, use blocking/sleep primitives instead of status loops.
-- Batch independent checks and deterministic tool calls. Keep updates and final output concise.
-- Integrate and verify delegated results yourself; do not hand back executable remaining work.
-- After compaction, continue the active task from retained state and repository evidence.
-
-# Stop rules
-Stop when the requested outcome is integrated and proportionately verified.
+Work directly unless the user, an applicable AGENTS.md, or an explicitly invoked skill authorizes
+delegation. When authorized, delegate one bounded non-overlapping slice to one named specialist; add
+only a reviewer or debugger when independent verification or a demonstrated failure justifies it.
+Use fresh context, never override role routing, never delegate recursively, and never duplicate a
+worker's task. Continue independent work, then use one blocking wait when its result is required.
+Block on live commands and external waits instead of polling. Report only completed changes, checks
+actually run, and precise remaining blockers. Stop when the requested outcome is integrated and its
+direct check passes.
 """
 
 # Keep the execution checklist available in Default mode. Plan mode rejects it
@@ -96,56 +85,29 @@ enabled = false
 enabled = false
 
 [agents.scout]
-description = "Cheap read-only repository mapping, symbols, call paths, impact, and evidence."
+description = "Read-only repository mapping, symbols, call paths, impact, and evidence."
 config_file = "agents/scout.toml"
 
 [agents.docs_researcher]
 description = "Current external documentation/API research with concise source-backed findings."
 config_file = "agents/docs-researcher.toml"
 
-[agents.implementer_fast]
-description = "Straightforward bounded implementation with explicit acceptance criteria."
-config_file = "agents/implementer-fast.toml"
-
 [agents.implementer]
-description = "Normal implementation, refactoring, migrations, and multi-file changes."
+description = "Bounded implementation, refactoring, migrations, and multi-file changes."
 config_file = "agents/implementer.toml"
 
 [agents.debugger]
-description = "Difficult debugging, failure isolation, and corrective implementation."
+description = "Reproduction, root-cause isolation, and corrective implementation."
 config_file = "agents/debugger.toml"
 
-[agents.test_engineer]
-description = "Focused test design, regression coverage, and verification."
-config_file = "agents/test-engineer.toml"
-
-[agents.ui_engineer]
-description = "Frontend/UI implementation and behavior-focused interface work."
-config_file = "agents/ui-engineer.toml"
-
 [agents.reviewer]
-description = "Independent correctness, regression, security, and maintainability review."
+description = "Independent read-only correctness, regression, security, and maintainability review."
 config_file = "agents/reviewer.toml"
-
-[agents.architect]
-description = "Hard bounded architecture, performance, and root-cause analysis using Astra Low."
-config_file = "agents/architect.toml"
-
-[agents.hard_debugger]
-description = "Exceptional bounded root-cause analysis using Astra Medium."
-config_file = "agents/hard-debugger.toml"
 
 [agents.cyber_defender]
 description = "Authorized defensive cybersecurity analysis using Daybreak Blue."
 config_file = "agents/cyber-defender.toml"
 
-[agents.reverse_engineer]
-description = "Authorized reverse engineering of binaries, protocols, formats, and behavior using Daybreak Blue."
-config_file = "agents/reverse-engineer.toml"
-
-[agents.log_analyst]
-description = "Large logs, traces, JSON, and tool-output reduction; uses Headroom when available."
-config_file = "agents/log-analyst.toml"
 
 [features]
 # Preserve repository line-ending conventions when patching.
@@ -159,6 +121,8 @@ default_mode_request_user_input = true
 
 enable_mcp_apps = false
 fast_mode = false
+goals = true
+hooks = true
 image_generation = false
 
 # Suppress the bundled personality layer.
@@ -172,15 +136,17 @@ remote_plugin = false
 recommended_plugins = false
 
 unbounded_connection_retries = false
+unified_exec = true
+view_image = true
 worktrees = true
 
 [features.multi_agent_v2]
 enabled = true
 
-# This count includes the root, so three slots enforce at most 31 direct workers.
-max_concurrent_threads_per_session = 32
+# The count includes the root: one worker plus one reviewer/debugger at most.
+max_concurrent_threads_per_session = 3
 
-# Root + 31 workers. One long blocking wait rather than repeated model turns.
+# One long blocking wait rather than repeated model turns.
 min_wait_timeout_ms = 1500000
 default_wait_timeout_ms = 1500000
 max_wait_timeout_ms = 1500000
@@ -191,12 +157,9 @@ expose_spawn_agent_model_overrides = false
 hide_spawn_agent_metadata = false
 
 root_agent_usage_hint_text = """
-Work directly unless an independent slice benefits from a named specialist. Delegate
-only when explicitly authorized and the child replaces root work. A second direct worker
-is only a reviewer or debugger for verification or a demonstrated failure. Give each child a complete
-fresh-context brief. Integrate and verify results yourself. Continue
-independent root work while children run, then block once with `wait_agent` only when necessary.
-Nested spawning is blocked and every accepted spawn is rewritten to `fork_turns="none"`.
+Delegation requires explicit authority. Use at most one worker and, when independently justified, one
+reviewer or debugger. The root owns integration. Nested spawning is blocked and accepted spawns use
+fresh context without model or reasoning overrides.
 """
 
 subagent_usage_hint_text = """
@@ -209,11 +172,6 @@ the requested result and proportionate verification are complete.
 [features.sleep_tool]
 enabled = true
 mode = "always_on"
-
-# Conditional experiment, not a guarantee of note persistence or recovery.
-# Verify exposed history/notes tools and successful saves before new_context.
-[features.context_management]
-experimental_mode = true
 
 [mcp_servers.codegraph]
 command = "codegraph"
@@ -252,6 +210,12 @@ trust_level = "trusted"
 [projects."/Users/krystian/CodeProjects/xsyetopz/codex-next"]
 trust_level = "trusted"
 
+[projects."/Users/krystian/CodeProjects/xsyetopz/OpenTabletDriver-next"]
+trust_level = "trusted"
+
+[projects."/Users/krystian/CodeProjects/xsyetopz/template-rust"]
+trust_level = "trusted"
+
 [hooks.state]
 
 [hooks.state."/Users/krystian/.codex/hooks.json:pre_tool_use:0:0"]
@@ -280,3 +244,6 @@ status_line_use_colors = true
 
 [tui.model_availability_nux]
 gpt-6-astra = 4
+
+[notice]
+hide_rate_limit_model_nudge = true

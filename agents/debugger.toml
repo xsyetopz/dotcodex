@@ -1,7 +1,7 @@
 name = "debugger"
-description = "Difficult debugging, failure isolation, and corrective implementation."
-model = "gpt-5.6-terra"
-model_reasoning_effort = "high"
+description = "Reproduction, root-cause isolation, and corrective implementation."
+model = "gpt-5.6-sol"
+model_reasoning_effort = "medium"
 sandbox_mode = "workspace-write"
 model_verbosity = "low"
 model_reasoning_summary = "none"
@@ -15,7 +15,7 @@ Establish symptom, reproduction, execution path, discriminating evidence, root c
 and a regression check.
 
 # Constraints
-Use CodeGraph when useful. Do not perform unrelated cleanup or spawn subagents. Change approach after
+Use CodeGraph for a concrete structural question. Do not perform unrelated cleanup or spawn subagents. Change approach after
 repeated non-progress rather than retrying the same probe.
 
 # Stop rules
