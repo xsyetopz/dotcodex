@@ -75,14 +75,26 @@ class HarnessConfigurationTests(unittest.TestCase):
             profile = root / "coding.config.toml"
             profile.write_text(
                 profile.read_text(encoding="utf-8").replace(
-                    'model = "gpt-5.6-sol"',
-                    'developer_instructions = "duplicate"\nmodel = "gpt-5.6-sol"',
+                    'model = "gpt-5.6-terra"',
+                    'developer_instructions = "duplicate"\nmodel = "gpt-5.6-terra"',
                     1,
                 ),
                 encoding="utf-8",
             )
 
             with self.assertRaisesRegex(ValueError, "duplicates the developer policy"):
+                VALIDATOR.validate_configuration(root)
+
+    def test_rejects_automatic_approval_review_in_any_profile(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = self.copy_fixture(Path(directory))
+            profile = root / "deep-coding.config.toml"
+            profile.write_text(
+                'approvals_reviewer = "auto_review"\n'
+                + profile.read_text(encoding="utf-8"),
+                encoding="utf-8",
+            )
+            with self.assertRaisesRegex(ValueError, "approvals_reviewer=user"):
                 VALIDATOR.validate_configuration(root)
 
     @staticmethod

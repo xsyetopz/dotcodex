@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import hashlib
 import json
 import os
 import shlex
@@ -7,6 +8,8 @@ import shutil
 import subprocess
 import tempfile
 import unittest
+from concurrent.futures import ThreadPoolExecutor
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Mapping
 
@@ -28,6 +31,20 @@ def run_hook(
         env=environment,
     )
     return json.loads(result.stdout) if result.stdout else {}
+
+
+def state_file(home: Path, session: str, cwd: Path | None = None) -> Path:
+    workspace = str((cwd or home).absolute())
+    key = hashlib.sha256(workspace.encode()).hexdigest()
+    return home / "runtime/compact" / key / f"{session}.json"
+
+
+def pending_fixture(state: Path, data: dict[str, Any]) -> None:
+    data["saved_at"] = datetime.now(timezone.utc).isoformat()
+    data["notes"] = None
+    data["plan"] = None
+    state.write_text(json.dumps(data))
+    Path(str(state) + ".pending").write_text(data["saved_at"])
 
 
 class SpawnPolicyTests(unittest.TestCase):
@@ -232,21 +249,19 @@ class CompactCheckpointTests(unittest.TestCase):
     def test_preserves_bounded_recovery_sections_for_long_payloads(self) -> None:
         with tempfile.TemporaryDirectory() as temporary_directory:
             home = Path(temporary_directory)
-            state = home / "runtime/compact/session-2.json"
+            state = state_file(home, "session-2")
             state.parent.mkdir(parents=True)
-            state.write_text(
-                json.dumps(
-                    {
-                        "session_id": "session-2",
-                        "cwd": str(home),
-                        "transcript_path": str(home / "rollout.jsonl"),
-                        "objective": "objective-" + "🧭" * 12000,
-                        "latest": "latest-" + "l" * 12000,
-                        "assistant": "state-" + "a" * 12000,
-                        "git": "branch=main\n" + "g" * 12000,
-                    }
-                ),
-                encoding="utf-8",
+            pending_fixture(
+                state,
+                {
+                    "session_id": "session-2",
+                    "cwd": str(home),
+                    "transcript_path": str(home / "rollout.jsonl"),
+                    "objective": "objective-" + "🧭" * 12000,
+                    "latest": "latest-" + "l" * 12000,
+                    "assistant": "state-" + "a" * 12000,
+                    "git": "branch=main\n" + "g" * 12000,
+                },
             )
 
             output = run_hook(
@@ -271,16 +286,16 @@ class CompactCheckpointTests(unittest.TestCase):
             self.assertIn('Last assistant message:\n"state-', context)
             self.assertIn('Historical Git snapshot:\n"branch=main', context)
             self.assertTrue(context.endswith("</compact_recovery>"))
-            self.assertFalse(state.exists())
+            self.assertTrue(state.exists())
 
-    def test_rejects_and_consumes_mismatched_or_corrupt_checkpoints(self) -> None:
+    def test_rejects_corrupt_checkpoints_and_consumes_only_marker(self) -> None:
         for defect in ("session_id", "cwd", "transcript_path", "malformed"):
             with (
                 self.subTest(defect=defect),
                 tempfile.TemporaryDirectory() as directory,
             ):
                 home = Path(directory)
-                state = home / "runtime/compact/session-1.json"
+                state = state_file(home, "session-1")
                 state.parent.mkdir(parents=True)
                 data = {
                     "session_id": "session-1",
@@ -293,21 +308,24 @@ class CompactCheckpointTests(unittest.TestCase):
                 }
                 event = {**data, "hook_event_name": "SessionStart", "source": "compact"}
                 data[defect] = "different"
-                state.write_text("{" if defect == "malformed" else json.dumps(data))
+                pending_fixture(state, data)
+                if defect == "malformed":
+                    state.write_text("{")
 
                 with self.assertRaises(subprocess.CalledProcessError) as failure:
                     run_hook("compact_checkpoint.mjs", event, home)
 
                 self.assertIn("compact_checkpoint:", failure.exception.stderr)
-                self.assertFalse(state.exists())
+                self.assertTrue(state.exists())
                 self.assertEqual(run_hook("compact_checkpoint.mjs", event, home), {})
 
-    def test_failed_save_invalidates_old_checkpoint(self) -> None:
+    def test_failed_save_preserves_evidence_but_invalidates_injection(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             home = Path(directory)
-            state = home / "runtime/compact/session-1.json"
+            state = state_file(home, "session-1")
             state.parent.mkdir(parents=True)
             state.write_text('{"objective":"stale"}')
+            Path(str(state) + ".pending").write_text("old")
             event = {
                 "hook_event_name": "PreCompact",
                 "session_id": "session-1",
@@ -317,12 +335,14 @@ class CompactCheckpointTests(unittest.TestCase):
             with self.assertRaises(subprocess.CalledProcessError) as failure:
                 run_hook("compact_checkpoint.mjs", event, home)
             self.assertIn("compact_checkpoint:", failure.exception.stderr)
-            self.assertFalse(state.exists())
+            self.assertTrue(state.exists())
+            self.assertFalse(Path(str(state) + ".pending").exists())
+            self.assertTrue(Path(str(state) + ".error").exists())
 
     def test_quotes_control_text_and_does_not_replay_consumed_state(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             home = Path(directory)
-            state = home / "runtime/compact/session-1.json"
+            state = state_file(home, "session-1")
             state.parent.mkdir(parents=True)
             data = {
                 "session_id": "session-1",
@@ -333,7 +353,7 @@ class CompactCheckpointTests(unittest.TestCase):
                 "assistant": "Everything passed (unverified)",
                 "git": "",
             }
-            state.write_text(json.dumps(data))
+            pending_fixture(state, data)
             event = {**data, "hook_event_name": "SessionStart", "source": "compact"}
 
             output = run_hook("compact_checkpoint.mjs", event, home)
@@ -353,6 +373,7 @@ class CompactCheckpointTests(unittest.TestCase):
                     "hook_event_name": "SessionStart",
                     "source": "startup",
                     "session_id": "session-1",
+                    "cwd": str(home),
                 },
                 home,
             )
@@ -408,6 +429,221 @@ class CompactCheckpointTests(unittest.TestCase):
             self.assertIn(
                 "Retained request", output["hookSpecificOutput"]["additionalContext"]
             )
+
+
+class HandoffTests(unittest.TestCase):
+    @staticmethod
+    def event(home: Path, session: str = "session-1", cwd: Path | None = None):
+        transcript = home / f"{session}.jsonl"
+        transcript.write_text(
+            json.dumps(
+                {
+                    "type": "response_item",
+                    "payload": {
+                        "type": "message",
+                        "role": "user",
+                        "content": "Fix the parser",
+                    },
+                }
+            )
+            + "\n"
+        )
+        return {
+            "hook_event_name": "Stop",
+            "session_id": session,
+            "cwd": str(cwd or home),
+            "transcript_path": str(transcript),
+        }
+
+    def test_stop_keeps_full_plan_and_fresh_start_only_offers_pointer(self):
+        with tempfile.TemporaryDirectory() as directory:
+            home = Path(directory)
+            event = self.event(home)
+            plan = (
+                "\n" + "Preserve each implementation step.\n" * 160000 + "Final check\n"
+            )
+            event["last_assistant_message"] = f"<proposed_plan>{plan}</proposed_plan>"
+            run_hook("compact_checkpoint.mjs", event, home)
+            state = state_file(home, "session-1")
+            self.assertEqual(Path(str(state) + ".plan.md").read_text(), plan)
+            self.assertFalse(Path(str(state) + ".pending").exists())
+            self.assertEqual(state.stat().st_mode & 0o777, 0o600)
+            for source in ("startup", "clear"):
+                context = run_hook(
+                    "compact_checkpoint.mjs",
+                    {
+                        "hook_event_name": "SessionStart",
+                        "source": source,
+                        "session_id": "new-session",
+                        "cwd": str(home),
+                    },
+                    home,
+                )["hookSpecificOutput"]["additionalContext"]
+                self.assertIn(str(state), context)
+                self.assertIn("Do not resume automatically", context)
+                self.assertNotIn("Fix the parser", context)
+                self.assertNotIn("Preserve each implementation step", context)
+            other = home / "other-worktree"
+            other.mkdir()
+            self.assertEqual(
+                run_hook(
+                    "compact_checkpoint.mjs",
+                    {
+                        "hook_event_name": "SessionStart",
+                        "source": "startup",
+                        "session_id": "new-session",
+                        "cwd": str(other),
+                    },
+                    home,
+                ),
+                {},
+            )
+
+    def test_plan_before_old_tail_boundary_is_not_lost(self):
+        with tempfile.TemporaryDirectory() as directory:
+            home = Path(directory)
+            event = self.event(home)
+            with Path(event["transcript_path"]).open("a") as transcript:
+                transcript.write(
+                    json.dumps(
+                        {
+                            "type": "response_item",
+                            "payload": {
+                                "type": "message",
+                                "role": "assistant",
+                                "content": "<proposed_plan>All implementation steps</proposed_plan>",
+                            },
+                        }
+                    )
+                    + "\n"
+                )
+                transcript.write(
+                    json.dumps({"type": "tool", "output": "x" * 4500000}) + "\n"
+                )
+            run_hook("compact_checkpoint.mjs", event, home)
+            self.assertEqual(
+                Path(str(state_file(home, "session-1")) + ".plan.md").read_text(),
+                "All implementation steps",
+            )
+
+    def test_notes_survive_manual_and_automatic_compaction(self):
+        with tempfile.TemporaryDirectory() as directory:
+            home = Path(directory).resolve()
+            event = self.event(home)
+            notes = {
+                "objective": "Fix parser",
+                "constraints": "Preserve public API",
+                "completed": "Reproduced failure",
+                "verification": "Focused check failed: exit 1",
+                "failed_approaches": "Increasing timeout did not help",
+                "blockers": "none",
+                "next_action": "Correct token handling",
+            }
+            subprocess.run(
+                [
+                    "bun",
+                    "--no-env-file",
+                    "--no-install",
+                    str(ROOT / "hooks/compact_checkpoint.mjs"),
+                    "notes",
+                ],
+                input=json.dumps(notes),
+                text=True,
+                capture_output=True,
+                check=True,
+                cwd=home,
+                env={
+                    **os.environ,
+                    "CODEX_HOME": str(home),
+                    "CODEX_THREAD_ID": "session-1",
+                },
+            )
+            for trigger in ("manual", "auto"):
+                run_hook(
+                    "compact_checkpoint.mjs",
+                    {
+                        **event,
+                        "hook_event_name": "PreCompact",
+                        "trigger": trigger,
+                    },
+                    home,
+                )
+                restore = {
+                    **event,
+                    "hook_event_name": "SessionStart",
+                    "source": "compact",
+                }
+                context = run_hook("compact_checkpoint.mjs", restore, home)[
+                    "hookSpecificOutput"
+                ]["additionalContext"]
+                self.assertIn("Focused check failed: exit 1", context)
+                self.assertIn("Correct token handling", context)
+                self.assertEqual(run_hook("compact_checkpoint.mjs", restore, home), {})
+                saved = json.loads(state_file(home, "session-1").read_text())
+                self.assertEqual(saved["notes"]["completed"], notes["completed"])
+
+    def test_concurrent_sessions_and_worktrees_are_isolated(self):
+        with tempfile.TemporaryDirectory() as directory:
+            home = Path(directory)
+            worktree = home / "worktree"
+            worktree.mkdir()
+            events = [
+                self.event(home, "session-1"),
+                self.event(home, "session-2"),
+                self.event(home, "session-1", worktree),
+            ]
+            with ThreadPoolExecutor(max_workers=3) as pool:
+                results = list(
+                    pool.map(
+                        lambda event: run_hook("compact_checkpoint.mjs", event, home),
+                        events,
+                    )
+                )
+            self.assertEqual(results, [{}, {}, {}])
+            for event in events:
+                state = state_file(home, event["session_id"], Path(event["cwd"]))
+                saved = json.loads(state.read_text())
+                self.assertEqual(saved["session_id"], event["session_id"])
+                self.assertEqual(saved["cwd"], event["cwd"])
+
+    def test_stale_missing_and_malformed_evidence_never_replays(self):
+        for defect in ("stale", "missing", "notes"):
+            with (
+                self.subTest(defect=defect),
+                tempfile.TemporaryDirectory() as directory,
+            ):
+                home = Path(directory)
+                event = self.event(home)
+                run_hook(
+                    "compact_checkpoint.mjs",
+                    {
+                        **event,
+                        "hook_event_name": "PreCompact",
+                    },
+                    home,
+                )
+                state = state_file(home, "session-1")
+                data = json.loads(state.read_text())
+                if defect == "missing":
+                    state.unlink()
+                else:
+                    if defect == "stale":
+                        data["saved_at"] = "2000-01-01T00:00:00Z"
+                    else:
+                        data["notes"] = {"completed": "Invented success"}
+                    state.write_text(json.dumps(data))
+                with self.assertRaises(subprocess.CalledProcessError) as failure:
+                    run_hook(
+                        "compact_checkpoint.mjs",
+                        {
+                            **event,
+                            "hook_event_name": "SessionStart",
+                            "source": "compact",
+                        },
+                        home,
+                    )
+                self.assertEqual(failure.exception.stdout, "")
+                self.assertFalse(Path(str(state) + ".pending").exists())
 
 
 class HookConfigurationTests(unittest.TestCase):

@@ -17,18 +17,18 @@ SENTINEL = "__CODEX_HARNESS_SENTINEL__"
 AGENTS_MARKER = "Use one canonical term for each concept."
 DEVELOPER_MARKER = "Treat the current request and higher-priority instructions"
 EXPECTED_PROFILE_CONTRACTS = {
-    None: ("gpt-6-astra", "low", "medium"),
-    "coding": ("gpt-5.6-sol", "medium", "medium"),
+    None: ("gpt-6-astra", "medium", "medium"),
+    "coding": ("gpt-5.6-terra", "high", "medium"),
     "fast-coding": ("gpt-5.6-luna", "high", "medium"),
     "deep-coding": ("gpt-6-astra", "high", "high"),
     "security": ("gpt-daybreak-blue-latest", "medium", "high"),
 }
 EXPECTED_AGENTS = {
     "cyber_defender": ("gpt-daybreak-blue-latest", "medium", "read-only"),
-    "debugger": ("gpt-5.6-sol", "medium", "workspace-write"),
+    "debugger": ("gpt-6-astra", "high", "workspace-write"),
     "docs_researcher": ("gpt-5.6-luna", "high", "read-only"),
-    "implementer": ("gpt-5.6-luna", "xhigh", "workspace-write"),
-    "reviewer": ("gpt-5.6-sol", "medium", "read-only"),
+    "implementer": ("gpt-5.6-terra", "high", "workspace-write"),
+    "reviewer": ("gpt-5.6-sol", "high", "read-only"),
     "scout": ("gpt-5.6-luna", "high", "read-only"),
 }
 EXPECTED_SKILLS = {
@@ -159,6 +159,8 @@ def validate_configuration(
                 fail(f"{profile_path.name} duplicates the developer policy")
         effective = base if name is None else merged(base, profile)
         validate_service_policy(effective, name or "base")
+        if effective.get("approvals_reviewer") != "user":
+            fail(f"{name or 'base'} must use approvals_reviewer=user")
         actual = (
             effective.get("model"),
             effective.get("model_reasoning_effort"),

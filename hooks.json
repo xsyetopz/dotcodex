@@ -28,7 +28,7 @@
 		],
 		"SessionStart": [
 			{
-				"matcher": "^compact$",
+				"matcher": "^(compact|startup|clear)$",
 				"hooks": [
 					{
 						"type": "command",
@@ -36,6 +36,18 @@
 						"timeout": 5,
 						"additionalContextLimit": 8000,
 						"statusMessage": "Restoring task checkpoint"
+					}
+				]
+			}
+		],
+		"Stop": [
+			{
+				"hooks": [
+					{
+						"type": "command",
+						"command": "bun --no-env-file --no-install \"${CODEX_HOME:-$HOME/.codex}/hooks/compact_checkpoint.mjs\"",
+						"timeout": 8,
+						"statusMessage": "Saving session handoff"
 					}
 				]
 			}

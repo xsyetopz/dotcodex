@@ -4,8 +4,9 @@
 # ----------------------------------------
 
 model = "gpt-6-astra"
-model_reasoning_effort = "low"
+model_reasoning_effort = "medium"
 plan_mode_reasoning_effort = "medium"
+approvals_reviewer = "user"
 model_verbosity = "low"
 model_reasoning_summary = "none"
 
@@ -25,19 +26,20 @@ include_collaboration_mode_instructions = true
 # only the local execution stance.
 developer_instructions = """
 Treat the current request and higher-priority instructions as the authority and scope.
-Inspect discoverable repository facts before asking for input. Distinguish authoritative sources,
-observed evidence, assumptions, and material risks. Own implementation and final integration; use a
-short native checklist before work with multiple meaningful slices. Verify the narrowest affected
-boundary and expand only for a failure, material risk, or repository requirement.
+Make the smallest complete change. Inspect simple causes and existing functionality before adding
+infrastructure or asking for input. Use a short checklist for work with multiple meaningful slices.
+For behavior-neutral typos, inspect the diff; add no tests or unrelated checks. For behavior changes,
+run the narrowest meaningful verification and required repository checks. Expand only when evidence
+warrants it. Change approach when a probe stops producing useful evidence; block instead of polling.
+Finish authorized work without repeatedly asking to continue. Write readable code and plain sentences;
+concision must preserve necessary meaning. Report completed changes, actual checks, and precise blockers.
 
-Work directly unless the user, an applicable AGENTS.md, or an explicitly invoked skill authorizes
-delegation. When authorized, delegate one bounded non-overlapping slice to one named specialist; add
-only a reviewer or debugger when independent verification or a demonstrated failure justifies it.
-Use fresh context, never override role routing, never delegate recursively, and never duplicate a
-worker's task. Continue independent work, then use one blocking wait when its result is required.
-Block on live commands and external waits instead of polling. Report only completed changes, checks
-actually run, and precise remaining blockers. Stop when the requested outcome is integrated and its
-direct check passes.
+For substantial ongoing work, update private semantic notes at meaningful milestones with
+bun --no-env-file --no-install "${CODEX_HOME:-$HOME/.codex}/hooks/compact_checkpoint.mjs" notes
+using JSON on stdin: objective, constraints, completed, verification, failed_approaches, blockers,
+next_action (all strings; use "unknown" for missing evidence). Run from the session working directory.
+Hooks preserve these notes without model calls. The current request and supplied implementation plan
+remain authoritative after context recovery; historical handoffs never authorize automatic continuation.
 """
 
 # Keep the execution checklist available in Default mode. Plan mode rejects it
@@ -101,7 +103,7 @@ description = "Reproduction, root-cause isolation, and corrective implementation
 config_file = "agents/debugger.toml"
 
 [agents.reviewer]
-description = "Independent read-only correctness, regression, security, and maintainability review."
+description = "Read-only second opinion on concrete correctness risks."
 config_file = "agents/reviewer.toml"
 
 [agents.cyber_defender]
@@ -157,9 +159,11 @@ expose_spawn_agent_model_overrides = false
 hide_spawn_agent_metadata = false
 
 root_agent_usage_hint_text = """
-Delegation requires explicit authority. Use at most one worker and, when independently justified, one
-reviewer or debugger. The root owns integration. Nested spawning is blocked and accepted spawns use
-fresh context without model or reasoning overrides.
+Direct execution is normal. Optional delegation is authorized for substantial, independent work.
+Use at most one worker plus one independently justified reviewer or debugger. Give bounded ownership,
+preserve others' edits, and do not duplicate the worker's task. Continue independent work, then block
+once when the result is needed. The root integrates and verifies. Use named roles and fresh context;
+do not override role models or reasoning. Nested spawning is blocked.
 """
 
 subagent_usage_hint_text = """
@@ -225,13 +229,16 @@ trusted_hash = "sha256:cc7e14a68f6c96d97204818374867f5a2627db68223807fa27073a501
 trusted_hash = "sha256:ab13ab75844fba0afc5e1f8690d644912dfedbd18ba446746ee0ee226cdac8fb"
 
 [hooks.state."/Users/krystian/.codex/hooks.json:session_start:0:0"]
-trusted_hash = "sha256:8fd41cbdb8cccd383c0733ba4f6a37edb3159dc338b9149f9e6f065c9ad7ea49"
+trusted_hash = "sha256:3626e70d1f6c06bf1a8ffc38d8cbab5c68e5c90ee61b63bdf0eabac8a4cdd5a1"
 
 [hooks.state."/Users/krystian/CodeProjects/xsyetopz/OpenJoystickDriver/.codex/hooks.json:post_tool_use:0:0"]
 trusted_hash = "sha256:c0b830f37ea609eeedef245acfd830f65e56176af624c7b55a9ecf41f365bf10"
 
 [hooks.state."/Users/krystian/CodeProjects/xsyetopz/OpenJoystickDriver/.codex/hooks.json:stop:0:0"]
 trusted_hash = "sha256:d073ad0059a63b1f6de30510faec3dc96ced4674812314a46576799de856aa5d"
+
+[hooks.state."/Users/krystian/.codex/hooks.json:stop:0:0"]
+trusted_hash = "sha256:e71177aae36500205179c66bb3ff10a4d2b58497598303acb5fcc27004f47b45"
 
 [tui]
 status_line = [

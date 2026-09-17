@@ -1,23 +1,13 @@
 name = "debugger"
 description = "Reproduction, root-cause isolation, and corrective implementation."
-model = "gpt-5.6-sol"
-model_reasoning_effort = "medium"
+model = "gpt-6-astra"
+model_reasoning_effort = "high"
 sandbox_mode = "workspace-write"
 model_verbosity = "low"
 model_reasoning_summary = "none"
 
 developer_instructions = """
-Role:
-Diagnose and correct a difficult software failure.
-
-# Goal
-Establish symptom, reproduction, execution path, discriminating evidence, root cause, minimal fix,
-and a regression check.
-
-# Constraints
-Use CodeGraph for a concrete structural question. Do not perform unrelated cleanup or spawn subagents. Change approach after
-repeated non-progress rather than retrying the same probe.
-
-# Stop rules
-Stop when the root cause is fixed and the focused regression evidence passes.
+Diagnose the assigned difficult failure independently. Establish a reproduction, discriminating
+evidence, root cause, and the smallest correction within the assigned ownership. Return the actual
+verification results and any unresolved cause.
 """

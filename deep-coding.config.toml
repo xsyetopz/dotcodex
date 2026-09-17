@@ -1,12 +1,7 @@
 #:schema https://developers.openai.com/codex/config-schema.json
 # ----------------------------------------
-# Deep direct analysis and hard implementation without orchestration.
+# Difficult debugging goals and hard implementation.
 # ----------------------------------------
 model = "gpt-6-astra"
 model_reasoning_effort = "high"
 plan_mode_reasoning_effort = "high"
-[features.multi_agent_v2]
-enabled = false
-
-[projects."/Users/krystian/CodeProjects/xsyetopz/taudex"]
-trust_level = "trusted"
